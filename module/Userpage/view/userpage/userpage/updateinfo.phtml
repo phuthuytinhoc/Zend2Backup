@@ -1,0 +1,701 @@
+
+<style type="text/css">
+    img#uploadPreview{
+        border: 0;
+        border-radius: 3px;
+        -webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, .27);
+        box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, .27);
+        margin-bottom: 30px;
+        overflow: hidden;
+    }
+
+    .divAboutme span{
+        color: #1693EB;
+        font-weight: bold;
+        display: block;
+        margin-left: 150px;
+        margin-bottom: 10px;
+    }
+
+</style>
+
+
+<div class="container bg-update">
+    <div class="wrapper">
+        <div id="st-accordion" class="st-accordion">
+            <ul>
+                <li>
+                    <a class="iconInfo" name="uploadPreview" href="#"> a
+                        <label  style="margin-left: 25px;">Thay đổi hình đại diện</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+
+                        <div class="divAboutme">
+                            <label style="display: block;">Chọn file bên dưới để thay đổi ảnh đại diện</label>
+                            <img id="uploadPreview" style="width: auto;"/>
+                            <label id="changeAvaSuccess" style="display: block; color: red;"></label>
+                            <form method="post" action="" id="form-upload-image" enctype="multipart/form-data">
+                                <input type="file" accept="image/*" name="image" id="uploadImage" placeholder="Chọn ảnh bạn muốn thay đổi..." style="display: inline-block;">
+                                <input type="submit" id="subUpdateCover" value="Lưu Hình" style="margin-left: 10px; width: 200px;">
+
+                                <!-- hidden inputs-->
+                                <input type="hidden" id="x" name="x" />
+                                <input type="hidden" id="y" name="y" />
+                                <input type="hidden" id="w" name="w" />
+                                <input type="hidden" id="h" name="h" />
+                            </form>
+
+                        </div>
+
+                        <div class="divAboutme">
+                            <label style="display: inline-block;">Ảnh đại diện hiện tại</label>
+                            <img id="avatarClick" src="<?php echo $this->basePath().'/uploads/';?>"
+                                 style="width: 200px !important; height: 200px; display: block;" alt="" />
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <a class="iconInfo" name="uploadPreview_cover" href="#"> I
+                        <label>Thay đổi ảnh nền trang cá nhân</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+
+                        <div class="divAboutme">
+                            <label style="display: block;">Chọn file bên dưới để thay đổi ảnh nền trang cá nhân</label>
+
+                            <img id="uploadPreview_cover" src="" style="width: auto;"/>
+                            <label id="changeAvaSuccess_cover" style="display: block; color: red;"></label>
+                            <form method="post" action="" id="form-upload-image_cover" enctype="multipart/form-data" style="margin-top: 20px;">
+                                <input type="file" accept="image/*" name="image" id="uploadImage_cover" style="display: inline-block;">
+                                <input type="submit" id="subUpdateCover_cover" value="Lưu Hình" style="margin-left: 10px; width: 200px;">
+
+                                <!-- hidden inputs-->
+                                <input type="hidden" id="a" name="a" />
+                                <input type="hidden" id="b" name="b" />
+                                <input type="hidden" id="c" name="c" />
+                                <input type="hidden" id="d" name="d" />
+                            </form>
+                        </div>
+
+                        <div class="divAboutme">
+                            <label style="display:block;">Ảnh bìa trang chủ hiện tại </label>
+                            <img id="coverClick_cover" src="<?php echo $this->basePath().'/uploads/';?>"
+                                 style="width: 668px !important; height: 350px;" alt="" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="iconInfo" href="#"> U
+                        <label style="margin-left: 15px">Giới thiệu bản thân</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+                        <form method="post" name="changeAboutme" id="changeAboutme" action="">
+                            <div class="divAboutme">
+                                <label id="aboutmeError" style="font-weight: 700;color: #1693EB;"></label>
+                            </div>
+                            <div class="divAboutme">
+                                <label>Trường học: </label>
+                                <input name="school" id="school" type="text" placeholder="Nhập tên trường bạn đã học...">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Nơi làm việc: </label>
+                                <input name="work" id="work" type="text" placeholder="Nhập nơi bạn đang làm việc...">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Tình trạng hôn nhân: </label>
+                                <div class="select-wrapper">
+                                    <select name="relationship" id="relationship">
+                                        <option value="none">Chọn...</option>
+                                        <option value="Độc thân">Độc thân</option>
+                                        <option value="Đang hẹn hò">Đang hẹn hò</option>
+                                        <option value="Quan hệ mở">Quan hệ mở</option>
+                                        <option value="Quan hệ phức tạp">Quan hệ phức tạp</option>
+                                        <option value="Đã kết hôn">Đã kết hôn</option>
+                                    </select>
+                                </div>
+                                <span class="errorSelectRela"></span>
+                            </div>
+                            <div class="divAboutme">
+                                <label></label>
+                                <button type="submit" name="submit" id="subAboutme">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a class="iconInfo" href="#"> D
+                        <label style="margin-left: 15px;">Thông tin cơ bản</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+                        <form method="post" id="changeBacsicInfo" name="changeBacsicInfo" action="">
+                            <div class="divAboutme">
+                                <label style="font-weight: 700;color: #1693EB;" id="changeInfoError"></label>
+                            </div>
+                            <div class="divAboutme">
+                                <label>Họ: </label>
+                                <input name="lastname" id="clastname" type="text" placeholder="Nhập họ của bạn...">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Tên: </label>
+                                <input name="firstname" id="cfirstname" type="text" placeholder="Nhập tên của bạn...">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Ngày sinh: </label>
+                                <input id="ngaysinh" name="dob" type="date">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Nơi ở hiện tại: </label>
+                                <input name="address" id="caddress" type="text" placeholder="Nhập nơi ở hiện tại của bạn...">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Câu nói tâm đắc: </label>
+                                <input name="quote" id="cquote" type="text" placeholder="Nhập câu nói tâm đắc của bạn...">
+                            </div>
+                            <div class="divAboutme">
+                                <label></label>
+                                <button type="submit" name="subBacsicInfo" id="subBacsicInfo">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a class="iconInfo" href="#"> S
+                        <label style="margin-left: 18px;">Cài đặt tài khoản</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+                        <form method="post" name="changePass" id="changePass" action="">
+                            <div class="divAboutme">
+                                <label style="font-weight: 700;color: #1693EB;" id="changePasswordError"></label>
+                            </div>
+                            <div class="divAboutme">
+                                <label>Nhập mật khẩu cũ: </label>
+                                <input name="password" id="oldPassword" type="password" placeholder="Nhập mật khẩu cũ của bạn...">
+                            </div>
+                            <div class="divAboutme">
+                                <label>Nhập mật khẩu mới: </label>
+                                <input name="newpassword" id="newPassword" type="password" placeholder="Nhập mật khẩu mới...">
+                            </div>
+                            <div class="divAboutme">
+                                <label></label>
+                                <button type="submit" id="subChangePass" name="submitChangePass" >Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="testDiv" style="display: none;">
+    <span class="userid"></span>
+</div>
+
+
+ <script type="text/javascript">
+
+     //doi anh dai dien
+    jQuery(document).ready(function(){
+
+        jQuery('#st-accordion').accordion();
+
+        jQuery('.iconInfo').click(function(){
+            var divLable =jQuery(this).attr('name');
+            var divImageSelect = jQuery("#"+divLable)
+            divImageSelect.attr('src', '');
+            divImageSelect.imgAreaSelect({hide: true});
+        });
+
+        jQuery('#uploadImage').change(function(){
+            jQuery('.st-accordion ul li').css('height', 'auto');
+        });
+        jQuery('#uploadImage_cover').change(function(){
+            jQuery('.st-accordion ul li').css('height', 'auto');
+        });
+
+        //auto fetch userid
+        autogetUserid();
+
+        function autogetUserid()
+        {
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('success', array('action' => 'autogetuserid')); ?>",
+                data: '',
+                async:false,
+                success: function(data) {
+                    data = JSON.parse(data);
+                    var success = data['success'];
+                    if(success == "1")
+                    {
+                        jQuery('.userid').html(data['userid']);
+                        var divAvatar = jQuery('#avatarClick');
+                        var srcAvatar =  divAvatar.attr('src');
+                        srcAvatar += data['pathavatar'];
+                        divAvatar.attr('src', srcAvatar);
+
+
+                        var divCover = jQuery('#coverClick_cover');
+                        var srcCover = divCover.attr('src');
+                        srcCover += data['pathCover'];
+                        divCover.attr('src', srcCover);
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+
+
+
+    });
+</script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        function getTimestampNow()
+        {
+            var datenow = new Date();
+            datenow = parseInt(datenow.setFullYear(datenow.getFullYear(), datenow.getMonth(), datenow.getDate())/1000);
+            return datenow;
+        }
+
+        function ajaxSaveActionUploadImage(userid,timeStamp, path)
+        {
+            var data = "userid="+userid+"&createdtime="+timeStamp + "&imagetype=" +path + "&albumtype=AVA";
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('success', array('action' => 'saveimage')); ?>",
+                data: data,
+                async:false,
+                success: function(data) {
+                    jQuery('#changeAvaSuccess').html('Thay đổi ảnh đại diện thành công').hide().delay(2000).fadeIn(400).delay(4000).fadeOut(400);
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        jQuery('#subUpdateCover').click(function(){
+
+            var userid = jQuery('.userid').html();
+            var timeStamp = getTimestampNow();
+            var data = "userid="+userid+"&createdtime="+ timeStamp;
+
+            var formdata  = new FormData(jQuery('#form-upload-image')[0]);
+            var reader = new FileReader();
+            var value = reader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+            formdata.append('image', value);
+            formdata.append('userid', userid);
+            formdata.append('createdtime', timeStamp);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/plugin/upload.php' ;?>",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async:false,
+                success: function(data) {
+
+                    jQuery('img#uploadPreview').imgAreaSelect({
+                        hide:true
+                    });
+
+                    if(data.error != "error")
+                    {
+                        var pic = jQuery('#uploadPreview');
+                        var pathPicloading = '<?php echo $this->basePath();?>' + '/img/loading.gif';
+                        pic.attr('src',pathPicloading).show();
+                        ajaxSaveActionUploadImage(userid, timeStamp, data);
+                        data = '<?php echo $this->basePath(); ?>' + '/uploads/' + data;
+                        pic.attr('src',data).hide();
+                        pic.delay(1500).fadeIn(600);
+                    }
+                    else
+                    {
+                        alert('Lỗi xảy ra: Bạn chưa chọn hình hoặc hình quá lớn, quá nhỏ so với quy định!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        });
+
+        //FOR CHANGE COVER
+        function ajaxSaveActionUploadImage_Cover(userid,timeStamp, path)
+        {
+            var data = "userid="+userid+"&createdtime="+timeStamp + "&imagetype=" +path + "&albumtype=COV";
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('success', array('action' => 'saveimage')); ?>",
+                data: data,
+                async:false,
+                success: function(data) {
+                    jQuery('#changeAvaSuccess_cover').html('Thay đổi ảnh nền trang cá nhân thành công!').hide().delay(2000).fadeIn(400).delay(4000).fadeOut(400);
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        jQuery('#subUpdateCover_cover').click(function(){
+
+            var userid = jQuery('.userid').html();
+            var timeStamp = getTimestampNow();
+            var imageWidth = 665;
+            var imageHeight = 350;
+            var imageStatus = 'COV';
+//            var data = "userid="+userid+"&createdtime="+ timeStamp + "&imageWidth=" + imageWidth + "&imageHeight=" + imageHeight ;
+
+            var formdata  = new FormData(jQuery('#form-upload-image_cover')[0]);
+            var reader = new FileReader();
+            var value = reader.readAsDataURL(document.getElementById("uploadImage_cover").files[0]);
+            formdata.append('image', value);
+            formdata.append('userid', userid);
+            formdata.append('createdtime', timeStamp);
+            formdata.append('imageWidth', imageWidth);
+            formdata.append('imageHeight', imageHeight);
+            formdata.append('imageStatus', imageStatus);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/plugin/upload.php' ;?>",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async:false,
+                success: function(data) {
+
+                    jQuery('img#uploadPreview_cover').imgAreaSelect({
+                        hide:true
+                    });
+
+                    if(data.error != "error")
+                    {
+                        var pic = jQuery('#uploadPreview_cover');
+                        var pathPicloading = "<?php echo $this->basePath();?>" + "/img/loading.gif";
+                        pic.attr('src',pathPicloading).show();
+                        ajaxSaveActionUploadImage_Cover(userid, timeStamp, data);
+                        data = "<?php echo $this->basePath(); ?>" + "/uploads/" + data;
+                        pic.attr('src',data).hide();
+                        pic.delay(1500).fadeIn(600);
+                    }
+                    else
+                    {
+                        alert('Lỗi xảy ra: Bạn chưa chọn hình hoặc hình quá lớn, quá nhỏ so với quy định!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        });
+
+    });
+
+</script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        jQuery('#subChangePass').click(function(){
+            checkFormChangePassword();
+        });
+
+        jQuery('#subBacsicInfo').click(function(){
+            checkFormChangeBacsicInfo();
+        });
+
+        jQuery('#subAboutme').click(function(){
+            checkFormChangeAboutme();
+        });
+
+//        Cap nhat mat khau tai khoan
+        function ajaxChangePassword()
+        {
+            var oldpassword = jQuery('#oldPassword').val();
+            var newpassword = jQuery('#newPassword').val();
+            var mode = 'changepass';
+            var data = "oldpass="+oldpassword+"&newpass="+newpassword+"&mode=" + mode;
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('success', array('action' => 'changepass')); ?>",
+                data: data,
+                async:false,
+                success: function(data) {
+                    data = JSON.parse(data);
+                    var success = data['success'];
+                    var divError = jQuery('#changePasswordError');
+                    if(success == "1")
+                    {
+                        divError.html(data['message']);
+                        divError.show().delay(4000).fadeOut();
+                    }
+                    else
+                    {
+                        divError.html(data['error']);
+                        divError.fadeIn(600).delay(4000).fadeOut();
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        function checkFormChangePassword()
+        {
+            jQuery('#changePass').validate({
+                errorElement: "span",
+                rules: {
+                    password : {
+                        required:true,
+                        minlength:6
+                    },
+                    newpassword : {
+                        required:true,
+                        minlength:6
+                    }
+                },
+                messages:{
+                    password:{
+                        required: "Nhập vào mật khẩu cũ của bạn.",
+                        minlength: "Mật khẩu nhập vào phải có ít nhất 6 kí tự."
+                    },
+                    newpassword:{
+                        required: "Nhập vào mật khẩu mới của bạn.",
+                        minlength: "Mật khẩu nhập vào phải có ít nhất 6 kí tự."
+                    }
+                },
+                submitHandler : function(){
+                    ajaxChangePassword();
+                }
+            });
+        }
+
+//        Cap nhat thong tin co ban tai khoan
+        jQuery.validator.addMethod("minage",function(value, element){
+            var dateChose = jQuery('#ngaysinh').val();
+            var agePermit = 15;
+
+            var mydate = new Date(dateChose);
+            var year = mydate.getFullYear();
+            var month = mydate.getMonth() + 1;
+            var day = mydate.getDate();
+            mydate.setFullYear(year, month, day);
+
+            var currdate = new Date();
+            currdate.setFullYear(currdate.getFullYear() - agePermit);
+
+            return currdate>mydate;
+
+        }, "Bạn phải trên 15 tuổi mới đc sử dụng dịch vụ.");
+        jQuery.validator.addMethod('maxage', function(value, element){
+            var dateInput = jQuery('#ngaysinh').val();
+            var myage = new Date(dateInput);
+            myage.setFullYear(myage.getFullYear(), myage.getMonth()+1, myage.getDate());
+
+            var maxage = new Date();
+            maxage.setFullYear(maxage.getFullYear() - 100);
+
+            return myage > maxage;
+        }, "Bạn quá già so với quy định.");
+
+        function checkFormChangeBacsicInfo()
+        {
+            jQuery('#changeBacsicInfo').validate({
+                errorElement: "span",
+                rules: {
+                    firstname : {
+                        required:true,
+                        minlength:1
+                    },
+                    lastname : {
+                        required:true,
+                        minlength:1
+                    },
+                    address: {
+                        required:true,
+                        minlength:1
+                    },
+                    quote:{
+                        required:true,
+                        minlength: 6
+                    },
+                    dob : {
+                        required : true,
+                        minage: true,
+                        maxage: true
+                    }
+                },
+                messages:{
+                    firstname:{
+                        required: "Nhập vào tên của bạn.",
+                        minlength: "Nhập vào ít nhất 1 kí tự."
+                    },
+                    lastname:{
+                        required: "Nhập vào họ của bạn.",
+                        minlength: "Nhập vào ít nhất 1 kí tự."
+                    },
+                    address:{
+                        required: "Nhập vào địa chỉ của bạn.",
+                        minlength: "Nhập vào ít nhất 1 kí tự."
+                    },
+                    quote:{
+                        required: "Nhập vào câu nói ưa thích của bạn.",
+                        minlength: "Nhập vào ít nhất 6 kí tự."
+                    },
+                    dob:{
+                        required: "Bạn phải nhập vào ngày sinh của mình.",
+                        minage: "Bạn phải trên 15 tuổi mới được sử dụng dịch vụ."
+                    }
+                },
+                submitHandler : function(){
+                    ajaxChangeBacsicInfo();
+                }
+            });
+        }
+
+        function ajaxChangeBacsicInfo()
+        {
+            var cfirstname = jQuery('#cfirstname').val();
+            var clastname = jQuery('#clastname').val();
+            var cdob = jQuery('#ngaysinh').val();
+            var caddress = jQuery('#caddress').val();
+            var cquote = jQuery('#cquote').val();
+
+            var data = "cfirstname="+cfirstname+"&clastname="+clastname+"&cdob=" + cdob+"&caddress=" +caddress+ "&cquote=" +cquote ;
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('success', array('action' => 'changeinfo')); ?>",
+                data: data,
+                async:false,
+                success: function(data) {
+                    data = JSON.parse(data);
+                    var success = data['success'];
+                    var divError = jQuery('#changeInfoError');
+                    if(success == "1")
+                    {
+                        divError.html(data['message']);
+                        divError.show().delay(4000).fadeOut();
+                    }
+                    else
+                    {
+                        divError.html(data['error']);
+                        divError.fadeIn(600).delay(4000).fadeOut();
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+//        Cap nhat Gioi thieu ban than
+
+        jQuery.validator.addMethod('selectCheck', function(value, element){
+            return(value!="none");
+        }, "Chọn tình trạng hôn nhân của bạn.");
+
+        function checkFormChangeAboutme()
+        {
+            jQuery('#changeAboutme').validate({
+                errorElement: "span",
+                rules: {
+                    school : {
+                        required:true,
+                        minlength:6
+                    },
+                    work : {
+                        required:true,
+                        minlength:6
+                    },
+                    relationship :{
+//                        selectCheck:true
+                    }
+                },
+                messages:{
+                    school:{
+                        required: "Nhập vào trường bạn đã hoặc đang học.",
+                        minlength: "Tên trường phải có ít nhất 6 kí tự."
+                    },
+                    work:{
+                        required: "Nhập vào công việc hoặc nơi bạn đang làm việc",
+                        minlength: "Tên công việc hoặc nơi làm phải có ít nhất 3 kí tự."
+                    },
+                    relationship:{
+//                        selectCheck: function(){
+//                            jQuery('.errorSelectRela').html('Chọn tình trạng hôn nhân của bạn.');
+//                        }
+                    }
+                },
+                submitHandler : function(){
+                    ajaxChangeAboutme();
+                }
+            });
+        }
+
+        function ajaxChangeAboutme()
+        {
+            var school = jQuery('#school').val();
+            var work = jQuery('#work').val();
+            var relationship = jQuery('#relationship').val();
+            var data = "school="+school+"&work="+work+"&relationship=" + relationship;
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('success', array('action' => 'changeaboutme')); ?>",
+                data: data,
+                async:false,
+                success: function(data) {
+                    data = JSON.parse(data);
+                    var success = data['success'];
+                    var divError = jQuery('#aboutmeError');
+                    if(success == "1")
+                    {
+                        divError.html(data['message']);
+                        divError.show().delay(4000).fadeOut();
+                    }
+                    else
+                    {
+                        divError.html(data['error']);
+                        divError.fadeIn(600).delay(4000).fadeOut();
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+    });
+</script>

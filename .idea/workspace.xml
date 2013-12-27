@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" name="Default" comment="" />
+    <ignored path="Zend2.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/index.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388136457600" ignored="false" />
+    <file path="/User.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386669031676" ignored="false" />
+    <file path="/IndexController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386567812855" ignored="false" />
+    <file path="/module.doctrine-mongo-odm.local.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1381925508401" ignored="false" />
+    <file path="/index.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1381993501066" ignored="false" />
+    <file path="/Module.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387935081069" ignored="false" />
+    <file path="/module.config.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385781899335" ignored="false" />
+    <file path="/LoginpageController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385021266705" ignored="false" />
+    <file path="/LoginForm.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385016008742" ignored="false" />
+    <file path="/Login.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1382436396303" ignored="false" />
+    <file path="/register.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1382431010946" ignored="false" />
+    <file path="/LoginModel.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386565846058" ignored="false" />
+    <file path="/login.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1382525614258" ignored="false" />
+    <file path="/MyAuthStorage.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385023526939" ignored="false" />
+    <file path="/success.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1382531051497" ignored="false" />
+    <file path="/SuccessController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385107905855" ignored="false" />
+    <file path="/style.css" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387885580152" ignored="false" />
+    <file path="/layout.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385004901569" ignored="false" />
+    <file path="/RegisterForm.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385521743765" ignored="false" />
+    <file path="/application.config.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385018726423" ignored="false" />
+    <file path="/PageloginController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385018876291" ignored="false" />
+    <file path="/UserpageController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388121306134" ignored="false" />
+    <file path="/Register.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385523274827" ignored="false" />
+    <file path="/README.md" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385615844940" ignored="false" />
+    <file path="/friend.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387886361324" ignored="false" />
+    <file path="/Plugin.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385627915049" ignored="false" />
+    <file path="/custom.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385781690056" ignored="false" />
+    <file path="/userpage.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1385781946072" ignored="false" />
+    <file path="/settingpage.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387962596535" ignored="false" />
+    <file path="$PROJECT_DIR$/../ZF2TestApp-master/module/Application/src/Application/Controller/IndexController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386127350451" ignored="false" />
+    <file path="/updateinfo.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387071469337" ignored="false" />
+    <file path="/lightbox.css" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386411205929" ignored="false" />
+    <file path="/script.cropImage.private.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386853190804" ignored="false" />
+    <file path="/process.hideImageAreaSelected.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386497276629" ignored="false" />
+    <file path="/SuccessModel.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387863571332" ignored="false" />
+    <file path="/lightbox.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386584589007" ignored="false" />
+    <file path="/builder.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386583984750" ignored="false" />
+    <file path="/Action.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387785432631" ignored="false" />
+    <file path="/Status.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386820973401" ignored="false" />
+    <file path="/UploadForm.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386840006782" ignored="false" />
+    <file path="/upload.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386985771911" ignored="false" />
+    <file path="/Album.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386910956559" ignored="false" />
+    <file path="/Image.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386924202831" ignored="false" />
+    <file path="/script.cropImage_cover.private.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1386982895190" ignored="false" />
+    <file path="/Comment.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387069458193" ignored="false" />
+    <file path="/jquery.jscroll.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387168053903" ignored="false" />
+    <file path="/additional-methods.min.js" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387187442800" ignored="false" />
+    <file path="/upload_normal.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387253477243" ignored="false" />
+    <file path="/Video.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387268981124" ignored="false" />
+    <file path="/video-js.css" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387272187409" ignored="false" />
+    <file path="/Place.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387340862517" ignored="false" />
+    <file path="/Like.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387420965818" ignored="false" />
+    <file path="/Share.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387421222917" ignored="false" />
+    <file path="/Friend.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387522364891" ignored="false" />
+    <file path="/index4.html" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387524890864" ignored="false" />
+    <file path="/FriendModel.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388139450331" ignored="false" />
+    <file path="/ExampleController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387620801342" ignored="false" />
+    <file path="/ExampleModel.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387621327518" ignored="false" />
+    <file path="/test.txt" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387692718836" ignored="false" />
+    <file path="/index.html" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388021277608" ignored="false" />
+    <file path="/PhotoController.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388026823247" ignored="false" />
+    <file path="/photos.css" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388029607944" ignored="false" />
+    <file path="/photos.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1387962630162" ignored="false" />
+    <file path="/PhotoModel.php" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388027222041" ignored="false" />
+    <file path="/video.phtml" changelist="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" time="1388029427778" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Zend2" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="UserpageController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Controller/UserpageController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="239" column="26" selection-start="9395" selection-end="9395" vertical-scroll-proportion="-5.3137255">
+              <folding>
+                <element signature="e#6#161#0" expanded="true" />
+                <element signature="e#9400#9545#0" expanded="false" />
+                <element signature="e#11078#11377#0" expanded="false" />
+                <element signature="e#11383#12031#0" expanded="false" />
+                <element signature="e#12060#12130#0" expanded="false" />
+                <element signature="e#12136#13805#0" expanded="false" />
+                <element signature="e#13811#14601#0" expanded="false" />
+                <element signature="e#14607#15404#0" expanded="false" />
+                <element signature="e#15457#16367#0" expanded="false" />
+                <element signature="e#16373#16604#0" expanded="false" />
+                <element signature="e#16650#17652#0" expanded="false" />
+                <element signature="e#17694#18290#0" expanded="false" />
+                <element signature="e#18330#18938#0" expanded="false" />
+                <element signature="e#18975#19576#0" expanded="false" />
+                <element signature="e#19582#20180#0" expanded="false" />
+                <element signature="e#20214#21166#0" expanded="false" />
+                <element signature="e#21172#21775#0" expanded="false" />
+                <element signature="e#21781#22381#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FriendModel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Model/FriendModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="270" column="65" selection-start="8696" selection-end="8696" vertical-scroll-proportion="-4.6862745">
+              <folding>
+                <element signature="e#6#162#0" expanded="true" />
+                <element signature="e#242#5777#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.phtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/Userpage/view/userpage/userpage/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1711" column="46" selection-start="68763" selection-end="68763" vertical-scroll-proportion="0.58787876">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="tag#div#1;tag#div#0;tag#div#0" expanded="false" />
+                <element signature="tag#div#1;tag#div#0" expanded="false" />
+                <element signature="tag#div#2;tag#div#0" expanded="false" />
+                <element signature="tag#div#1" expanded="false" />
+                <element signature="tag#div#1;tag#div#1" expanded="false" />
+                <element signature="n#getFullTime#0;n#!!top" expanded="false" />
+                <element signature="e#23646#34559#0" expanded="false" />
+                <element signature="tag#script#1" expanded="false" />
+                <element signature="e#35060#35501#0" expanded="false" />
+                <element signature="e#35573#36155#0" expanded="false" />
+                <element signature="e#36239#36824#0" expanded="false" />
+                <element signature="e#36911#38304#0" expanded="false" />
+                <element signature="e#38384#42773#0" expanded="false" />
+                <element signature="e#42850#42896#0" expanded="false" />
+                <element signature="e#42950#44783#0" expanded="false" />
+                <element signature="e#43378#44745#0" expanded="false" />
+                <element signature="e#44832#45368#0" expanded="false" />
+                <element signature="e#45440#54170#0" expanded="false" />
+                <element signature="e#54389#55062#0" expanded="false" />
+                <element signature="e#55115#56510#0" expanded="false" />
+                <element signature="e#56591#57771#0" expanded="false" />
+                <element signature="e#57842#58390#0" expanded="false" />
+                <element signature="e#58435#59970#0" expanded="false" />
+                <element signature="e#60050#61868#0" expanded="false" />
+                <element signature="e#61915#62859#0" expanded="false" />
+                <element signature="e#62907#64843#0" expanded="false" />
+                <element signature="e#64889#65705#0" expanded="false" />
+                <element signature="e#65887#67638#0" expanded="false" />
+                <element signature="e#69581#70657#0" expanded="false" />
+                <element signature="e#70720#71693#0" expanded="false" />
+                <element signature="e#71800#73451#0" expanded="false" />
+                <element signature="e#73920#74850#0" expanded="false" />
+                <element signature="e#74896#76066#0" expanded="false" />
+                <marker date="1388136467839" expanded="true" signature="46854:46905" placeholder="..." />
+                <marker date="1388136467839" expanded="true" signature="81650:81668" placeholder="..." />
+                <marker date="1388136467839" expanded="true" signature="81884:81902" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/module/Photo/Module.php" />
+        <option value="$PROJECT_DIR$/module/Photo/config/module.config.php" />
+        <option value="$PROJECT_DIR$/config/application.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/view/layout/photo.phtml" />
+        <option value="$USER_HOME$/Desktop/ResponsiveImageGallery/css/elastislide.css" />
+        <option value="$PROJECT_DIR$/module/Photo/view/photo/photo/index.phtml" />
+        <option value="$USER_HOME$/Desktop/3DWallGallery/index.html" />
+        <option value="$PROJECT_DIR$/module/Photo/src/Photo/Controller/PhotoController.php" />
+        <option value="$PROJECT_DIR$/module/Photo/src/Photo/Model/PhotoModel.php" />
+        <option value="$PROJECT_DIR$/module/Application/view/layout/photos.phtml" />
+        <option value="$PROJECT_DIR$/module/Photo/view/photo/photo/video.phtml" />
+        <option value="$PROJECT_DIR$/public/css/photos.css" />
+        <option value="$PROJECT_DIR$/module/Userpage/src/Userpage/Controller/UserpageController.php" />
+        <option value="$PROJECT_DIR$/module/Userpage/view/userpage/userpage/index.phtml" />
+        <option value="$PROJECT_DIR$/module/Application/view/layout/settingpage.phtml" />
+        <option value="$PROJECT_DIR$/module/Userpage/src/Userpage/Model/FriendModel.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Userpage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zend2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ZF2TestApp-master" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PublishConfig" serverName="Zess" serverId="c9203777-3724-4f0d-9862-b6471e0b217a" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Zend2\public\img" />
+      <recent name="C:\xampp\htdocs\Zend2\public\js" />
+      <recent name="C:\xampp\htdocs\Zend2\public\fonts" />
+      <recent name="C:\xampp\htdocs\Zend2\public\css" />
+      <recent name="C:\xampp\htdocs\Zend2\public\uploads" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Zend2\module\Example\src\Example\Controller" />
+      <recent name="C:\xampp\htdocs\Zend2\public\js" />
+      <recent name="C:\xampp\htdocs\Zend2\module\Pagelogin\view" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.Document">
+    <configuration default="false" name="Document" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/module/Application/src/Application/Document" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="c9203777-3724-4f0d-9862-b6471e0b217a" server_name="Zess">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHPUnit.Document" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.Document" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3bdb2e7b-6f1a-45d5-aa03-d83d8ff45282" name="Default" comment="" />
+      <created>1381912857252</created>
+      <updated>1381912857252</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30833334" sideWeight="0.6752137" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32730263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="13" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/module/Userpage/view/userpage/userpage/friend.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="58" selection-start="1570" selection-end="1579" vertical-scroll-proportion="21.764706">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-mongo-odm-module/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB/Query/FilterCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.2460938" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB/Query/FieldExtractor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.7429644" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Query/Expr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="358" column="25" selection-start="10053" selection-end="10074" vertical-scroll-proportion="-0.50384617" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Cursor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.036072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Query/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="34" selection-start="1793" selection-end="1797" vertical-scroll-proportion="0.51031893">
+          <folding>
+            <element signature="e#6#987#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Event/MapReduceEventArgs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8925781">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB/Query/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="275" column="21" selection-start="7076" selection-end="7077" vertical-scroll-proportion="7.2442307">
+          <folding>
+            <element signature="e#6#987#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Query/Query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-8.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Document/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="35" selection-start="281" selection-end="286" vertical-scroll-proportion="0.22326455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Model/SuccessModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="2" selection-start="3799" selection-end="3799" vertical-scroll-proportion="3.073077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/layout/settingpage.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="5" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-12.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Controller/UserpageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="26" selection-start="9395" selection-end="9395" vertical-scroll-proportion="-5.3137255">
+          <folding>
+            <element signature="e#6#161#0" expanded="true" />
+            <element signature="e#9400#9545#0" expanded="false" />
+            <element signature="e#11078#11377#0" expanded="false" />
+            <element signature="e#11383#12031#0" expanded="false" />
+            <element signature="e#12060#12130#0" expanded="false" />
+            <element signature="e#12136#13805#0" expanded="false" />
+            <element signature="e#13811#14601#0" expanded="false" />
+            <element signature="e#14607#15404#0" expanded="false" />
+            <element signature="e#15457#16367#0" expanded="false" />
+            <element signature="e#16373#16604#0" expanded="false" />
+            <element signature="e#16650#17652#0" expanded="false" />
+            <element signature="e#17694#18290#0" expanded="false" />
+            <element signature="e#18330#18938#0" expanded="false" />
+            <element signature="e#18975#19576#0" expanded="false" />
+            <element signature="e#19582#20180#0" expanded="false" />
+            <element signature="e#20214#21166#0" expanded="false" />
+            <element signature="e#21172#21775#0" expanded="false" />
+            <element signature="e#21781#22381#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Model/FriendModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="270" column="65" selection-start="8696" selection-end="8696" vertical-scroll-proportion="-4.6862745">
+          <folding>
+            <element signature="e#6#162#0" expanded="true" />
+            <element signature="e#242#5777#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Userpage/view/userpage/userpage/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1711" column="46" selection-start="68763" selection-end="68763" vertical-scroll-proportion="0.58787876">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="tag#div#1;tag#div#0;tag#div#0" expanded="false" />
+            <element signature="tag#div#1;tag#div#0" expanded="false" />
+            <element signature="tag#div#2;tag#div#0" expanded="false" />
+            <element signature="tag#div#1" expanded="false" />
+            <element signature="tag#div#1;tag#div#1" expanded="false" />
+            <element signature="n#getFullTime#0;n#!!top" expanded="false" />
+            <element signature="e#23646#34559#0" expanded="false" />
+            <element signature="tag#script#1" expanded="false" />
+            <element signature="e#35060#35501#0" expanded="false" />
+            <element signature="e#35573#36155#0" expanded="false" />
+            <element signature="e#36239#36824#0" expanded="false" />
+            <element signature="e#36911#38304#0" expanded="false" />
+            <element signature="e#38384#42773#0" expanded="false" />
+            <element signature="e#42850#42896#0" expanded="false" />
+            <element signature="e#42950#44783#0" expanded="false" />
+            <element signature="e#43378#44745#0" expanded="false" />
+            <element signature="e#44832#45368#0" expanded="false" />
+            <element signature="e#45440#54170#0" expanded="false" />
+            <element signature="e#54389#55062#0" expanded="false" />
+            <element signature="e#55115#56510#0" expanded="false" />
+            <element signature="e#56591#57771#0" expanded="false" />
+            <element signature="e#57842#58390#0" expanded="false" />
+            <element signature="e#58435#59970#0" expanded="false" />
+            <element signature="e#60050#61868#0" expanded="false" />
+            <element signature="e#61915#62859#0" expanded="false" />
+            <element signature="e#62907#64843#0" expanded="false" />
+            <element signature="e#64889#65705#0" expanded="false" />
+            <element signature="e#65887#67638#0" expanded="false" />
+            <element signature="e#69581#70657#0" expanded="false" />
+            <element signature="e#70720#71693#0" expanded="false" />
+            <element signature="e#71800#73451#0" expanded="false" />
+            <element signature="e#73920#74850#0" expanded="false" />
+            <element signature="e#74896#76066#0" expanded="false" />
+            <marker date="1388136467839" expanded="true" signature="46854:46905" placeholder="..." />
+            <marker date="1388136467839" expanded="true" signature="81650:81668" placeholder="..." />
+            <marker date="1388136467839" expanded="true" signature="81884:81902" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

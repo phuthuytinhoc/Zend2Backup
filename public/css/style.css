@@ -1,0 +1,2188 @@
+body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+
+/*MUC LUC*/
+/*
+
+1. LOGIN PAGE
+2. USER PAGE
+3.
+
+*/
+
+
+/* 1. START LOGIN PAGE */
+
+@font-face {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Slab Regular'),
+    local('RobotoSlab-Regular'),
+    url(http://themes.googleusercontent.com/static/fonts/robotoslab/v2/y7lebkjgREBJK96VQi37ZobN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+
+/*body, html {*/
+    /*height: 100%;*/
+    /*margin:0;*/
+/*}*/
+
+.bodyLoginPage {
+    background-image: url(../img/dawn.jpg);
+    background-size: 100% auto;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    font-family: 'Roboto Slab', Tahoma;
+    color:white;
+}
+
+
+.wrapper {
+    /*	background:rgba(66, 66, 66, .5); */
+    min-width: 100%;
+    min-height: 100%;
+    height:auto;
+    display:block;
+}
+
+.wrapper .header {
+    width: 100%;
+    height:100px;
+    clear:both;
+    margin:0 auto;
+    text-align:center;
+    /*padding-top:50px;*/
+}
+
+.wrapper .header .divLogo {
+    transition: color 0.4s ease;
+}
+
+
+.wrapper .header .divLogo:hover {
+    color: #1fa3ff;
+    cursor:pointer;
+}
+
+.wrapper .header .divLogo .logoName {
+    width:100%;
+    height:100%;
+    font-size:40px;
+    font-weight:700;
+}
+
+.wrapper .right-sec{
+    width:35%;
+    height:auto;
+    float:right;
+    border: 3px solid #fff;
+    margin-right:10%;
+    background:rgba(0, 0, 0, .5);
+    margin-bottom:20px;
+    padding-bottom: 20px;
+}
+
+.wrapper .left-sec {
+    width: 35%;
+    height:300px;
+    float:left;
+    margin-left:10%;
+    border: 3px solid #fff;
+    background:rgba(0, 0, 0, .5);
+}
+
+.wrapper .title {
+    margin-top:10px;
+    margin-left:8%;
+    margin-right:8%;
+    text-transform:uppercase;
+    clear:both;
+
+}
+
+.wrapper .description {
+    font-size: 13px;
+    margin-top:5px;
+    margin-left: 8%;
+    margin-right:8%;
+    clear:both;
+}
+
+.wrapper hr {
+    margin-left:14%;
+    margin-right:9%;
+}
+
+.wrapper .form {
+    margin-left: 8%;
+    margin-right: 8%;
+    height:55%;
+    width:83%;
+}
+
+.wrapper .form input {
+    font-family:"Roboto Slab", Tahoma;
+    font-size: 16px;
+    border: 1px solid #fff;
+    /*width: 80%;*/
+    width: 100%;
+    height:40px;
+    background-color:transparent;
+    padding-top: 3px;
+    padding-left:5%;
+    padding-right:5%;
+    margin-top:3%;
+    color:#fff;
+    float:right;
+}
+
+.wrapper .form input:focus {
+    background:rgba(200, 200, 200, .3);
+}
+
+.wrapper .form input:hover{
+    border-color:#FF3;
+}
+
+.wrapper .form input[type="submit"]{
+    color:#fff;
+    float: right;
+    width: 30%;
+    padding-left:1%;
+    padding-right:1%;
+    cursor:pointer;
+    transition: background-color 0.5s ease;
+}
+
+.wrapper .form input[type="submit"]:hover{
+    background-color:#1fa3ff;
+    border-color:#fff;
+}
+
+.wrapper .form input.percent {
+    padding-left:10%;
+    width:95%;
+    padding-right:1%;
+}
+
+.wrapper .form div {
+    float: left;
+
+}
+
+.wrapper .left-sec a{
+    text-decoration: none;
+    color:#fff;
+    margin-left:8%;
+    float:left;
+}
+
+.wrapper .left-sec a:hover{
+    text-decoration:underline;
+}
+
+footer {
+    background:rgba(0, 0, 0, .7);
+    border-top: 1px solid #fff;
+    width:100%;
+    height:auto;
+    clear:both;
+    color:#fff;
+    font-size:12px;
+    margin: 0 auto;
+    text-align:center;
+}
+
+/*Phan them vao*/
+.forgetPass{
+
+}
+#reg-form div {
+
+}
+.divHoTen > div:last-child > div{
+    margin-left: 5%;
+}
+
+/****** END LOGIN PAGE ******/
+
+
+
+/* 2. START USER PAGE */
+
+/*body, html {*/
+    /*background-image:url(../images/bg_userpage.JPG); */
+    /*background-color: #e5e5e5;*/
+    /*font-family: "Roboto Slab", Tahoma;*/
+/*}*/
+
+.bodyUserpage {
+    /*background-image:url("../img/friend_background.png");*/
+    background-color: #e5e5e5;
+    font-family: "Roboto Slab", Tahoma;
+}
+
+.divLeft {
+    height: auto;
+    width: 50%;
+    display:inline-block;
+    position:static;
+    float:left;
+}
+
+.divLeft .divSubMenu{
+    float:left;
+    width: 50%;
+    height:auto;
+    position:static;
+    float:left;
+}
+
+.divLeft .divSubMenu .divLogo {
+    width:100%;
+    height:auto;
+    font-size:40px;
+    font-weight:700;
+    text-align:center;
+    transition: color 0.4s ease;
+    -o-transition: color 0.4s ease;
+    -webkit-transition: color 0.4s ease;
+    -moz-transition: color 0.4s ease;
+    clear:both;
+    display: block;
+    color: #1fa3ff;
+}
+
+.divLeft .divSubMenu .divLogo:hover {
+    color: #3b5998;
+    cursor:pointer;
+}
+
+.divLeft .divSubMenu .divSearch {
+    width: 100%;
+    height:35px;
+    margin-left:9px;
+    clear:both;
+    display:block;
+}
+
+.divLeft .divSubMenu .divSearch #txtSearch {
+    font-family: "Roboto Slab", Tahoma;
+    font-size:14px;
+    color: #006699;
+    width:75%;
+    /*height:35px;*/
+    height:41px;
+    border:2px solid #1fa3ff;
+    float:left;
+    background-color: #FFF;
+    padding-left: 5px;
+    transition: border-color 0.4s ease;
+    -o-transition: border-color 0.4s ease;
+    -webkit-transition: border-color 0.4s ease;
+    -moz-transition: border-color 0.4s ease;
+}
+
+.divLeft .divSubMenu .divSearch #txtSearch:focus {
+    outline: 0;
+}
+
+.divLeft .divSubMenu .divSearch #btnSearch {
+    width: 15%;
+    height: 41px;
+    float:left;
+    background-color: transparent;
+    background:url(../img/search.png) no-repeat center;
+    border-top: 2px solid #1fa3ff;
+    border-right: 2px solid #1fa3ff;
+    border-bottom: 2px solid #1fa3ff;
+    border-left: 0;
+    transition: border-color 0.4s ease;
+    -o-transition: border-color 0.4s ease;
+    -webkit-transition: border-color 0.4s ease;
+    -moz-transition: border-color 0.4s ease;
+}
+
+.divLeft .divSubMenu .divSearch #btnSearch:focus {
+    outline: 0;
+}
+
+.divLeft .divSubMenu .divSearch #btnSearch:hover {
+    cursor: pointer;
+}
+
+.divLeft .divSubMenu .divSub {
+    margin-left: 9px;
+    margin-top: 15px;
+    width:92%;
+    height: auto;
+    font-weight:500;
+    color: #444;
+    display:inline-block;
+    float:left;
+    padding-bottom:2px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    background-color: #FFF;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border: 1px solid #999;
+}
+
+.divLeft .divSubMenu .divSub .divHead {
+    /*width: 98%;*/
+    width: 100%;
+    height:auto;
+    padding-left:2%;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color:#EEE;
+    border-bottom: 3px solid #999;
+    float:left;
+    transition: border-color 0.4s ease;
+    -o-transition: border-color 0.4s ease;
+    -webkit-transition: border-color 0.4s ease;
+    -moz-transition: border-color 0.4s ease;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.divLeft .divSubMenu .divSub .divHead:hover {
+    border-bottom-color: #1fa3ff;
+}
+
+.divLeft .divSubMenu .divSub .divContent {
+    width: 96%;
+    height:auto;
+    margin-left:2%;
+    margin-right:2%;
+    border-top: 1px solid #999;
+    display: inline-block;
+    float:left;
+    margin-top:-1px;
+}
+
+.divLeft .divSubMenu .divSub .divContent .aboutImg {
+    width: 11%;
+    height: 30px;
+    display:inline-block;
+    float:left;
+}
+
+.divLeft .divSubMenu .divSub .divContent .aboutImg.job {
+    background:url(../img/briefcase.png) no-repeat center;
+}
+
+.divLeft .divSubMenu .divSub .divContent .aboutImg.study {
+    background:url(../img/study.png) no-repeat center;
+}
+
+.divLeft .divSubMenu .divSub .divContent .aboutImg.relationship {
+    background:url(../img/heart.png) no-repeat center;
+}
+
+.divLeft .divSubMenu .divSub .divContent .aboutInfo {
+    width: 85%;
+    font-size:12px;
+    font-weight: 500px;
+    color: #999;
+    display:block;
+    float:left;
+    margin-left: 4%;
+    margin-top: 8px;
+    margin-bottom:5px;
+}
+
+.divLeft .divSubMenu .divSub.friend .divContent, .divLeft .divSubMenu .divSub.photo .divContent {
+    border-bottom: none;
+}
+
+.divLeft .divSubMenu .divSub .divContent .subImage {
+    margin-top: 1%;
+    margin-right:1%;
+    width:100%;
+    /*height:47px;*/
+    float:left;
+    /*background:url(../img/avatar.jpg) no-repeat;*/
+    border-bottom: 1px solid #4AABE2;
+    border-radius: 10px;
+}
+
+.divLeft .divSubMenu .divSub .divContent .subImage:hover{
+    /*background-color: #4AABE2;*/
+    /*background: linear-gradient(to bottom, #f7fbfc 0%,#d9edf2 40%,#add9e4 100%);*/
+
+    /*background: linear-gradient(to bottom, rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%);*/
+    background: linear-gradient(to bottom, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 57%,rgba(213,235,251,1) 100%);
+}
+
+.divLeft .divMenu {
+    float:left;
+    width:9%;
+    height:100%;
+    display:inline-block;
+    position:fixed;
+    top: 0;
+    background-color: #1fa3ff;
+}
+
+.divLeft .divMenu .menuSub {
+    width:100%;
+    height:32px;
+    color: #eee;
+    border-left: 3px solid #1fa3ff;
+    transition: border 0.5s ease;
+    -o-transition: border 0.5s ease;
+    -webkit-transition: border 0.5s ease;
+    -moz-transition: border 0.5s ease;
+    margin-bottom: 10px;
+}
+
+.divLeft .divMenu .menuSub.home {
+    margin-top: 66px;
+}
+.divLeft .divMenu .menuSub:hover {
+    width: 100%;
+    background-color: #1fa3bb;
+    border-left: 4px solid #FFF;
+    cursor: pointer;
+}
+
+.divLeft .divMenu .divMenuIcon {
+    height: 24px;
+    width:24px;
+    position:static;
+    float:left;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.divLeft .divMenu .divMenuIcon.home {
+    background:url(../img/home.png) no-repeat;
+}
+
+.divLeft .divMenu .divMenuIcon.me {
+    background:url(../img/me.png) no-repeat;
+}
+
+.divLeft .divMenu .divMenuIcon.noti {
+    background:url(../img/bell.png) no-repeat;
+}
+
+.divLeft .divMenu .divMenuIcon.friend {
+    background:url(../img/users.png) no-repeat;
+}
+
+.divLeft .divMenu .divMenuIcon.mail {
+    background:url(../img/mail.png) no-repeat;
+}
+
+.divLeft .divMenu .divMenuIcon.config {
+    background:url(../img/cog.png) no-repeat;
+}
+
+.divLeft .divMenu .divMenuName {
+    margin-left: 8px;
+    margin-top: 7px;
+    /*width:50%;*/
+    position:static;
+    float:left;
+    display: inline-block;
+}
+
+.divLeft .divUserPanel {
+    position:fixed;
+    width:15%;
+    height:100%;
+    left: 34%;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    top:0;
+}
+
+.divLeft .divUserPanel .userAvatar {
+    display:inline-block;
+    float:left;
+}
+
+.divLeft .divUserPanel .userAvatar img#userAvatar {
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    border-bottom: 1px solid #fff;
+}
+
+.divLeft .divUserPanel .userInfo {
+    width: 100%;
+    float:left;
+    color: #555;
+    font-size: 12px;
+}
+
+.divLeft .divUserPanel .userInfo .info {
+    width: 100%;
+    min-height: 20px;
+    margin-left: 7px;
+    display:block;
+    clear:both;
+    padding-top: 10px;
+}
+
+.divLeft .divUserPanel .userInfo .info.name {
+    width: 100%;
+    word-wrap:break-word;
+    font-size: 16px;
+}
+
+.divLeft .divUserPanel .userInfo .infoIcon {
+    width:16px;
+    height: 16px;
+    display: inline-block;
+    float:left;
+    margin-right: 5px;
+}
+
+.divLeft .divUserPanel .userInfo .infoIcon.age {
+    background-image:url(../img/calendar.png);
+}
+
+.divLeft .divUserPanel .userInfo .infoIcon.address {
+    background-image:url(../img/directions.png);
+}
+
+.divLeft .divUserPanel .userInfo .infoIcon.quote {
+    background-image:url(../img/quote.png);
+}
+
+.divLeft .divUserPanel .userInfo .infoIcon.logout {
+    background-image:url(../img/exit.png);
+}
+
+.divLeft .divUserPanel .userInfo .infoContent {
+    width: 85%;
+    float:left;
+    display: inline-block;
+    word-wrap:break-word;
+}
+
+.divLeft .divUserPanel .userInfo .logOut {
+    color: #fff;
+    /*height: 15px;*/
+    height: 26px;
+    width: 97%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-top: 2%;
+    position:absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: #aaa;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+    -webkit-transition: background-color  0.4s ease;
+    -moz-transition: background-color  0.4s ease;
+}
+
+.divLeft .divUserPanel .userInfo .logOut:hover {
+    background-color: #1fa3ff;
+}
+
+.divRight {
+    position:absolute;
+    float:left;
+    border-left: 1px solid #FFF;
+    width: 49.5%;
+    display:inline-block;
+    right: 1px;
+    top: 0px;
+
+    /*overflow-y: scroll;*/
+    /*height: 800px;*/
+}
+
+.divRight .divCover {
+    width: 100%;
+    border-bottom: 1px solid #FFF;
+    display:inline-block;
+    position: static;
+    float:left;
+}
+
+.divRight .divCover #imgCover {
+    width: 97%;
+    height: 97%;
+}
+
+.divRight .statusBlock {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 97%;
+    height: 180px;
+    float: left;
+    display: inline-block;
+    position: static;
+    border: 1px solid #FFF;
+    background-image: url("../img/friend_background.png");
+    background-repeat: repeat-x repeat-y;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.divRight .statusBlock .statusType {
+    width: 100%;
+    display:inline-block;
+    position:static;
+    border-bottom: 3px solid #ccc;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.divRight .statusBlock .statusType .type {
+    width: 25%;
+    padding-top:8px;
+    padding-bottom: 8px;
+    float:left;
+    text-align: center;
+    border-right: 1px solid #fff;
+    box-shadow:inset 0px -3px 7px 0px #29bbff;
+    background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color:#2dabf9;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    color:#ffffff;
+    font-size:14px;
+    text-shadow:0px 1px 0px #263666;
+}
+
+.divRight .statusBlock .statusType .type:hover{
+    background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    background-color:#0688fa;
+}
+.divRight .statusBlock .statusType .type:active{
+    position:relative;
+    top:1px;
+}
+
+.divRight .statusBlock .statusType .type.video {
+    border-right: none;
+}
+
+.divRight .statusBlock .statusContent {
+    width: 100%;
+    height: 130px;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea {
+    width: 100%;
+    height: 90px;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .place-image > span{
+    position: absolute;
+    color: red;
+    font-size: 20px !important;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .place-description > span{
+    margin-top: 30px;
+    color: red;
+    margin-left: 0px !important;
+    font-size: 20px !important;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .place-name > span{
+    color: red;
+    font-size: 20px !important;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .place-image input[type="file"]{
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    margin-left: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .hide-btn{
+    width: 90px;
+    height: 90px;
+    margin-left: 5px;
+    position: absolute;
+    z-index: 1;
+    background: url("../img/upload.png") no-repeat;
+    background-position: center;
+    border: 1px dotted #1fa3ff;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .txt-place-name{
+    margin-left: 115px;
+    height: 30px;
+    font-family: "Roboto Slab", Tahoma;
+    font-size: 13px;
+    border: none;
+    padding-left: 10px;
+    width: 334px;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea .txt-place-des {
+    margin-left: 115px;
+    margin-top: 10px;
+    width: 75%;
+    font-size: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+    height: 45px;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea input {
+    width: 88%;
+    height: 40px;
+    background-color: transparent;
+    margin-left: 30px;
+    margin-top: 5px;
+    padding: 6px 10px;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    color: #333333;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 8px;
+    background-clip: padding-box;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea p{
+    margin-left: 40px;
+    margin-top: 10px;
+    color: red;
+}
+
+.postImage, .postVideo, .postShare{
+    width: 85px !important;
+    margin-right: 45px !important;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea input[type=text]:focus{
+    border: 1px solid #7fbbf9;
+    -moz-box-shadow:    inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    box-shadow:         inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    background-color: #ffffff;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea span {
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 20px;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea textarea {
+    width: 96%;
+    height: 84%;
+    border: 1px solid #ccc;
+    padding: 2% 3% 2% 3%;
+    font-family: "Roboto Slab", Tahoma;
+    font-size: 14px;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 15px;
+    font-size: 13px;
+    background-color: transparent;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)
+
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea textarea::-webkit-input-placeholder { /* WebKit browsers */
+    color:#0077cc;
+}
+
+
+
+.divRight .statusBlock .statusContent .statusComposeArea textarea:focus {
+    outline: none;
+    border: 1px solid #7fbbf9;
+    -moz-box-shadow:    inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    box-shadow:         inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    background-color: #ffffff !important;
+}
+
+.divRight .statusBlock .statusContent .statusComposeArea textarea:focus::-webkit-input-placeholder{
+    color: #cccccc;
+}
+
+.divRight .statusBlock .statusContent .btnSubmit {
+    width: 100%;
+    height:43px;
+}
+
+.divRight .statusBlock .statusContent .btnSubmit #btnPost {
+    border: 2px solid #FFF;
+    font-family: "Roboto Slab", Tahoma;
+    font-size:13px;
+    height:30px;
+    width:60px;
+    margin-top: 7px;
+    margin-right:7px;
+    display: inline-block;
+    float: right;
+    background-color: #1fa3ff;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    -webkit-transition: background-color  0.5s ease;
+    -moz-transition: background-color  0.5s ease;
+}
+
+.divRight .statusBlock .statusContent .btnSubmit #btnPost:hover {
+    background-color: #FFF;
+    border-color: #1fa3ff;;
+}
+
+.divRight .divAction {
+    margin-top: 10px;
+    width: 100%;
+    min-height: 150px;
+    display: inline-block;
+}
+
+.divRight .divAction .statusAvatar {
+    width: 23%;
+    /*height: 150px;*/
+    display: inline-block;
+    float:left;
+}
+
+.divRight .divAction .statusAvatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.divRight .divAction .statusRightPanel {
+    width: 75.5%;
+    height: auto;
+    display: inline-block;
+    float: left;
+}
+
+.divRight .divAction .statusRightPanel .statusPosition {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    display: inline-block;
+    float: left;
+    background-color:#1fa3ff;
+    font-size: 12px;
+}
+
+.divRight .divAction .statusRightPanel .statusPosition span {
+    color: #FFF;
+    font-size: 14px;
+}
+
+.divRight .divAction .statusRightPanel .statusPosition span:hover {
+    cursor: pointer;
+}
+
+.divRight .divAction .statusRightPanel .statusContent {
+    height: auto;
+    min-height:87px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    display: inline-block;
+    float:left;
+    background-color: #f9f9f9;
+    word-wrap:break-word;
+}
+
+.divRight .divAction .statusRightPanel .statusContent .status-place-name .hashtag{
+    color: #1fa3ff;
+    cursor: pointer;
+}
+
+.divRight .divAction .statusRightPanel .statusContent img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    max-width: 480px;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter {
+    padding-left: 10px;
+    height:30px;
+    width: 100%;
+    display: inline-block;
+    float: left;
+    background-color: #1fa3ff;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .summary {
+    display: inline-block;
+    float: left;
+    font-size:12px;
+    margin-top: 6px;
+    margin-left: 8px;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .summary a {
+    text-decoration: none;
+    color: #000;
+    padding-right: 5px;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .icon {
+    margin-right: 8px;
+    margin-top: 5px;
+    display: inline-block;
+    float: right;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .icon a {
+    text-decoration: none;
+    color: #000;
+    width:20px;
+    height: 16px;
+    display: inline-block;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .icon span {
+    margin-right: 3px;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .icon a.like {
+    background:url(../img/star.png) no-repeat;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .icon a.comment {
+    background:url(../img/chat-3.png) no-repeat;
+}
+
+.divRight .divAction .statusRightPanel .statusFooter .icon a.share {
+    background:url(../img/share.png) no-repeat;
+}
+
+.divRight .divAction .statusRightPanel .divComment {
+    width: 100%;
+    display: inline-block;
+    height: auto;
+    float: left;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction {
+    width: 100%;
+    display:inline-block;
+    float: left;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentUserAvatar {
+    width: 50px;
+    border-bottom: 1px solid #1fa3ff;
+    display: inline-block;
+    float:left;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentUserAvatar img {
+    width: 100%;
+    height: 100%;
+    padding-top: 2px;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight {
+    width: 88%;
+    min-height:53px;
+    height:auto;
+    background-color:#FFF;
+    display:inline-block;
+    float:left;
+    font-size:12px;
+    border-bottom: 1px solid #1fa3ff;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentContent {
+    padding-top: 5px;
+    padding-left:2%;
+    width: 98%;
+    height:auto;
+    min-height: 30px;
+    word-wrap:break-word;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentContent .commentUserName {
+    display: inline-block;
+    float:left;
+    margin-right: 5px;
+    color: #1fa3ff;
+    font-weight: bold;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentFooter {
+    width: 100%;
+    height: 16px;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentFooter .commentTime {
+    display: inline-block;
+    float:left;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #888;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentFooter .commentTime :hover{
+
+
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentFooter .commentLike {
+    display: inline-block;
+    float:left;
+    margin-left: 10px;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentFooter .commentLike a {
+    text-decoration: none;
+    color: #888;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentFooter .commentLike a.number{
+    margin-left: 5px;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose {
+    width: 98%;
+    height: auto;
+    display: inline-block;
+    float:left;
+    font-size: 12px;
+    border: 1px solid #FFF;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose .commentUserAvatar {
+    width: 50px;
+    display: inline-block;
+    float:left;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose .commentUserAvatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose .commentRight {
+    width: 75%;
+    height: 50px;
+    display: inline-block;
+    float:left;
+    padding-left:10px;
+    background-color:transparent;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose .commentRight p{
+    font-size: 13px;
+    font-style: italic;
+    /*display: none;*/
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose .commentRight textarea {
+    width: 96%;
+    height:34px;
+    margin-top: 7px;
+    border: none;
+    font-family: "Roboto Slab", Tahoma;
+    font-size: 12px;
+    padding: 8px;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose .commentRight textarea:focus {
+    outline: 0;
+    border: 1px solid #7fbbf9;
+    -moz-box-shadow:    inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    box-shadow:         inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    background-color: #ffffff !important;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose input {
+    margin-top: 7px;
+    font-size: 15px;
+    font-family: "Roboto Slab", Tahoma;
+    border: 2px solid #1fa3ff;
+    height: 35px;
+    width:50px;
+    display:inline-block;
+    float:left;
+    background-color: #1fa3ff;
+    border-color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    -webkit-transition: background-color  0.5s ease;
+    -moz-transition: background-color  0.5s ease;
+}
+
+.divRight .divAction .statusRightPanel .divComment .commentCompose input:hover {
+    background-color: #FFF;
+    border-color: #1fa3ff;;
+}
+
+/***** END USER PAGE ******/
+
+/***** Page Friend ******/
+
+.logo-zess{
+    background-color: #000000;
+    padding-top: 4px;
+    padding-left: 65px;
+    height: 70px;
+}
+.logo-zess img {
+    width: 155px;
+    height: 65px;
+}
+.logo-zess:hover{
+    cursor: pointer;
+}
+.hr-friend{
+    border: 1.6px solid #000000;
+    width: 500px;
+    margin-top: 10px !important;
+}
+.bodyFriendPage{
+    background:#e6eecc url('../img/friend_background.png') repeat top left;
+    color: #333;
+    font-family: 'Terminal Dosis', Arial, sans-serif;
+    font-size: 13px;
+}
+
+.fiend-container{
+    position: relative;
+    float: left;
+}
+
+.friend-content{
+    position: relative;
+    float: left;
+}
+
+@font-face {
+    font-family: 'Terminal Dosis';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Dosis Regular'), local('Dosis-Regular'), url(http://themes.googleusercontent.com/static/fonts/terminaldosis/v5/_IcvjW_kWHsIHjjUsLbdpFGxLvFzKVP0OsRYGzgS_zk.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('websymbols/websymbols-regular-webfont.eot');
+    src: url('websymbols/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('websymbols/websymbols-regular-webfont.woff') format('woff'),
+    url('websymbols/websymbols-regular-webfont.ttf') format('truetype'),
+    url('websymbols/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ca-menu{
+    padding:0;
+    margin:10px auto;
+    width: auto;
+}
+.ca-menu li{
+    /*width: 350px;*/
+    width: 280px;
+    /*height: 100px;*/
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    margin-bottom: 4px;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+
+.ca-menu li:last-child{
+    margin-bottom: 0px;
+}
+.ca-menu li a{
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #333;
+    position: relative;
+}
+.ca-icon{
+    font-family: 'WebSymbolsRegular', cursive;
+    font-size: 20px;
+    text-shadow: 0px 0px 1px #333;
+    /*line-height: 90px;*/
+    line-height: 60px;
+    position: absolute;
+    width: 90px;
+    /*left: 20px;*/
+    text-align: center;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.ca-content{
+    position: absolute;
+    /*left: 120px;*/
+    left: 90px;
+    /*width: 370px;*/
+    width: auto;
+    height: 60px;
+    /*top: 20px;*/
+}
+
+.ca-content h2, h3 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-family: "Terminal Dosis" !important;
+}
+
+.ca-main{
+    font-size: 30px !important;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+    font-weight: normal;
+}
+.ca-sub{
+    font-size: 14px;
+    color: #666;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.ca-menu li:hover{
+    background: #e1f0fa;
+}
+.ca-menu li:hover .ca-icon{
+    font-size: 40px;
+    color: #259add;
+    opacity: 0.8;
+    text-shadow: 0px 0px 13px #fff;
+}
+.ca-menu li:hover .ca-main{
+    opacity: 1;
+    color:#2676ac;
+    -webkit-animation: moveFromTop 300ms ease-in-out;
+    -moz-animation: moveFromTop 300ms ease-in-out;
+    -ms-animation: moveFromTop 300ms ease-in-out;
+}
+.ca-menu li:hover .ca-sub{
+    opacity: 1;
+    -webkit-animation: moveFromBottom 300ms ease-in-out;
+    -moz-animation: moveFromBottom 300ms ease-in-out;
+    -ms-animation: moveFromBottom 300ms ease-in-out;
+}
+@-webkit-keyframes moveFromBottom {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(200%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@-moz-keyframes moveFromBottom {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(200%);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0%);
+    }
+}
+@-ms-keyframes moveFromBottom {
+    from {
+        opacity: 0;
+        -ms-transform: translateY(200%);
+    }
+    to {
+        opacity: 1;
+        -ms-transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-200%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@-moz-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(-200%);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0%);
+    }
+}
+@-ms-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -ms-transform: translateY(-200%);
+    }
+    to {
+        opacity: 1;
+        -ms-transform: translateY(0%);
+    }
+}
+/******list-frined******/
+.list-friend{
+    margin-left: 14px;
+    margin-bottom: 15px;
+}
+.friend-link a {
+    color: #000000;
+    font-size: 20px;
+    font-family: 'Terminal Dosis';
+}
+.friend-link a:hover{
+    text-decoration: none;
+    color: #2a6496;
+}
+
+.ec-circle{
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 210px;
+    -moz-border-radius: 210px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    font-family:'Kelly Slab', Georgia, serif;
+    background: #8BBAFC url('../img/1.jpg') no-repeat center center;
+    /*change with hover*/
+    /*box-shadow:*/
+        /*inset 0 0 1px 230px rgba(0,0,0,0.6),*/
+        /*inset 0 0 0 7px #333333;*/
+
+    box-shadow:
+        inset 0 0 0 0 rgba(0,0,0,0.6),
+        inset 0 0 0 4px #4AABE2,
+        0 0 4px rgba(0,0,0,0.3);
+    /**/
+    transition: box-shadow 500ms ease-in-out;
+    display: block;
+    outline: none;
+}
+
+.ec-circle a {
+    text-decoration: none;
+    display: block;
+    margin-top: 3px;
+    color: transparent;
+}
+.ec-circle a:hover{
+    /*text-decoration: underline;*/
+    cursor: pointer;
+    color: #ffffff;
+}
+.ec-circle .song-tai {
+    margin-top: 50px !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+.ec-circle .ban-chung {
+    font-size: 13px;
+}
+.ec-circle .huy-ketban {
+    font-size: 11px;
+}
+.ec-circle:hover{
+    text-decoration: none;
+}
+
+.ec-circle-hover{
+    box-shadow:
+        inset 0 0 0 0 rgba(0,0,0,0.6),
+        inset 0 0 0 20px #c18167,
+        0 0 10px rgba(0,0,0,0.3);
+}
+.ec-circle:hover{
+    /*box-shadow:*/
+        /*inset 0 0 0 0 rgba(0,0,0,0.6),*/
+        /*inset 0 0 0 10px #4AABE2,*/
+        /*0 0 4px rgba(0,0,0,0.3);*/
+
+    /**/
+    box-shadow:
+        inset 0 0 1px 230px rgba(0,0,0,0.6),
+        inset 0 0 0 10px #333333;
+}
+
+.search-nav{
+    /*background-image: url("../img/friend-navigation.png");*/
+    /*background-repeat: repeat-x repeat-y;*/
+    /*background-position: 0px 0px;*/
+    background-color: #333333;
+}
+    /*css khung search flash*/
+@import url(http://fonts.googleapis.com/css?family=Cabin:400);
+
+.webdesigntuts-workshop {
+    /*background: #151515;*/
+    /*height: 100%;*/
+    /*position: absolute;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
+}
+
+.webdesigntuts-workshop:before,
+.webdesigntuts-workshop:after {
+    content: '';
+    display: block;
+    height: 1px;
+    left: 50%;
+    margin: 0 0 0 -400px;
+    position: absolute;
+    width: 800px;
+}
+
+.webdesigntuts-workshop form {
+    padding-top: 15px;
+   display: block;
+}
+
+.webdesigntuts-workshop input {
+    /*background: #222;*/
+    /*background: -webkit-linear-gradient(#333, #222);*/
+    /*background: -moz-linear-gradient(#333, #222);*/
+    /*background: -o-linear-gradient(#333, #222);*/
+    /*background: -ms-linear-gradient(#333, #222);*/
+    /*background: linear-gradient(#333, #222);*/
+    border: 1px solid #444;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    display: block;
+    float: left;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    height: 40px;
+    margin: 0;
+    padding: 0 10px;
+    /*text-shadow: 0 -1px 0 #000;*/
+    width: 350px;
+}
+
+.ie .webdesigntuts-workshop input {
+    line-height: 40px;
+}
+
+.webdesigntuts-workshop input::-webkit-input-placeholder {
+    color: #888;
+}
+
+.webdesigntuts-workshop input:-moz-placeholder {
+    color: #888;
+}
+
+.webdesigntuts-workshop input:focus {
+    -webkit-animation: glow 800ms ease-out infinite alternate;
+    -moz-animation: glow 800ms ease-out infinite alternate;
+    -o-animation: glow 800ms ease-out infinite alternate;
+    -ms-animation: glow 800ms ease-out infinite alternate;
+    animation: glow 800ms ease-out infinite alternate;
+    /*background: #222922;*/
+    /*background: -webkit-linear-gradient(#E1E1E1, #D4D4D4);*/
+    /*background: -moz-linear-gradient(#E1E1E1, #D4D4D4);*/
+    /*background: -o-linear-gradient(#E1E1E1, #D4D4D4);*/
+    /*background: -ms-linear-gradient(#E1E1E1, #D4D4D4);*/
+    /*background: linear-gradient(#E1E1E1, #D4D4D4);*/
+    /*border-color: #393;*/
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+    color: #000000;
+    outline: none;
+}
+
+.webdesigntuts-workshop input:focus::-webkit-input-placeholder {
+    color: #efe;
+}
+
+.webdesigntuts-workshop input:focus:-moz-placeholder {
+    color: #efe;
+}
+
+.webdesigntuts-workshop button {
+    background: #222;
+    background: -webkit-linear-gradient(#333, #222);
+    background: -moz-linear-gradient(#333, #222);
+    background: -o-linear-gradient(#333, #222);
+    background: -ms-linear-gradient(#333, #222);
+    background: linear-gradient(#333, #222);
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -o-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 1px solid #444;
+    border-left-color: #000;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 0 #000;
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    height: 38px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-shadow: 0 -1px 0 #000;
+    width: 80px;
+}
+
+.webdesigntuts-workshop button:hover,
+.webdesigntuts-workshop button:focus {
+    background: #206DEB;
+    /*background: -webkit-linear-gradient(#393939, #292929);*/
+    /*background: -moz-linear-gradient(#393939, #292929);*/
+    /*background: -o-linear-gradient(#393939, #292929);*/
+    /*background: -ms-linear-gradient(#393939, #292929);*/
+    /*background: linear-gradient(#ffffff, #ffffff);*/
+    color: #ffffff;
+    outline: none;
+}
+
+.webdesigntuts-workshop button:active {
+    background: #292929;
+    background: -webkit-linear-gradient(#393939, #292929);
+    background: -moz-linear-gradient(#393939, #292929);
+    background: -o-linear-gradient(#393939, #292929);
+    background: -ms-linear-gradient(#393939, #292929);
+    background: linear-gradient(#393939, #292929);
+    box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+    top: 1px;
+}
+
+@-webkit-keyframes glow {
+    0% {
+        border-color: #15468B;
+        box-shadow: 0 0 5px #8CC5F2, inset 0 0 5px #AFDBF8, 0 2px 0 #000;
+    }
+    100% {
+        border-color: #32CCFE;
+        box-shadow: 0 0 20px #45C8F3, inset 0 0 10px #79D1F6, 0 2px 0 #000;
+    }
+}
+
+@-moz-keyframes glow {
+    0% {
+        border-color: #15468B;
+        box-shadow: 0 0 5px #8CC5F2, inset 0 0 5px #AFDBF8, 0 2px 0 #000;
+    }
+    100% {
+        border-color: #32CCFE;
+        box-shadow: 0 0 20px #45C8F3, inset 0 0 10px #79D1F6, 0 2px 0 #000;
+    }
+}
+
+@-o-keyframes glow {
+    0% {
+        border-color: #15468B;
+        box-shadow: 0 0 5px #8CC5F2, inset 0 0 5px #AFDBF8, 0 2px 0 #000;
+    }
+    100% {
+        border-color: #32CCFE;
+        box-shadow: 0 0 20px #45C8F3, inset 0 0 10px #79D1F6, 0 2px 0 #000;
+    }
+}
+
+@-ms-keyframes glow {
+    0% {
+        border-color: #15468B;
+        box-shadow: 0 0 5px #8CC5F2, inset 0 0 5px #AFDBF8, 0 2px 0 #000;
+    }
+    100% {
+        border-color: #32CCFE;
+        box-shadow: 0 0 20px #45C8F3, inset 0 0 10px #79D1F6, 0 2px 0 #000;
+    }
+}
+
+/*0% {*/
+    /*border-color: #393;*/
+    /*box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;*/
+/*}*/
+/*100% {*/
+    /*border-color: #6f6;*/
+    /*box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;*/
+/*}*/
+
+@keyframes glow {
+    0% {
+        border-color: #15468B;
+        box-shadow: 0 0 5px #8CC5F2, inset 0 0 5px #AFDBF8, 0 2px 0 #000;
+    }
+    100% {
+        border-color: #32CCFE;
+        box-shadow: 0 0 20px #45C8F3, inset 0 0 10px #79D1F6, 0 2px 0 #000;
+    }
+}
+
+
+/***** END Page Friend ******/
+
+
+
+/*********** START CSS for Update Info **********/
+
+@font-face {
+    font-family: 'Josefin Slab';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Josefin Slab'), local('JosefinSlab'), url(http://themes.googleusercontent.com/static/fonts/josefinslab/v3/46aYWdgz-1oFX11flmyEfXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+    font-family: 'Josefin Slab';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Josefin Slab Bold'), local('JosefinSlab-Bold'), url(http://themes.googleusercontent.com/static/fonts/josefinslab/v3/NbE6ykYuM2IyEwxQxOIi2Hl4twXkwp3_u9ZoePkT564.woff) format('woff');
+}
+
+.bg-update{
+    /*background-image: url("../img/pattern.png");*/
+    /*background-repeat: repeat-x repeat-y;*/
+}
+
+.wrapper{
+    width:90%;
+    max-width:800px;
+    margin:30px auto;
+}
+.st-accordion{
+    width:100%;
+    min-width:270px;
+    margin: 0 auto;
+}
+.st-accordion ul li{
+    height: 100px;
+    border-bottom: 1px solid #c7deef;
+    border-top:1px solid #fff;
+    overflow: hidden;
+}
+.st-accordion ul li:first-child{
+    border-top:none;
+}
+.st-accordion ul li > a{
+    /*font-family: 'Terminal Dosis' !important;*/
+    text-shadow: 1px 1px 1px #fff;
+    font-size: 46px;
+    display: block;
+    position: relative;
+    line-height: 100px;
+    outline:none;
+    -webkit-transition:  color 0.2s ease-in-out;
+    -moz-transition:  color 0.2s ease-in-out;
+    -o-transition:  color 0.2s ease-in-out;
+    -ms-transition:  color 0.2s ease-in-out;
+    transition:  color 0.2s ease-in-out;
+    color: #000000;
+}
+.st-accordion ul li > a > label{
+    font-family: "Roboto Slab", Tahoma;
+    font-size: 35px;
+    cursor: pointer;
+    font-weight: normal !important;
+}
+.st-accordion ul li > a span{
+    background: transparent url(../img/down.png) no-repeat center center;
+    text-indent:-9000px;
+    width: 26px;
+    height: 14px;
+    position: absolute;
+    top: 50%;
+    right: -26px;
+    margin-top: -7px;
+    opacity:0;
+    -webkit-transition:  all 0.2s ease-in-out;
+    -moz-transition:  all 0.2s ease-in-out;
+    -o-transition:  all 0.2s ease-in-out;
+    -ms-transition:  all 0.2s ease-in-out;
+    transition:  all 0.2s ease-in-out;
+}
+.st-accordion ul li > a:hover{
+    /*color: #1693eb;*/
+    color: #206DEB;
+    text-decoration: none;
+}
+.st-accordion ul li > a:hover span{
+    opacity:1;
+    right: 10px;
+}
+.st-accordion ul li.st-open > a{
+    color: #1693eb;
+    /*color: #000000;*/
+}
+.st-accordion ul li.st-open > a span{
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    transform:rotate(180deg);
+    right:10px;
+    opacity:1;
+}
+.st-content{
+    /*padding: 5px 0px 30px 0px;*/
+    background-image: url('../img/pattern.png');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 25px;
+}
+.st-content p{
+    font-size:  16px;
+    font-family:  Georgia, serif;
+    font-style: italic;
+    line-height:  28px;
+    padding: 0px 4px 15px 4px;
+}
+.st-content img{
+    width:125px;
+    border-right:1px solid #fff;
+    border-bottom:1px solid #fff;
+}
+@media screen and (max-width: 320px){
+    .st-accordion ul li > a{
+        font-size:36px;
+    }
+}
+
+.divAboutme label{
+    min-width: 150px;
+    font-family: arial;
+}
+
+.divAboutme input {
+    width: 50%;
+    height: 40px;
+    background-color: transparent;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    color: #333333;
+    border: 1px solid #ccc;
+    outline: none;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.7);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.divAboutme input:focus, .focusCSS3{
+    border: 1px solid #7fbbf9;
+    -moz-box-shadow:    inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    box-shadow:         inset 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px #7fbbf9;
+    background-color: #ffffff;
+}
+.select-wrapper{
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #ccc;
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    border-radius:         5px;
+    -moz-box-shadow:    0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    box-shadow:         0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+.select-wrapper:before {
+    /*content: '';*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*width: 30px; *//* fix FF with wider than 20px */
+    /*height: 100%;*/
+    /*background-color: #fff;*/
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef)); *//* Saf4+, Chrome */
+    /*background-image: -webkit-linear-gradient(top, #ffffff, #efefef); *//* Chrome 10+, Saf5.1+, iOS 5+ */
+    /*-moz-border-radius:    5px;*/
+    /*-webkit-border-radius: 5px;*/
+    /*border-radius:         5px;*/
+}
+.select-wrapper:after {
+    content: '';
+    border: 6px solid transparent;
+    border-top: 6px solid #444;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 270px;
+}
+.select-wrapper select {
+    width: 290px;
+    height: 24px;
+    padding: 8px 0 4px 10px;
+    border: 0;
+    background: transparent none;
+    outline: none;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -moz-appearance:    none;
+    -webkit-appearance: none;
+    appearance:         none;
+    -moz-box-sizing:    content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing:         content-box;
+}
+.select-wrapper select:focus{
+    width: 287px;
+    /*width: 220px;*/
+    border-radius: 5px;
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
+    background-image: -webkit-linear-gradient(top, #ffffff, #efefef);
+}
+.select-wrapper:focus{
+    background-color: #ffffff;
+}
+.select-wrapper select option {
+    background: #ededed;
+    height: 24px;
+    width: 100%;
+    padding: 10px 0 2px 10px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    -moz-appearance:    none;
+    -webkit-appearance: none;
+    appearance:         none;
+    -moz-box-sizing:    content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing:         content-box;
+}
+
+
+.divAboutme button{
+    margin-top: 15px;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: "Roboto Slab", Tahoma;
+    border: 2px solid #1fa3ff;
+    height: 30px;
+    padding: 5px 5px 5px 5px;
+    display: inline-block;
+    background-color: #1fa3ff;
+    border-color: #FFF;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    -o-transition: background-color 0.5s ease;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+}
+.divAboutme button:hover{
+    background-color: #FFF;
+    border-color: #1fa3ff;
+    color: #000000;
+}
+.iconInfo{
+    font-family: 'WebSymbolsRegular', cursive;
+}
+
+/*CSS for crop image*/
+/*
+ * imgAreaSelect animated border style
+ */
+
+.imgareaselect-border1 {
+    background: url(../img/border-anim-v.gif) repeat-y left top;
+}
+
+.imgareaselect-border2 {
+    background: url(../img/border-anim-h.gif) repeat-x left top;
+}
+
+.imgareaselect-border3 {
+    background: url(../img/border-anim-v.gif) repeat-y right top;
+}
+
+.imgareaselect-border4 {
+    background: url(../img/border-anim-h.gif) repeat-x left bottom;
+}
+
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.imgareaselect-handle {
+    background-color: #fff;
+    border: solid 1px #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.imgareaselect-outer {
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.imgareaselect-selection {
+}
+/*********** END CSS for Update Info **********/
+
+/*****Button ket ban trang ca nhan********/
+
+.a-btn{
+    background: -webkit-linear-gradient(top, #86C5FD 0%, #1FA3FF 100%);
+    padding-left:20px;
+    padding-right:80px;
+    height:38px;
+    display:inline-block;
+    position:relative;
+    border:1px solid #5d81ab;
+    box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2), 0px 0px 0px 4px rgba(188,188,188,0.5);
+    border-radius:20px;
+    float:left;
+    clear:both;
+    margin:10px 0px;
+    overflow:hidden;
+    transition:all 0.3s linear;
+}
+.a-btn :hover{
+    text-decoration: none !important;
+}
+
+.a-btn-text{
+    padding-top:5px;
+    display:block;
+    font-size: 18px;
+    white-space:nowrap;
+    text-shadow:0px 1px 1px rgba(255,255,255,0.3);
+    color:#446388;
+    transition:all 0.2s linear;
+}
+.a-btn-slide-text{
+    position:absolute;
+    height:100%;
+    top:0px;
+    right:52px;
+    width: 0;
+    background:#63707e;
+    text-shadow:0px -1px 1px #363f49;
+    color:#fff;
+    font-size:15px;
+    white-space:nowrap;
+    text-align:center;
+    overflow:hidden;
+    line-height:38px;
+    box-shadow:-1px 0px 1px rgba(255,255,255,0.4), 1px 1px 2px rgba(0,0,0,0.2) inset;
+    transition:width 0.3s linear;
+}
+.a-btn-icon-right{
+    position:absolute;
+    right:0px;
+    top:0px;
+    height:100%;
+    width:52px;
+    border-left:1px solid #5d81ab;
+    -webkit-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
+    -moz-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
+    box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
+}
+.a-btn-icon-right span{
+    width:38px;
+    height:38px;
+    opacity:0.7;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-20px 0px 0px -20px;
+    background:transparent url(../img/arrow_right.png) no-repeat 50% 55%;
+    transition:all 0.3s linear;
+}
+.a-btn:hover{
+    padding-right:140px;
+    box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2);
+}
+.a-btn:hover .a-btn-text{
+    text-shadow:0px 1px 1px #5d81ab;
+    color:#fff;
+}
+.a-btn:hover .a-btn-slide-text{
+    width:70px;
+}
+.a-btn:hover .a-btn-icon-right span{
+    opacity:1;
+}
+.a-btn:active{
+    position:relative;
+    top:1px;
+    background:#5d81ab;
+    box-shadow:1px 1px 2px rgba(0,0,0,0.4) inset;
+    border-color:#80a9da;
+}
+
+[data-notifications] {
+    position: relative !important;
+}
+
+/* append the notification badge after it */
+[data-notifications]:after {
+
+    /* the burger */
+    content: attr(data-notifications);
+
+    /* the fries */
+    position: absolute;
+    background: red;
+    border-radius: 20%;
+    display: inline-block;
+    /*padding: 0.3em;*/
+    color: #f2f2f2;
+    right: 80px;
+    top: -15px;
+    padding: 0px 3px 0px 3px;
+    font-size: 12px;
+}
+
+.arrow_box {
+    position: relative;
+    background: white;
+    border: 1px solid #6FCAF0;
+    width: 300px;
+    min-height: 70px;
+    left: -315px;
+    top: -8px;
+    border-radius: 5px;
+    color: black;
+
+}
+
+.arrow_box:hover{
+    left: -319px;
+}
+
+.arrow_box:after, .arrow_box:before {
+    left: 100%;
+    top: 23px;
+    border:1px solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(0, 0, 0, 0);
+    border-left-color: white;
+    border-width: 7px;
+    margin-top: -7px;
+}
+.arrow_box:before {
+    border-color: rgba(111, 202, 240, 0);
+    border-left-color: #6FCAF0;
+    border-width: 8px;
+    margin-top: -8px;
+}
+
+.left-slide-arrow{
+    width: 26px;
+    height: 14px;
+    background-image: url("../img/down.png");
+    -webkit-transform:rotate(-270deg);
+
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 75px;
+    left: 25px;
+    cursor: pointer;
+}
+.right-slide-arrow{
+    width: 26px;
+    height: 14px;
+    background-image: url("../img/down.png");
+    -webkit-transform:rotate(-90deg);
+
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: -105px;
+    left: 270px;
+    cursor: pointer;
+}
+
+
+/*****END Button ket ban trang ca nhan********/
