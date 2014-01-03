@@ -105,7 +105,7 @@ function time_difference($date)
             <div id="searchResult" style="display: none;">
                 <div class="searchUser">
                     <div class="image-searchUser">
-                        <img src="img/avatar.jpg" >
+                        <img src="<?php echo $this->basePath(); ?>/img/avatar.jpg" >
                     </div>
                     <div class="content-searchUser">
                         <a href="#"><span class="name-searchUser">Nguyễn Phúc Hưng</span></a>
@@ -167,7 +167,16 @@ function time_difference($date)
             </div>
         </div>
         <div class="divSub friend">
-            <div class="divHead"> Bạn bè </div>
+            <a href="
+            <?php
+                if($actionUserID == $actionLocationID)
+                    echo $this->basePath().'/success/friend/';
+                else
+                    echo $this->basePath().'/success/friend?user='.$actionLocationID;
+
+            ?>">
+                <div class="divHead"> Bạn bè </div>
+            </a>
             <div class="divContent" id="listF" style="overflow-y: scroll;max-height: 214px;">
 
                 <style type="text/css">
@@ -364,13 +373,13 @@ function time_difference($date)
     </div>
 
     <div class="divMenu">
-        <a>
+        <a href="<?php echo $this->basePath().'/homepage/'; ?>">
             <div class="menuSub home">
                 <div class="divMenuIcon home"></div>
                 <div class="divMenuName home">Trang chủ</div>
             </div>
         </a>
-        <a>
+        <a href="<?php echo $this->basePath().'/success/'; ?>">
             <div class="menuSub me">
                 <div class="divMenuIcon me"></div>
                 <div class="divMenuName me">Cá Nhân</div>
@@ -382,8 +391,13 @@ function time_difference($date)
                 <div class="divMenuName noti">Chọc</div>
             </div>
         </a>
-<!--        <a href="--><?php //echo $this->url('success', array('action' => 'friend')); ?><!--">-->
-        <a href="<?php echo $this->url('success', array('action' => 'friend')); ?>">
+
+        <a href="<?php
+        if($actionUserID == $actionLocationID)
+            echo $this->url('success', array('action' => 'friend'));
+        else
+            echo $this->basePath().'/success/friend?user='. $actionLocationID;
+        ?>">
             <div class="menuSub friend">
                 <div class="divMenuIcon friend"></div>
                 <?php
@@ -764,7 +778,7 @@ function time_difference($date)
                     </div>
                     <div class="icon">
                         <a class="like" href="javascript:void(0)"></a>
-                        <span class="like">
+                        <span class="like-span<?php echo $actionID;?>">
                             <?php
                             if(isset($countLikes[$actionID]))
                                 echo $countLikes[$actionID];
@@ -925,10 +939,12 @@ function time_difference($date)
                 var objForm = "#" + form;
 //                var actionIDforCMT = jQuery(objForm).attr('name');
 
-                var valueComment = jQuery('form#'+form + ' textarea.contentPostComment').val();
+                var textAreaComment = jQuery('form#'+form + ' textarea.contentPostComment');
+                var valueComment = textAreaComment.val();
 //                alert(actionIDforCMT);
 //                alert(valueComment);
                 checkFormCommentArea(jQuery(objForm), valueComment, actionIDforCMT);
+//                textAreaComment.val('');
             });
         });
 
@@ -975,6 +991,7 @@ function time_difference($date)
                     {
 //                        @TODO:
                         instanceShowComment(cmtContent, timeNow, form);
+                        form[0].reset();
                     }
                     else
                     {
@@ -986,7 +1003,7 @@ function time_difference($date)
                     alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
                 }
             });
-            return false;
+//            return false;
         }
 
         function instanceShowComment(commentContent, timestamp, form)
@@ -1124,6 +1141,7 @@ function time_difference($date)
                         divError.show().delay(4000).fadeOut();
 
                         instancePostStatus(status, timeNow);
+                        jQuery('#statusPostContent').val('');
                         var divFirstAction =  jQuery('.statusBlock').next();
                         divFirstAction.css("opacity", 0);
                         divFirstAction.animate({
@@ -1232,7 +1250,7 @@ function time_difference($date)
             jQuery(tagaLikeCount).css('cursor', 'pointer');
 
             var spanLikeCount = document.createElement('span');
-            spanLikeCount.className='like';
+            spanLikeCount.className='like-spanACT'+timeStamp;
             jQuery(spanLikeCount).text('0');
 
             var tagaCommentCount = document.createElement('a');
@@ -1331,11 +1349,10 @@ function time_difference($date)
                     var like = 'LIK'+actionLocation+timeStamp;
                     buttonLike.attr('id',like );
                     setLikeStatus(actionid, timeStamp, actionUser, actionLocation, buttonLike);
-                    var divStatusFooter =  buttonLike.parent().parent().attr('class');
-                    var countLike = jQuery('.'+divStatusFooter+ ' .icon span.like');
-//                    alert(countLike.text());
-                    var newCount = parseInt(countLike.text()) + 1;
-                    countLike.html(newCount);
+                    var likeRightNow = jQuery('.like-span' + actionid);
+                    var changeLike = parseInt(likeRightNow.text()) + 1;
+//                    alert(changeLike);
+                    jQuery(likeRightNow).html(changeLike);
 
                 }
                 else
@@ -1344,10 +1361,10 @@ function time_difference($date)
                     var likeID = buttonLike.attr('id');
                     buttonLike.attr('id', '');
                     setUnlikeStatus(likeID, buttonLike);
-                    var divStatusFooter =  buttonLike.parent().parent().attr('class');
-                    var countLike = jQuery('.'+divStatusFooter+ ' .icon span.like');
-                    var newCount = parseInt(countLike.html()) - 1;
-                    countLike.html(newCount);
+                    var likeRightNow = jQuery('.like-span' + actionid);
+                    var changeLike = parseInt(likeRightNow.text()) - 1;
+//                    alert(changeLike);
+                    jQuery(likeRightNow).html(changeLike);
                 }
 
             });
@@ -1413,6 +1430,7 @@ function time_difference($date)
                     if(data!='error')
                     {
                         ajaxSaveImageNormal(userid, timeNow, descript, data);
+                        jQuery('#form-postImage')[0].reset();
                     }
                 },
                 error: function() {
@@ -1499,6 +1517,7 @@ function time_difference($date)
                     if(data!='error')
                     {
                         ajaxSaveVideo(userid, timeNow, descript, data);
+                        jQuery('#form-postVideo')[0].reset();
                     }
                     else
                     {
@@ -1619,6 +1638,7 @@ function time_difference($date)
                         var pathImage = data;
 //                        alert('thanh cong');
                         ajaxSaveNewSharePlace(actionUser, actionLocation, timeNow, placeName, descript, pathImage);
+                        jQuery('#form-postShare')[0].reset();
                     }
                     else
                     {
@@ -1707,11 +1727,11 @@ function time_difference($date)
                     var like = 'LIK'+actionLocation+timeStamp;
                     buttonLike.attr('id',like );
                     setLikeStatus(actionid, timeStamp, actionUser, actionLocation, buttonLike);
-                    var divStatusFooter =  buttonLike.parent().parent().attr('class');
-                    var countLike = jQuery('.'+divStatusFooter+ ' .icon span.like');
-//                    alert(countLike.text());
-                    var newCount = parseInt(countLike.text()) + 1;
-                    countLike.html(newCount);
+
+                    var likeRightNow = jQuery('.like-span' + actionid);
+                    var changeLike = parseInt(likeRightNow.text()) + 1;
+//                    alert(changeLike);
+                    jQuery(likeRightNow).html(changeLike);
 
                 }
                 else
@@ -1720,10 +1740,11 @@ function time_difference($date)
                     var likeID = buttonLike.attr('id');
                     buttonLike.attr('id', '');
                     setUnlikeStatus(likeID, buttonLike);
-                    var divStatusFooter =  buttonLike.parent().parent().attr('class');
-                    var countLike = jQuery('.'+divStatusFooter+ ' .icon span.like');
-                    var newCount = parseInt(countLike.text()) - 1;
-                    countLike.html(newCount);
+                    var likeRightNow = jQuery('.like-span' + actionid);
+                    var changeLike = parseInt(likeRightNow.text()) - 1;
+//                    alert(changeLike);
+                    jQuery(likeRightNow).html(changeLike);
+
                 }
             });
         });

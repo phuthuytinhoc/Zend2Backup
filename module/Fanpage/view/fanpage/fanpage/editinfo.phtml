@@ -1,0 +1,481 @@
+<style type="text/css">
+
+</style>
+
+
+<input type="hidden" name="<?php if(isset($pageInfo)) echo $pageInfo['pageid'] ?>" id="hidden-pageid">
+<input type="hidden" name=" <?php if(isset($pageInfo)) echo $pageInfo['userid'] ?>" id="hidden-userid">
+
+<h2 style="padding-left: 50px;font-size: 20px;font-weight: bold;">
+    Cài đặt Fanpage > Chỉnh sửa thông tin Fanpage
+</h2>
+
+<div class="container bg-update" style="max-width: 100%;">
+    <div class="wrapper" style="margin: 0px;">
+        <div id="st-accordion" class="st-accordion">
+            <ul>
+                <li>
+                    <a class="iconInfo" name="uploadPreview" href="#"> a
+                        <label  style="margin-left: 25px;">Thay đổi thông tin trang</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+                        <div class="edit-infoFanpage" style="">
+                            <form method="post">
+                                <div class="edit-input">
+                                    <label>Tên fanpage:</label>
+                                    <input type="text" placeholder="Nhập tên fanpage...">
+                                </div>
+                                <div class="edit-input">
+                                    <label>Mô tả fanpage:</label>
+                                    <textarea type="text" placeholder="Nhập mô tả fanpage..."></textarea>
+                                </div>
+                                <div class="edit-input">
+                                    <label></label>
+                                    <input type="submit" value="Lưu">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a class="iconInfo" name="uploadPreview" href="#"> a
+                        <label  style="margin-left: 25px;">Cài đặt slide ảnh & ảnh logo</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+
+                        <form method="post" enctype="multipart/form-data" id="form-imageLogo">
+                            <div class="edit-input"  style="float: left; width: 50%; text-align: center;">
+                                <label style="display: block;width: 100%;">
+                                    Chọn ảnh thay đổi logo fanpage:
+                                </label>
+                                <div class="preview-logoFanpage" id="prv-logo">
+                                <?php
+//                                var_dump($bindingInfo);die();
+
+                                if(isset($bindingInfo['bindingImageLogo']) && $bindingInfo['bindingImageLogo'] != null)
+                                {
+                                    echo "<img src='".$this->basePath()."/uploads/".$bindingInfo['bindingImageLogo']."'>";
+                                }
+                                else
+                                {
+                                    echo "<img src='".$this->basePath()."/uploads/ava-temp.png'>";
+                                }
+                                ?>
+                                </div>
+                                <input type="file" name="image" id="file-imageLogo">
+                                <input style="display: block;margin: 0 auto;" id="sub-imageLogo" type="button" value="Tải lên">
+                            </div>
+                        </form>
+
+                        <form method="post" enctype="multipart/form-data" id="form-imageAvatar">
+                            <div class="edit-input" style="width: 50%; display: inline-block; text-align: center;">
+                                <label style="display: block;width: 100%;">
+                                    Chọn ảnh thay đổi ảnh đại diện fanpage:
+                                </label>
+                                <div class="preview-logoFanpage" id="prv-avatar">
+                                    <?php
+                                    if(isset($bindingInfo['bindingImageAvatar']) && $bindingInfo['bindingImageAvatar'] != null)
+                                    {
+                                        echo "<img src='".$this->basePath()."/uploads/".$bindingInfo['bindingImageAvatar']."'>";
+                                    }
+                                    else
+                                    {
+                                        echo "<img src='".$this->basePath()."/uploads/ava-temp.png'>";
+                                    }
+                                    ?>
+                                </div>
+                                <input type="file" name="image" id="file-imageAvatar">
+                                <input style="display: block; margin: 0 auto;" type="button" value="Tải lên" id="sub-imageAvatar" >
+                            </div>
+                        </form>
+
+<!--                        <form method="post">-->
+                            <div class="edit-input" style="display: inline-block; width: 50%; vertical-align: top; margin-top: 30px;">
+                                <label style="display: block;width: 100%; padding-bottom: 15px;">
+                                    Cập nhật slideshow ảnh fanpage:
+                                </label>
+
+                                <div class="subImage" style="width: 100%; float: left;">
+                                    <div class="left-slide-arrow">
+
+                                    </div>
+                                    <div class="right-slide-arrow">
+
+                                    </div>
+
+                                    <div class="wrapper-slide" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                                        <div class="slide-avar" style="width: 1000px; left:0px;">
+                                            <div class="small-div" style="display: inline-block; float: left;">
+                                                <img src="/zend2/public/uploads/cover-temp.jpg">
+                                            </div>
+                                            <div class="small-div" style="display: inline-block; float: left;">
+                                                <img src="/zend2/public/uploads/cover-temp.jpg">
+                                            </div>
+                                            <div class="small-div" style="display: inline-block; float: left;">
+                                                <img src="/zend2/public/uploads/cover-temp.jpg">
+                                            </div>
+                                            <div class="small-div" style="display: inline-block; float: left;">
+                                                <img src="/zend2/public/uploads/cover-temp.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="preview-slideShow" style="width: 100%; margin-top: 10px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                                        <img style="width: 100%;" src="/zend2/public/uploads/cover-temp.jpg">
+                                    </div>
+                                </div>
+                            </div>
+<!--                        </form>-->
+
+                            <div class="edit-input" style="display: inline-block; width: 45%; margin-left: 4%; margin-top: 30px;">
+                                <label style="display: block;width: 100%; padding-bottom: 15px;">
+                                    Chọn ảnh tải lên:
+                                </label>
+                                <form action="upload.php" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="files[]" multiple="multiple" id="files">
+                                    <input type="submit" value="Tải lên">
+                                </form>
+                            </div>
+                    </div>
+                </li>
+
+                <li id="clickMap">
+                    <a class="iconInfo" name="uploadPreview" href="#"> a
+                        <label  style="margin-left: 25px;">Thay đổi vị trí doanh nghiệp</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+                        <style type="text/css">
+                            .page-location-googlemap{width: 100%; height: 350px;}
+                        </style>
+                        <div class="edit-input" style="width: 100%; display: block;overflow:hidden;z-index:-999;">
+<!--                            <div id="mapOfPage" class="page-location-googlemap" style="width: 600px; height: 350px;">-->
+<!---->
+<!--                            </div>-->
+
+                            <div>
+                                <div id="mapOfPage" class="page-location-googlemap"></div>
+                            </div>
+                        </div>
+                        <div class="edit-input" style="width: 100%;">
+                            <div style="border: 3px solid #1693EB;border-radius: 5px;padding: 10px 20px 20px 20px;
+                            text-align: center;">
+                                <form method="post">
+                                    <label style="display: block; width: auto;">
+                                        Địa điểm được chọn của trang trên bản đồ:
+                                    </label>
+                                    <input type="text" disabled="true" placeholder="....">
+
+                                    <label style="display: block; width: auto; padding-top:15px;">
+                                        Nhập mô tả trang trên bản đồ:
+                                    </label>
+                                    <textarea placeholder="...."></textarea>
+                                    <input type="submit" value="Lưu" style="display: block;margin-left: auto;margin-right: auto;margin-top: 20px;">
+
+                                    <input type="hidden" id="pageLoca-longtitude">
+                                    <input type="hidden" id="pageLoca-lattiute">
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li>
+                    <a class="iconInfo" name="uploadPreview" href="#"> a
+                        <label  style="margin-left: 25px;">Cập nhật album doanh nghiệp</label>
+                        <span class="st-arrow">Open or Close</span>
+                    </a>
+                    <div class="st-content">
+                        Nội dung album doanh nghiệp
+
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAYVsGMEN8T8D9-TtSVgQQgM3ecNbYYFMw&sensor=false" type="text/javascript"></script>
+<script>
+    //map of page - location maker
+
+    function initialize()
+    {
+        var myLatlng = new google.maps.LatLng(51.508742,-0.120850);
+        var mapProp = {
+            center:myLatlng,
+            zoom:5,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("mapOfPage")
+            ,mapProp);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            draggable: true,
+            title: "Nhấn để xem thông tin chi tiết!"
+        });
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+
+        google.maps.event.addDomListener(window, "scroll", function() {
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.open(map,marker);
+            var data = this.getPosition().lat();
+            alert(data);
+        });
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+//    google.maps.event.addDomListener(window, 'load', initialize);
+
+    jQuery(document).ready(function(){
+
+    });
+
+
+</script>
+
+<script type="text/javascript">
+
+    var currIndex = 0;
+    var slideStep = 130;
+    var maxItems;
+    var waitingTime = 0;
+    //                    alert(maxItems);
+
+    function moveLeft()
+    {
+//                        alert(currIndex);
+        if(currIndex == 0)
+        {
+            currIndex = maxItems;
+        }
+        currIndex -= 1;
+        if(currIndex < 0)
+        {
+            currIndex = 0;
+        }
+        move(currIndex);
+    }
+    function moveRight()
+    {
+//                        alert(currIndex);
+        waitingTime++;
+        if(waitingTime<5)
+        {
+            return;
+        }
+        waitingTime = 0;
+        if(currIndex == maxItems - 1)
+        {
+            currIndex = -1;
+        }
+        currIndex += 1;
+        if(currIndex > maxItems -1)
+        {
+            currIndex = maxItems -1;
+        }
+        move(currIndex);
+    }
+
+    function move(index)
+    {
+        jQuery('.slide-avar').animate({'left': -(index*slideStep)}, 500, function(){
+
+        });
+        var smallDiv =jQuery('.small-div');
+
+
+        smallDiv.css('border', '2px solid transparent');
+        smallDiv.eq(index).css('border', '2px solid black');
+        var previewSlideShow = jQuery('.preview-slideShow>img');
+        var newSource = jQuery(smallDiv.eq(index)).children().attr('src');
+//        alert(newSource);
+
+
+        var h = previewSlideShow.height();
+        var w = previewSlideShow.width();
+        previewSlideShow.animate({
+                marginLeft: -w/2,
+
+                opacity:0
+            },700, function(){
+                jQuery(this).css({'margin-top': '0px', 'margin-left': '0px'}).attr('src', newSource);
+                jQuery(this).animate({
+                   opacity:1
+                });
+            }
+        );
+
+        previewSlideShow.css('-webkit-transform','');
+
+
+    }
+
+    function onClickLeft()
+    {
+        waitingTime = 0;
+        moveLeft();
+    }
+    function onClickRight()
+    {
+        waitingTime = 5;
+        moveRight();
+    }
+
+    jQuery(document).ready(function(){
+
+        jQuery('.small-div').eq(0).css('border', '2px solid black');
+
+        maxItems = jQuery('.slide-avar .small-div').length;
+
+        var longDiv= maxItems*slideStep+maxItems*3;
+        jQuery('.slide-avar').css('width',longDiv+ "px");
+
+        jQuery('.slide-avar .small-div img').hover(function(){
+            waitingTime=0;
+        });
+
+        jQuery('.right-slide-arrow').click(onClickRight);
+        jQuery('.left-slide-arrow').click(onClickLeft);
+//        setInterval('moveRight();', 1000);
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#st-accordion').accordion();
+    });
+</script>
+
+<script type="text/javascript">
+    function getTimestampNow()
+    {
+        var datenow = new Date();
+        datenow = parseInt(datenow.setFullYear(datenow.getFullYear(), datenow.getMonth(), datenow.getDate())/1000);
+        return datenow;
+    }
+
+    jQuery(document).ready(function(){
+
+        ///////////////STAR RESIZE UL LI //////////////////////
+        jQuery(window).scroll(function(){
+            jQuery('.st-accordion ul li').css('height', 'auto')
+        });
+        ///////////////END RESIZE UL LI //////////////////////
+
+
+        /////////////////////////START SAVE LOGO && AVATAR///////////////////////////////
+        function doActionSaveLogoAvatar(formID, pageid, btnFileID, albumType, imageSourceDiv)
+        {
+            var timeNow = getTimestampNow();
+            var formdata  = new FormData(formID[0]);
+            var reader = new FileReader();
+            var value = reader.readAsDataURL(document.getElementById(btnFileID).files[0]);
+
+
+            formdata.append('image', value);
+            formdata.append('timestamp', timeNow);
+            formdata.append('pageid', pageid);
+            formdata.append('albumType', albumType);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/plugin/fanpage_upload.php' ;?>",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async:false,
+                success: function(data) {
+                    if(data!='error')
+                    {
+
+                        ajaxSaveImageLogoPage(pageid, timeNow, data, albumType, imageSourceDiv);
+                        formID[0].reset();
+                    }
+                    else
+                    {
+                        alert('Ảnh tải lên không đúng định dạng hoặc dung lượng quá lớn!.');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        jQuery('#sub-imageLogo').click(function(){
+
+            var formID = jQuery('#form-imageLogo');
+            var pageid = jQuery('#hidden-pageid').attr('name');
+            var btnFileID = "file-imageLogo";
+            var albumType = "LOGO";
+            var imageSourceDiv = jQuery('#prv-logo');
+
+            doActionSaveLogoAvatar(formID, pageid, btnFileID, albumType, imageSourceDiv);
+
+        });
+
+        jQuery('#sub-imageAvatar').click(function(){
+            var formID = jQuery('#form-imageAvatar');
+            var pageid = jQuery('#hidden-pageid').attr('name');
+            var btnFileID = "file-imageAvatar";
+            var albumType = "AVA";
+            var imageSourceDiv = jQuery('#prv-avatar');
+
+            doActionSaveLogoAvatar(formID, pageid, btnFileID, albumType, imageSourceDiv);
+        });
+
+        function ajaxSaveImageLogoPage(pageid, timeNow, image, albumType, imageSourceDiv)
+        {
+            var dataval = "pageid=" + pageid+"&createdTime=" + timeNow+"&imageType=" +image + "&albumType=" +albumType;
+            alert(dataval);
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'savepageimage')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+                    data = jQuery.parseJSON(data);
+                        if(data['success'] == 1)
+                        {
+                            var previewLogo = imageSourceDiv;
+                            var path = '<?php echo $this->basePath(); ?>' + '/uploads/' + image;
+                           previewLogo.children().attr('src', path);
+                        }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+        /////////////////////////END SAVE LOGO && AVATAR///////////////////////////////
+
+
+        jQuery('#drop').on('drop drag',(function(){
+
+        });
+
+
+    });
+</script>

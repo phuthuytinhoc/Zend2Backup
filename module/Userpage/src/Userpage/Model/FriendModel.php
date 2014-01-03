@@ -20,13 +20,11 @@ class FriendModel
 
         $qb = $dm->createQueryBuilder('Application\Document\Friend')
                  ->field('friendusersend')->equals($actionUser)
-//                 ->field('friendstatus')->equals('ACCEPTED')
                  ->getQuery()
                  ->execute();
 
         $qb2 = $dm->createQueryBuilder('Application\Document\Friend')
             ->field('frienduserrecieve')->equals($actionUser)
-//            ->field('friendstatus')->equals('ACCEPTED')
             ->getQuery()
             ->execute();
 
@@ -46,7 +44,7 @@ class FriendModel
                 else
                     $numberRequest++;
             }
-//            return $result;
+
         }
 
         if(isset($qb2))
@@ -68,9 +66,7 @@ class FriendModel
         $infoFriends = array();
         $arrayB = array();
         $banchung = array();
-        $countBanchung = array();
 
-//        var_dump(count($result));die();
         if($result != null && isset($result)){
             foreach($result as $userid)
             {
@@ -132,7 +128,6 @@ class FriendModel
                 }
 
                 $count = 0;
-//        var_dump($arrayB);die();
 
 
                 if(isset($arrayB) && $arrayB != null && $result != null){
@@ -156,15 +151,12 @@ class FriendModel
             }
         }
 
-
-//        var_dump($infoFriends);die();
-
         return array(
-            'countFriend'   => $numberFriend,
-            'countRequest'   => $numberRequest,
-            'arrayFriendID' => $result,
-            'infoFriends'   => $infoFriends,
-            'banchung'      => $banchung,
+            'countFriend'       => $numberFriend,
+            'countRequest'      => $numberRequest,
+            'arrayFriendID'     => $result,
+            'infoFriends'       => $infoFriends,
+            'banchung'          => $banchung,
             'checkStatusFriend' => $checkStatusFriend,
 
         );

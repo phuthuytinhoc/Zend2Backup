@@ -1009,7 +1009,11 @@ class SuccessModel
     //FUNCTION FOR Load all private Infomation
     public function getPrivateInfomationUser($userid, $dm)
     {
-        $document = $dm->getRepository('Application\Document\User')->findOneBy(array('userid' => $userid));
+//        $document = $dm->getRepository('Application\Document\User')->findOneBy(array('userid' => $userid));
+        $document=$dm->createQueryBuilder('Application\Document\User')
+            ->field('userid')->equals($userid)
+            ->getQuery()
+            ->getSingleResult();
         if(isset($document))
         {
             return $document;
@@ -1043,20 +1047,27 @@ class SuccessModel
     {
         $result = array();
 
-        $qb = $dm->createQueryBuilder('Application\Document\Action')
-            ->eagerCursor(true);
-        $query = $qb->getQuery();
-        $cursor = $query->execute();
+        $document=$dm->createQueryBuilder('Application\Document\Action')
+            ->getQuery()
+            ->execute();
 
-        foreach($cursor as $doc)
+        if(isset($document))
         {
-            $pathAva = $this->getPathImageAvatarUser($doc->getActionUser(), $dm, "AVA" );
-            $actionType = $doc->getActionType();
-            $fullname = $this->getPrivateInfomationUser($doc->getActionUser(),$dm);
-            $result[$actionType] = array(
-                'fullname' => $fullname->getLastname().' '.$fullname->getFirstname(),
-                'pathAvatar'       => $pathAva,
-            );
+            foreach($document as $doc)
+            {
+                $pathAva = $this->getPathImageAvatarUser($doc->getActionUser(), $dm, "AVA" );
+                $actionType = $doc->getActionType();
+
+                $fullname = $this->getPrivateInfomationUser($doc->getActionUser(),$dm);
+                if(isset($fullname))
+                {
+                    $result[$actionType] = array(
+                        'fullname'       => $fullname->getLastname().' '.$fullname->getFirstname(),
+                        'pathAvatar'     => $pathAva,
+                    );
+                }
+
+            }
         }
 
         return $result;
@@ -1202,8 +1213,6 @@ class SuccessModel
             return null;
     }
 
-
-
     public function getFriendByStatus($actionUser, $dm, $friendStatus)
     {
         $result = array();
@@ -1213,23 +1222,11 @@ class SuccessModel
             ->field('friendstatus')->equals($friendStatus)
             ->getQuery()
             ->execute();
-        if($friendStatus != "SENT")
-        {
-            $document2 = $dm->createQueryBuilder('Application\Document\Friend')
-                ->field('friendusersend')->equals($actionUser)
-                ->field('friendstatus')->equals($friendStatus)
-                ->getQuery()
-                ->execute();
-
-            if(isset($document2))
-            {
-                foreach($document2 as $doc)
-                {
-                    $result[] = $doc->getFrienduserrecieve();
-                }
-            }
-
-        }
+        $document2 = $dm->createQueryBuilder('Application\Document\Friend')
+            ->field('friendusersend')->equals($actionUser)
+            ->field('friendstatus')->equals($friendStatus)
+            ->getQuery()
+            ->execute();
 
         if(isset($document))
         {
@@ -1237,9 +1234,17 @@ class SuccessModel
             {
                 $result[] = $doc->getFriendusersend();
             }
-
         }
 
+        if(isset($document2))
+        {
+            foreach($document2 as $doc)
+            {
+                $result[] = $doc->getFrienduserrecieve();
+            }
+        }
+
+//        var_dump($result);die();
         return $result;
     }
 

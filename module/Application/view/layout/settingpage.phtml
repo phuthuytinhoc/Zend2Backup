@@ -47,7 +47,7 @@
         </div>
         <ul class="ca-menu">
             <li>
-                <a href="<?php echo $this->basePath();?>/">
+                <a href="<?php echo $this->basePath().'/homepage/'; ?>">
                     <span class="ca-icon">F</span>
                     <div class="ca-content">
                         <h2 class="ca-main">Trang chủ</h2>
@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="<?php echo $this->basePath().'/success/'; ?>">
                     <span class="ca-icon">Z</span>
                     <div class="ca-content">
                         <h2 class="ca-main">Trang cá nhân</h2>
@@ -97,6 +97,16 @@
                     <div class="ca-content">
                         <h2 class="ca-main">Cài đặt</h2>
                         <h3 class="ca-sub">Chỉnh sửa cài đặt cá nhân</h3>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo $this->url('success', array('action' => 'create-fanpage')); ?>">
+                    <span class="ca-icon">a</span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">Tạo fanpage</h2>
+                        <h3 class="ca-sub">Tạo trang miễn phí</h3>
                     </div>
                 </a>
             </li>

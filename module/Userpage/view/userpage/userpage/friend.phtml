@@ -9,6 +9,7 @@
 
 <div class="mainContent-Friend" style="">
 
+    <?php if($actionUserID == $actionLocationID) { ?>
 
     <span style="display: block; margin-left: 30px; margin-top:30px;font-size: 16px;">
         <span id="numberRequest"><?php echo count($listFriendSent); ?></span> lời mời kết bạn
@@ -23,7 +24,7 @@
         {
     ?>
             <div class="list-friend" style=" float: left;">
-                <div id="circle" style="background-image: url('../../uploads/<?php echo $listFriendID['infoFriends'][$friendID]['pathAvatar']; ?>')" class="ec-circle">
+                <div id="circle" style="background-image: url('<?php echo $this->basePath(); ?>/uploads/<?php echo $listFriendID['infoFriends'][$friendID]['pathAvatar']; ?>')" class="ec-circle">
 
                     <a href="#" class="song-tai"><?php
                         if($relationship[$friendID]['relationship']!= null)
@@ -61,6 +62,9 @@
     ?>
     <a></a>
 
+    <?php  } ?>
+
+
     <div style="width: 100%; float: left;">
         <span style="display: block; font-size: 16px; margin-left: 30px; margin-top: 30px;"><p id="countBanbe" style="display: inline-block;"><?php echo $listFriendID['countFriend'] ?></p> bạn bè.</span>
         <hr class="hr-friend" style="width: 100%">
@@ -75,7 +79,7 @@
     ?>
 
     <div class="list-friend" style=" float: left;">
-        <div id="circle" style="background-image: url('../../uploads/<?php echo $listFriendID['infoFriends'][$friendID]['pathAvatar']; ?>')" class="ec-circle">
+        <div id="circle" style="background-image: url('<?php echo $this->basePath();?>/uploads/<?php echo $listFriendID['infoFriends'][$friendID]['pathAvatar']; ?>')" class="ec-circle">
 
             <a href="#" class="song-tai"><?php
                 if($relationship[$friendID]['relationship']!= null)

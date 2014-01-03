@@ -1,0 +1,532 @@
+
+<section class="lightbox">
+    <div class="page-logo">
+        <img src="<?php echo $this->basePath()?>/img/zess_logo2.png">
+    </div>
+</section>
+
+<section class="wrapper">
+
+    <div class="admin-panel"></div>
+
+    <div class="page-cover">
+        <div class="div-image">
+            <img src="<?php echo $this->basePath(); ?>/img/slide0.jpg">
+            <section class="bottom-blur"></section>
+        </div>
+        <div class="div-image">
+            <img src="<?php echo $this->basePath(); ?>/img/slide1.jpg">
+            <section class="bottom-blur"></section>
+        </div>
+
+    </div>
+    
+    <div class="voidClass">
+         <a href="<?php echo $this->basePath(); ?>">
+             <img src="<?php echo $this->basePath(); ?>/img/zess_logo2.png">
+         </a>
+    </div>
+
+    <style type="text/css">
+
+    </style>
+
+    <div class="albumMap" >
+        <div class="infoPage" >
+            <a class="config-infoPage"
+               href="<?php echo $this->url('fanpage', array('action' => 'editinfo')); ?>"
+               style="left:0px; margin-top: -22px;"></a>
+            <a class="config-infoPage" href="#" style="right:0px; margin-top: -22px;"></a>
+            <div class="left-infoPage" >
+                <div class="left-LogoPage">
+                    <img src="<?php echo $this->basePath().'/uploads/ava-page-temp.png'; ?>">
+                </div>
+                <div class="rightLogoPage" >
+                    <div class="rightlogo-Like" >
+                        <a id="buttonLikePage">Thích</a>
+                    </div>
+                    <div class="rightLogo-LikeSum">
+                        <span class="countLikePage">6789
+                            <label> lượt thích</label>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="namePage" >
+                    <span class="nameOfPage" >Nhà Hàng Sao Việt</span>
+                </div>
+            </div>
+            <div class="right-infoPage">
+                Nhà hàng sao việt xin kính chào quý khách.
+            </div>
+        </div>
+
+        <div class="mapToPage" id="mapToPageID" style="">
+
+            <!-- SHOW GOOGLE MAP FOR PAGE     -->
+        </div>
+
+    </div>
+
+        <!--  DIV SHOW ALBUM BY GOOGLE MAPS  -->
+    <div class="page-intro">
+
+
+        <script id="galleryTmpl" type="text/x-jquery-tmpl">
+            <div class="mp-album-outer">
+                <div class="mp-album">
+                    {{each(i, option) tmplPhotosData}}
+                    <a href="${tmplPhotosData[i]}"><img src="${tmplPhotosData[i]}"/></img></a>
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+        <script id="galleryAlbumTmpl" type="text/x-jquery-tmpl">
+            <div id="mp-album-overlay" class="mp-album-overlay">
+                <div class="mp-album-nav">
+                    <span class="mp-album-nav-prev">Lùi</span>
+                    <span class="mp-album-nav-next">Tiến</span>
+                </div>
+                <div class="mp-image-loading-small">Đang tải...</div>
+                <div class="mp-album-image-wrapper">
+                    <div class="mp-album-image">
+                        <img src="${tmplPhotoData.source}"/>
+                        <a href="#" class="mp-album-image-zoom">Hình thực tế</a>
+                    </div>
+                </div>
+                <span class="mp-album-overlay-close">Đóng</span>
+            </div>
+        </script>
+        <script id="galleryFullscreenTmpl" type="text/x-jquery-tmpl">
+            <div id="mp-image-overlay" class="mp-image-overlay">
+                <div class="mp-loading">Loading...</div>
+                <img src="${tmplPhotoData.source}" style="display:none;"/>
+                <div class="mp-image-overlay-desc">
+                    <h2 class="mp-label">${tmplPhotoData.description}</h2>
+                </div>
+                <span class="mp-image-overlay-close">Đóng</span>
+            </div>
+        </script>
+
+        <div class="mp-container" id="mp-container">
+            <a class="config-infoPage" href="#" style="right:-32px;"></a>
+            <div class="mp-map-wrapper" id="map"></div>
+            <div class="mp-album-wrapper" id="mp-album-wrapper"></div>
+        </div>
+
+    </div>
+
+    <div class="page-content">
+<!--        ACTIVITY PAGE POST ON WALL-->
+        <style type="text/css">
+
+
+
+        </style>
+        <div class="page-activity">
+            <div class="toolsPost" style="width: 100%; padding-left: 15px; padding-right: 15px;">
+                <div class="titleTools" style="width: 100%;">
+                    <ul>
+                        <li id="pagepostStatus" class="setmenuClicked">Trạng thái</li>
+                        <li id="pagepostImage" class="menuNormal">Đăng ảnh</li>
+                        <li id="pagepostVideo" class="menuNormal">Đăng Video</li>
+                    </ul>
+                </div>
+
+                <div id="firstBonnus" class="clickStatus boxPage" style="display: block;">
+                    <div id="" class="divBottomActive" style="left:-11px;"></div>
+
+                    <div style="display: block; width: 100%; float: left;">
+                        <form method="post">
+                            <textarea placeholder="Nhập trạng thái..." class="textStatus"></textarea>
+                            <input class="btnPostStatus" type="submit" value="Đăng">
+                        </form>
+                    </div>
+
+                </div>
+
+                <div id="secoundBonnus" class="clickStatus boxPage" style="display: none;">
+                    <div id="" class="divBottomActive" style=" left: 105px; width: 111px;"></div>
+                    <div style="display: block; width: 100%; float: left; padding:2% 3% 0 3%; ">
+                        <form method="post">
+                            <div class="wrap-uploadImage" style="width: 17%;">
+                                <input type="file" class="uploadImage" accept="image/*">
+                                Chọn ảnh
+                            </div>
+                            <div style="width: 80%;">
+                                <label>Nhập bình luận về ảnh</label>
+                                <input type="text" class="btnTextImage" placeholder="...">
+                                <input type="submit" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div id="lastBonnus" class="clickStatus boxPage" style="display: none;">
+                    <div id="" class="divBottomActive" style="left: 217px; width: 124px;"></div>
+                    <div style="display: block; width: 100%; float: left; padding:2% 3% 0 3%; ">
+                        <form method="post">
+                            <div class="wrap-uploadVideo" style="width: 17%;">
+                                <input type="file" class="uploadVideo" accept="video/mp4">
+                                Chọn video
+                            </div>
+                            <div style="width: 82%;">
+                                <label>Nhập bình luận về video</label>
+                                <input type="text" class="btnTextImage" placeholder="...">
+                                <input type="submit" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            <div style="width: 100%; height: 15px;"></div>
+            <div class="pagePost">
+
+                <div class="container">
+
+                    <div class="main">
+                        <ul class="cbp_tmtimeline">
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ricebean black-eyed pea</h2>
+                                    <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant. Cabbage lentil cucumber chickpea sorrel gram garbanzo plantain lotus root bok choy squash cress potato summer purslane salsify fennel horseradish dulse. Winter purslane garbanzo artichoke broccoli lentil corn okra silver beet celery quandong. Plantain salad beetroot bunya nuts black-eyed pea collard greens radish water spinach gourd chicory prairie turnip avocado sierra leone bologi.</p>
+                                    <a id="showCMT1" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>4/11/13</span> <span>12:04</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-screen"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Greens radish arugula</h2>
+                                    <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.</p>
+                                    <a id="showCMT2" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>4/13/13</span> <span>05:36</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-mail"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Sprout garlic kohlrabi</h2>
+                                    <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion swiss chard. Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean endive squash beet greens carrot chicory green bean. Tigernut dandelion sea lettuce garlic daikon courgette celery maize parsley komatsuna black-eyed pea bell pepper aubergine cauliflower zucchini. Quandong pea chickweed tomatillo quandong cauliflower spinach water spinach.</p>
+                                    <a id="showCMT3" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-15 13:15"><span>4/15/13</span> <span>13:15</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Watercress ricebean</h2>
+                                    <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens. Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels sprout lotus root silver beet epazote melon shallot.</p>
+                                    <a id="showCMT4" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-16 21:30"><span>4/16/13</span> <span>21:30</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Courgette daikon</h2>
+                                    <p>Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.</p>
+                                    <a id="showCMT5" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-17 12:11"><span>4/17/13</span> <span>12:11</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-screen"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Greens radish arugula</h2>
+                                    <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.</p>
+                                    <a id="showCMT6" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime="2013-04-18 09:56"><span>4/18/13</span> <span>09:56</span></time>
+                                <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Sprout garlic kohlrabi</h2>
+                                    <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion swiss chard. Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean endive squash beet greens carrot chicory green bean. Tigernut dandelion sea lettuce garlic daikon courgette celery maize parsley komatsuna black-eyed pea bell pepper aubergine cauliflower zucchini. Quandong pea chickweed tomatillo quandong cauliflower spinach water spinach.</p>
+                                    <a id="showCMT7" class="showInstanceCMT">Xem thêm bình luận</a>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="absolute-comment" style="display: none;">
+                        <div class="arrow_box">
+                            <div class="close-arrowbox">Đóng</div>
+                            <div class="toolComment" style="padding-top: 10px; padding-bottom: 10px;">
+                                <ul>
+                                    <li class="toolComment-Like">Thích(0)</li>
+                                    <li class="toolComment-cmt">Bình luận(0)</li>
+                                    <li class="toolComment-share">Chia sẻ(0)</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-toolComment">
+                                <div class="avatar-memberComment">
+                                    <img src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png" style="height: 100%; width: 100%;">
+                                </div>
+                                <div class="info-memberComment">
+                                    <a class="name-membercmt"><span>Nguyễn Phúc Hưng</span></a>
+                                    <a class="countlike-membercmt"><span>Sài Gòn hôm nay lạnh thật</span></a>
+                                    <span class="like-time-membercmt">
+                                        <a >Thích(0)</a>
+                                        14 phút trước
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="content-toolComment" style="padding-bottom: 5px;">
+                                <div class="avatar-memberComment" style="float: left;">
+                                    <img src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png" style="height: 100%; width: 100%;">
+                                </div>
+                                <div class="info-memberComment" style="float: left;width: 85%;padding-top: 5px;">
+                                    <form method="post">
+                                        <textarea class="commitComment" placeholder="nhập bình luận của bạn..."></textarea>
+                                        <input class="btnCommitComment" type="submit" value="Đăng">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+
+            jQuery(document).ready(function(){
+
+                function vainoiFunction(idofDivComment)
+                {
+                    var e = document.getElementById(idofDivComment);
+                    var offset = {x:0,y:0};
+                    while (e)
+                    {
+                        offset.x += e.offsetLeft;
+                        offset.y += e.offsetTop;
+                        e = e.offsetParent;
+                    }
+
+                    if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft))
+                    {
+                        offset.x -= document.documentElement.scrollLeft;
+                        offset.y -= document.documentElement.scrollTop;
+                    }
+                    else if (document.body && (document.body.scrollTop || document.body.scrollLeft))
+                    {
+                        offset.x -= document.body.scrollLeft;
+                        offset.y -= document.body.scrollTop;
+                    }
+                    else if (window.pageXOffset || window.pageYOffset)
+                    {
+                        offset.x -= window.pageXOffset;
+                        offset.y -= window.pageYOffset;
+                    }
+
+//                    alert(offset.x + '\n' + offset.y);
+                    return offset.y;
+                }
+
+                jQuery('.titleTools>ul>li').each(function(){
+
+                    jQuery(this).click(function(){
+                        jQuery('.titleTools>ul>li').removeClass('menuNormal setmenuClicked').addClass('menuNormal');
+                        jQuery('.clickStatus').hide();
+                        jQuery(this).removeClass('menuNormal').addClass('setmenuClicked');
+
+                        var index = jQuery(this).index();
+                        if(index == 0){
+                            jQuery('#firstBonnus').show();
+                        }
+                        else{
+                            if(index == 1){
+                                jQuery('#secoundBonnus').show();
+                            }
+                            else{
+                                jQuery('#lastBonnus').show();
+                            }
+                        }
+
+                    });
+                });
+
+                //instance show comment
+                jQuery('.close-arrowbox').click(function(){
+                    var divShow = jQuery('.absolute-comment');
+                    var heightNow = divShow.css('height');
+                    var widthNow = divShow.css('width');
+                    divShow.animate({
+                        opacity:0,
+                        marginTop: '-30px'
+                    }, 1000, function(){
+                        jQuery(this).css({'display': 'none', 'opacity': 1, 'marginTop':0});
+                    });
+                });
+
+                jQuery('.showInstanceCMT').each(function(){
+                   jQuery(this).click(function(){
+                       var heightParent = jQuery(this).parent().height();
+                       var idforShowCMT = jQuery(this).attr('id');
+                       var posTop = vainoiFunction(idforShowCMT) - heightParent;
+                       var commentInstance = jQuery('.absolute-comment');
+                       var isDisplayorNor = commentInstance.css('display');
+                       if(isDisplayorNor == "none")
+                       {
+                           commentInstance.css('top', posTop);
+                       }
+//                       commentInstance.hide();
+                       commentInstance.fadeIn(1000);
+//                       commentInstance.show('fast');
+                       commentInstance.animate({
+                           top: posTop,
+                           height: heightParent
+                       }, 1000);
+
+
+
+                   });
+                });
+
+            });
+
+        </script>
+
+<!--       ACTIVITY OF MEMBER POST ON WALL -->
+        <div class="page-member-activity">
+
+            <div class="title-memberPost">
+                <span>Bài đăng của những người khác lên Nhà hàng sao việt</span>
+            </div>
+
+            <div class="memberPost">
+                <div class="content-memberPost">
+                    <div class="imageMember">
+                        <img style="" src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png">
+                    </div>
+                    <div class="infoMember" style="">
+                        <span class="nameMember">Nguyễn Phúc Hưng</span>
+                        <span class="statusMember">Hôm nay sài gòn lạnh quá</span>
+                        <span class="timepostMember">
+                            <a href="#">14 phút trước</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memberPost">
+                <div class="content-memberPost">
+                    <div class="imageMember">
+                        <img style="" src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png">
+                    </div>
+                    <div class="infoMember" style="">
+                        <span class="nameMember">Nguyễn Phúc Hưng</span>
+                        <span class="statusMember">Hôm nay sài gòn lạnh quá</span>
+                        <span class="timepostMember">
+                            <a href="#">14 phút trước</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="height: 300px; width: 100%; float: left;"></div>
+
+</section>
+
+<footer>
+
+</footer>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/jquery.tmpl.min.js"></script>
+<!--<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>-->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAYVsGMEN8T8D9-TtSVgQQgM3ecNbYYFMw&sensor=false" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/mapalbum.js"></script>
+
+
+<script type="text/javascript">
+    var windowHeight = jQuery(window).height();
+    var windowWidth  = jQuery(window).width();
+
+
+
+    jQuery(document).ready(function() {
+        jQuery('.lightbox').slideUp(1500);
+
+        jQuery('.page-cover > div:gt(0)').hide();
+        setInterval(function() {
+            jQuery('.page-cover > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.page-cover');
+        },  3000);
+    });
+
+</script>
+
+<script>
+
+    function initialize()
+    {
+        var myLatlng = new google.maps.LatLng(51.508742,-0.120850);
+        var mapProp = {
+            center:myLatlng,
+            zoom:5,
+            scrollwheel: false,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("mapToPageID")
+            ,mapProp);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            draggable: true,
+            title: "Nhấn để xem thông tin chi tiết!"
+        });
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Nhà Hàng Sao Việt</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Nhà hàng sao việt xin kính chào quý khách</p>' +
+            '<p>Nhận đặt tiệc cưới, sinh nhật, mừng thọ...</p>' +
+            '<p>Tại địa chỉ hồ chí minh, số đt: 01234xxx</p>' +
+            '</div>'+
+            '</div>';
+        var infoWindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.open(map,marker);
+            var data = this.getPosition().lat();
+                alert(data);
+        });
+
+    }
+
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>

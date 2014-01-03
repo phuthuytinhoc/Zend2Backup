@@ -10,6 +10,7 @@
 namespace Userpage\Controller;
 
 use Symfony\Component\Console\Application;
+use Userpage\Model\CreatePageModel;
 use Userpage\Model\FriendModel;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Session\Container;
@@ -102,6 +103,8 @@ class UserpageController extends AbstractActionController
             $friendModel = new FriendModel();
             $listFriendID = $friendModel->getListFriend($actionLocation, $dm);
 
+//            var_dump($actionLocation);die();
+
             //lay anh bum anh dai dien gan day cua user
             $albumAvatarHome = $successModel->getAlbumAvatarHome($actionLocation, $dm, 'AVA');
             $listFriendAccepted = $successModel->getFriendByStatus($actionLocation, $dm, 'ACCEPTED');
@@ -118,6 +121,8 @@ class UserpageController extends AbstractActionController
 //            $result = $friendModel->getResultSearch($actionUser, $dm);
 
 //            var_dump($result); die();
+
+
 
             return array(
                 //actionID of comment
@@ -246,7 +251,11 @@ class UserpageController extends AbstractActionController
 
     public function friendAction()
     {
-        $this->indexAction();
+        $result = $this->getAuthenService();
+        if(!$result->hasIdentity())
+        {
+            return $this->redirect()->toRoute('home');
+        }
 //        $this->layout('layout/layout');
         $layoutSetting = $this->layout();
         $layoutSetting->setTemplate('layout/settingpage');
@@ -261,6 +270,7 @@ class UserpageController extends AbstractActionController
             $actionLocation = $actionUser;
         }
 
+//        var_dump($actionLocation);die();
 
         $dm = $this->getDocumentService();
         $friendModel = new FriendModel();
@@ -270,7 +280,7 @@ class UserpageController extends AbstractActionController
         $listFriendID = $friendModel->getListFriend($actionLocation, $dm);
         $listFriendSent = $successModel->getFriendByStatus($actionLocation, $dm, 'SENT');
 
-//        var_dump($listFriendID['infoFriends']); die();
+//        var_dump($listFriendID); die();
 
         return array(
             'actionUserID'     => $actionUser,
@@ -289,19 +299,49 @@ class UserpageController extends AbstractActionController
     //FUNCTION of Update info
     public function updateinfoAction()
     {
-        $this->indexAction();
+        $result = $this->getAuthenService();
+        if(!$result->hasIdentity())
+        {
+            return $this->redirect()->toRoute('home');
+        }
+
         $layoutSetting = $this->layout();
         $layoutSetting->setTemplate('layout/settingpage');
 
         $result = new ViewModel();
         $result->setTemplate('userpage/userpage/updateinfo');
+
+        $allInfo = $this->getUserIdentity();
+
+        $aboutMe = array(
+            'school' => $allInfo->getSchool(),
+            'work'   => $allInfo->getWork(),
+            'relationship' => $allInfo->getRelationship(),
+        );
+        $bacsicInfo = array(
+            'lastname'  => $allInfo->getLastname(),
+            'firstname' => $allInfo->getFirstname(),
+            'dob'       => $allInfo->getDOB(),
+            'address'   => $allInfo->getAddress(),
+            'quote'     => $allInfo->getQuote(),
+        );
+
+
+        $result->setVariables(array(
+            'aboutMe'    => $aboutMe,
+            'basicInfo'  => $bacsicInfo,
+        ));
         return $result;
     }
 
     public function autogetuseridAction()
     {
         $response = $this->getResponse();
-        $userid = $this->getUserIdentity()->getUserid();
+        $allInfo = $this->getUserIdentity();
+        $userid = $allInfo->getUserid();
+
+
+
         $successModel = new SuccessModel();
 
         $documentService = $this->getDocumentService();
@@ -311,10 +351,12 @@ class UserpageController extends AbstractActionController
 
 
         return $response->setContent(\Zend\Json\Json::encode(array(
-            'success' => 1,
-            'userid' => $userid,
+            'success'    => 1,
+            'userid'     => $userid,
             'pathavatar' => $pathAva,
-            'pathCover' => $pathCover,)));
+            'pathCover'  => $pathCover,
+
+        )));
     }
 
     //AJAX UPDATE INFO
@@ -694,6 +736,47 @@ class UserpageController extends AbstractActionController
             'success' => 1,
             'result'  => $result,
         )));
+    }
+
+    //FUNCTION FOR CREATE FANPAGE
+    public function createfanpageAction()
+    {
+        $result = $this->getAuthenService();
+        if(!$result->hasIdentity())
+        {
+            return $this->redirect()->toRoute('home');
+        }
+
+        $error = null;
+        $request = $this->getRequest();
+        if($request->isPost())
+        {
+            $dm = $this->getDocumentService();
+            $fanpageModel = new CreatePageModel();
+            $data = $this->params()->fromPost();
+            $userID = $this->getUserIdentity()->getUserid();
+
+            $rs = $fanpageModel->createNewFanpage($data, $userID, $dm);
+
+            if($rs)
+            {
+                return $this->redirect()->toRoute('fanpage');
+            }
+            else
+            {
+                $error = "Tạo mới trang không thành công. Hãy thử lại sau một ít phút nữa!";
+            }
+        }
+
+        $layoutSetting = $this->layout();
+        $layoutSetting->setTemplate('layout/settingpage');
+
+        $result = new ViewModel();
+        $result->setTemplate('userpage/userpage/createfanpage');
+        $result->setVariables(array(
+            'error' => $error,
+        ));
+        return $result;
     }
 
 

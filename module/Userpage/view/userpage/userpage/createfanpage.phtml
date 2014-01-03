@@ -1,0 +1,111 @@
+<style type="text/css">
+
+    .wrap-create-fanapage{width: 80%; border: 3px solid #1FA3FF; padding: 30px;
+    display: block; margin: 50px auto; border-radius: 5px; background: url("../../img/pattern.png");}
+
+    .wrap-create-fanapage .smallDiv{width: 80%; border: 3px solid gray; display: block; margin: 0 auto 20px; padding: 20px;
+        background: url("../../img/friend_background.png");}
+    .smallDiv label {display: block; width: 100%; padding-top: 10px; font-size: 14px; }
+    .smallDiv p {color: red; font-style: italic;}
+    .smallDiv input[type="text"] { height: 35px; border: 3px solid gray; padding: 5px; width: 100%;
+    border-radius: 5px;outline: none;}
+    .smallDiv input[type="text"]:focus{background-color:  #F4F4F4; }
+    .smallDiv textarea { height: 60px; border: 3px solid gray; padding: 10px; width: 100%; border-radius: 5px;
+    outline: none;}
+    .smallDiv textarea:focus { background-color: #f4f4f4; }
+    .smallDiv input[type="submit"]{ background-color: #0688FA; color: #ffffff; font-weight: bold;
+        border: 3px solid transparent; outline: none;}
+    .smallDiv input[type="submit"]:hover{color: #000000; border: 3px solid #0688FA; background-color: #ffffff; transition: background-color 1s ease; }
+
+    .can_giua {
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+    }
+
+    .smallDiv select {
+        outline: none;
+        height: 35px;
+        width: 50%;
+        border-radius: 5px;
+        border: 3px solid gray;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+</style>
+
+
+<div class="wrap-create-fanapage" style="">
+
+
+        <div class="smallDiv">
+            Danh sách fanpage đã tạo. Hiện tại chưa có trang nào.
+        </div>
+
+        <div class="smallDiv" style="">
+            <form method="post" id="form-createFanpage" action="<?php echo $this->url('success',array('action'=> 'create-fanpage')); ?>">
+                <?php
+                    if(isset($error) and $error != null)
+                        echo "<p>$error</p>";
+                ?>
+                <label>
+                    Nhập tên trang
+                </label>
+                <input type="text" name="pageName" placeholder="...">
+
+                <label>
+                    Nhập loại trang fanpage
+                </label>
+                <select name="pageType">
+                    <option value="Du Lịch" selected>Du Lịch</option>
+                    <option value="Nhà Hàng">Nhà Hàng</option>
+                </select>
+
+                <label>
+                    Nhập mô tả trang:
+                </label>
+
+                <textarea name="pageDescription" placeholder="..."></textarea>
+
+                <input type="submit" class="can_giua" value="Tạo Trang" >
+
+            </form>
+        </div>
+
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        jQuery('#form-createFanpage').validate({
+            errorElement: "p",
+            rules: {
+                pageName:{
+                    required:true,
+                    minlength: 6
+                },
+                pageDescription:{
+                    required:true,
+                    minlength: 6
+                }
+            },
+            messages:{
+                pageName:{
+                    required: "Bạn chưa nhập tên trang!",
+                    minlength: "Tên trang phải có ít nhất 6 kí tự"
+                },
+                pageDescription:{
+                    required:"Bạn chưa nhập mô tả trang!",
+                    minlength: "Mô tả trang phải có ít nhất 6 kí tự"
+                }
+            },
+            submitHandler : function(){
+               jQuery('#form-createFanpage').submit();
+            }
+        });
+
+    });
+</script>

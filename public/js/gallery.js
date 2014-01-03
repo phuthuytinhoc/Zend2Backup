@@ -64,9 +64,11 @@ $(function() {
 			// control if one image is being loaded
 			anim			= false,
 			init			= function() {
+
+                var basePath = jQuery('.logo-zess>a').attr('href');
 				
 				// (not necessary) preloading the images here...
-				$items.add('<img src="images/ajax-loader.gif"/><img src="images/black.png"/>').imagesLoaded( function() {
+				$items.add('<img src="'+basePath+'/img/ajax-loader.gif"/><img src="'+basePath+'/img/black.png"/>').imagesLoaded( function() {
 					// add options
 					_addViewModes();
 					
