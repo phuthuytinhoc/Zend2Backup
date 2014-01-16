@@ -19,9 +19,45 @@ class CreatePageModel
         return $date->getTimestamp();
     }
 
-    public function getListPageofUser($userid, $dm)
+    public function getListPageofUser($data, $dm)
     {
+        $userID = $data;
+        $arr = null;
 
+        $doc = $dm->createQueryBuilder('Application\Document\Fanpage')
+            ->select()
+            ->field('userid')->equals($userID)
+            ->getQuery()
+            ->execute();
+        if(isset($doc))
+        {
+            foreach($doc as $node)
+            {
+                $pageID = $node->getPageid();
+                $checkAlbumID = 'ALB'.$pageID.'AVA';
+                $imageName = 'ava-page-temp.png';
+                $image = $dm->createQueryBuilder('Application\Document\Image')
+                    ->select()
+                    ->field('albumid')->equals($checkAlbumID)
+                    ->field('imagestatus')->equals('AVA_NOW')
+                    ->getQuery()
+                    ->getSingleResult();
+
+                if(isset($image))
+                {
+                    $imageName = $image->getImageid().'.'.$image->getImagetype();
+                }
+
+                $arr[] = array(
+                    'pageName' => $node->getPagename(),
+                    'pageID'   => $pageID,
+                    'pageType' => $node->getPagetype(),
+                    'pageTime' => $node->getCreatedtime(),
+                    'pageAva'  => $imageName,
+                );
+            }
+        }
+        return $arr;
     }
 
     public function createNewFanpage($data, $userid, $dm)
@@ -57,11 +93,13 @@ class CreatePageModel
 
         if(isset($document) && isset($doc))
         {
-            return true;
+            return $pageID;
         }
         else
         {
-            return false;
+            return null;
         }
     }
+
+
 }

@@ -20,6 +20,9 @@
 
     <!-- Scripts -->
     <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/js/jquery.timeago.js')
+//        ->prependFile($this->basePath() . '/js/livestamp.min.js')
+//        ->prependFile($this->basePath() . '/js/moment.min.js')
         ->prependFile($this->basePath() . '/js/modernizr.custom.js')
         ->prependFile($this->basePath() . '/js/video.js')
         ->prependFile($this->basePath() . '/js/jquery.easing.1.3.js')

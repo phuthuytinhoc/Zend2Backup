@@ -253,7 +253,7 @@ footer {
 
 .bodyUserpage {
     /*background-image:url("../img/friend_background.png");*/
-    background-color: #e5e5e5;
+    background-color: aliceblue;
     font-family: "Roboto Slab", Tahoma;
 }
 
@@ -358,9 +358,11 @@ footer {
     padding-bottom:2px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
     background-color: #FFF;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border: 1px solid #999;
+    /*border-top-right-radius: 15px;*/
+    /*border-top-left-radius: 15px;*/
+    border: 3px solid #999;
+
+
 }
 
 .divLeft .divSubMenu .divSub .divHead {
@@ -377,8 +379,8 @@ footer {
     -o-transition: border-color 0.4s ease;
     -webkit-transition: border-color 0.4s ease;
     -moz-transition: border-color 0.4s ease;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    /*border-top-right-radius: 15px;*/
+    /*border-top-left-radius: 15px;*/
 }
 
 .divLeft .divSubMenu .divSub .divHead:hover {
@@ -818,7 +820,7 @@ footer {
 .divRight .statusBlock .statusContent .statusComposeArea textarea {
     width: 96%;
     height: 84%;
-    border: 1px solid #ccc;
+    border: 3px solid gray;
     padding: 2% 3% 2% 3%;
     font-family: "Roboto Slab", Tahoma;
     font-size: 14px;
@@ -826,14 +828,14 @@ footer {
     margin-right: 2%;
     border-radius: 15px;
     font-size: 13px;
-    background-color: transparent;
+    background-color: #EEEEEE;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)
+    /*box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)*/
 
 }
 
 .divRight .statusBlock .statusContent .statusComposeArea textarea::-webkit-input-placeholder { /* WebKit browsers */
-    color:#0077cc;
+    color: black;
 }
 
 
@@ -857,7 +859,7 @@ footer {
 }
 
 .divRight .statusBlock .statusContent .btnSubmit #btnPost {
-    border: 2px solid #FFF;
+    border: 2px solid transparent;
     font-family: "Roboto Slab", Tahoma;
     font-size:13px;
     height:30px;

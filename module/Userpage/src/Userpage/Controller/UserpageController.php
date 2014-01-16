@@ -748,19 +748,21 @@ class UserpageController extends AbstractActionController
         }
 
         $error = null;
+
+        $userID = $this->getUserIdentity()->getUserid();
+        $dm = $this->getDocumentService();
+        $fanpageModel = new CreatePageModel();
+
         $request = $this->getRequest();
+
         if($request->isPost())
         {
-            $dm = $this->getDocumentService();
-            $fanpageModel = new CreatePageModel();
             $data = $this->params()->fromPost();
-            $userID = $this->getUserIdentity()->getUserid();
-
             $rs = $fanpageModel->createNewFanpage($data, $userID, $dm);
 
-            if($rs)
+            if($rs!=null)
             {
-                return $this->redirect()->toRoute('fanpage');
+                return $this->redirect()->toUrl('../../fanpage?pageID='.$rs);
             }
             else
             {
@@ -773,9 +775,16 @@ class UserpageController extends AbstractActionController
 
         $result = new ViewModel();
         $result->setTemplate('userpage/userpage/createfanpage');
+
+        $binding = $fanpageModel->getListPageofUser($userID, $dm);
+
+//        var_dump($binding);die();
+
         $result->setVariables(array(
             'error' => $error,
+            'bindingPage' => $binding,
         ));
+
         return $result;
     }
 

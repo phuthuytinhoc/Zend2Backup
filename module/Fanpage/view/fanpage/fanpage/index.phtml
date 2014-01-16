@@ -1,7 +1,15 @@
+<input type="hidden" id="hidden-pageID" value="<?php echo $pageID; ?>">
+<input type="hidden" id="hidden-userIDNow" value="<?php
+$masterID = $userNow;
+        if($checkRole == "ADMIN" || $checkRole == "MOD"){
+            $masterID = $pageID;
+        }
+echo $masterID;
+?>">
 
 <section class="lightbox">
     <div class="page-logo">
-        <img src="<?php echo $this->basePath()?>/img/zess_logo2.png">
+        <img src="<?php echo $this->basePath().'/uploads/'.$pageInfo['bindingImage']['imageLogo']?>">
     </div>
 </section>
 
@@ -10,14 +18,19 @@
     <div class="admin-panel"></div>
 
     <div class="page-cover">
-        <div class="div-image">
-            <img src="<?php echo $this->basePath(); ?>/img/slide0.jpg">
-            <section class="bottom-blur"></section>
-        </div>
-        <div class="div-image">
-            <img src="<?php echo $this->basePath(); ?>/img/slide1.jpg">
-            <section class="bottom-blur"></section>
-        </div>
+        <?php
+        foreach($pageInfo['bindingImage']['imageSlideShow'] as $node)
+        {
+        ?>
+
+            <div class="div-image">
+                <img src="<?php echo $this->basePath().'/uploads/'.$node; ?>">
+                <section class="bottom-blur"></section>
+            </div>
+
+        <?php
+        }
+        ?>
 
     </div>
     
@@ -33,31 +46,41 @@
 
     <div class="albumMap" >
         <div class="infoPage" >
-            <a class="config-infoPage"
-               href="<?php echo $this->url('fanpage', array('action' => 'editinfo')); ?>"
-               style="left:0px; margin-top: -22px;"></a>
-            <a class="config-infoPage" href="#" style="right:0px; margin-top: -22px;"></a>
+
+            <?php
+            if($checkRole == 'ADMIN')
+            {
+            ?>
+
+                <a class="config-infoPage" href="<?php echo $this->basePath().'/fanpage/editinfo?pageID='.$pageID; ?>"
+                   style="left:0px; margin-top: -22px;"></a>
+                <a class="config-infoPage" href="<?php ?>" style="right:0px; margin-top: -22px;"></a>
+
+            <?php
+            }
+            ?>
+
             <div class="left-infoPage" >
                 <div class="left-LogoPage">
-                    <img src="<?php echo $this->basePath().'/uploads/ava-page-temp.png'; ?>">
+                    <img src="<?php echo $this->basePath().'/uploads/' .$pageInfo['bindingImage']['imageAva']; ?>">
                 </div>
                 <div class="rightLogoPage" >
                     <div class="rightlogo-Like" >
                         <a id="buttonLikePage">Thích</a>
                     </div>
                     <div class="rightLogo-LikeSum">
-                        <span class="countLikePage">6789
+                        <span class="countLikePage"> <?php echo $pageInfo['bindingInfo']['pageLike'];?>
                             <label> lượt thích</label>
                         </span>
                     </div>
 
                 </div>
                 <div class="namePage" >
-                    <span class="nameOfPage" >Nhà Hàng Sao Việt</span>
+                    <span class="nameOfPage" ><?php echo $pageInfo['bindingInfo']['pageName'] ?></span>
                 </div>
             </div>
             <div class="right-infoPage">
-                Nhà hàng sao việt xin kính chào quý khách.
+                <?php echo $pageInfo['bindingInfo']['pageDes'] ?>
             </div>
         </div>
 
@@ -109,7 +132,7 @@
         </script>
 
         <div class="mp-container" id="mp-container">
-            <a class="config-infoPage" href="#" style="right:-32px;"></a>
+<!--            <a class="config-infoPage" href="#" style="right:-32px;"></a>-->
             <div class="mp-map-wrapper" id="map"></div>
             <div class="mp-album-wrapper" id="mp-album-wrapper"></div>
         </div>
@@ -128,8 +151,18 @@
                 <div class="titleTools" style="width: 100%;">
                     <ul>
                         <li id="pagepostStatus" class="setmenuClicked">Trạng thái</li>
-                        <li id="pagepostImage" class="menuNormal">Đăng ảnh</li>
-                        <li id="pagepostVideo" class="menuNormal">Đăng Video</li>
+
+                        <?php
+                        if($checkRole == "ADMIN" || $checkRole == "MOD")
+                        {
+                        ?>
+                            <li id="pagepostImage" class="menuNormal">Đăng ảnh</li>
+                            <li id="pagepostVideo" class="menuNormal">Đăng Video</li>
+                            <li id="pagepostPlace" class="menuNormal">Đăng Chia sẻ</li>
+                        <?php
+                        }
+                        ?>
+
                     </ul>
                 </div>
 
@@ -137,13 +170,20 @@
                     <div id="" class="divBottomActive" style="left:-11px;"></div>
 
                     <div style="display: block; width: 100%; float: left;">
-                        <form method="post">
-                            <textarea placeholder="Nhập trạng thái..." class="textStatus"></textarea>
-                            <input class="btnPostStatus" type="submit" value="Đăng">
+                        <form method="post" id="form-pagePostStatus">
+                            <textarea name="cnt_page_status" id="cnt_page_status" placeholder="Nhập trạng thái..." class="textStatus"></textarea>
+                            <input class="btnPostStatus" id="btn_post_status" type="submit" value="Đăng">
+                            <p id="error_post_status" style="color:red; display: block; text-align: center; padding-top: 15px; display: none">
+                            </p>
                         </form>
                     </div>
 
                 </div>
+
+                <?php
+                if($checkRole == "ADMIN" || $checkRole == "MOD")
+                {
+                ?>
 
                 <div id="secoundBonnus" class="clickStatus boxPage" style="display: none;">
                     <div id="" class="divBottomActive" style=" left: 105px; width: 111px;"></div>
@@ -181,6 +221,28 @@
 
                 </div>
 
+                <div id="sharePlaceBonnus" class="clickStatus boxPage" style="display: none;">
+                    <div id="" class="divBottomActive" style="left: 342px;width: 132px;"></div>
+                    <div style="display: block; width: 100%; float: left; padding:2% 3% 0 3%; ">
+                        <form method="post">
+                            <div class="wrap-uploadPlace" style="width: 17%;">
+                                <input type="file" class="uploadImage" accept="image/*">
+                                Chọn ảnh
+                            </div>
+                            <div style="width: 80%;">
+                                <label>Nhập bình luận về ảnh</label>
+                                <input type="text" class="btnTextImage" placeholder="...">
+                                <textarea class="textStatus" placeholder="Nhập chia sẻ về địa điểm..."
+                                          style="width: 100%; margin-top: 15px; margin-left: 0px; margin-right: 0px;"></textarea>
+                                <input type="submit" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <?php } ?>
+
             </div>
             <div style="width: 100%; height: 15px;"></div>
             <div class="pagePost">
@@ -188,73 +250,104 @@
                 <div class="container">
 
                     <div class="main">
+
                         <ul class="cbp_tmtimeline">
-                            <li>
-                                <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
-                                <div class="cbp_tmicon cbp_tmicon-phone"></div>
-                                <div class="cbp_tmlabel">
-                                    <h2>Ricebean black-eyed pea</h2>
-                                    <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant. Cabbage lentil cucumber chickpea sorrel gram garbanzo plantain lotus root bok choy squash cress potato summer purslane salsify fennel horseradish dulse. Winter purslane garbanzo artichoke broccoli lentil corn okra silver beet celery quandong. Plantain salad beetroot bunya nuts black-eyed pea collard greens radish water spinach gourd chicory prairie turnip avocado sierra leone bologi.</p>
-                                    <a id="showCMT1" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
 
-                            </li>
+                            <?php
+
+//                            var_dump($binding);die();
+
+
+
+                            if(isset($binding))
+                            {
+                                arsort($binding);
+                                foreach($binding as $node)
+                                {
+                            ?>
+                                    <li>
+                                        <time class="cbp_tmtime" datetime="
+
+                                        <?php
+
+                                        $timestamp = $node['createdtime'];
+                                        echo date('Y-m-d h:s', $timestamp);
+                                        ?>
+                                        ">
+                                            <span><?php echo date('d/m/Y', $timestamp) ?></span>
+                                            <span><?php echo date('H:i', $timestamp) ?></span>
+                                        </time>
+                                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                                        <div class="cbp_tmlabel">
+                                            <h2>
+                                                <?php
+                                                echo $pageInfo['bindingInfo']['pageName'];
+                                                $typeAction = $node['content']['type'];
+                                                if($typeAction == 'addStatus')
+                                                {
+                                                    echo " - cập nhật trạng thái";
+                                                }
+                                                elseif($typeAction=="changeAva")
+                                                {
+                                                    echo ' -  cập nhật ảnh đại diện';
+                                                }
+                                                elseif($typeAction=="changeLogo")
+                                                {
+                                                    echo ' -  cập nhật ảnh logo';
+                                                }
+                                                elseif($typeAction=="changeSlide")
+                                                {
+                                                    echo ' -  cập nhật slideshow ảnh nền';
+                                                }
+                                                elseif($typeAction=="addImage")
+                                                {
+                                                    echo ' -  thêm một ảnh mới';
+                                                }
+
+                                                ?>
+                                            </h2>
+                                            <p>
+                                                <?php
+                                                if($typeAction == 'addStatus')
+                                                {
+                                                    echo $node['content']['source'];
+                                                }
+                                                elseif($typeAction == 'addImage' or $typeAction == 'changeSlide' or $typeAction=='changeLogo' or $typeAction=='changeAva')
+                                                {
+                                                    echo $node['content']['descript'];
+                                                    echo '<img src="'.$this->basePath().'/uploads/'.$node['content']['source'].'">';
+                                                }
+                                                ?>
+                                            </p>
+                                            <a id="<?php echo $node['actionid']; ?>" class="showInstanceCMT">Xem thêm bình luận</a>
+                                        </div>
+
+                                    </li>
+
+                            <?php
+                                }
+                            }
+                            ?>
+
                             <li>
-                                <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>4/11/13</span> <span>12:04</span></time>
+                                <time class="cbp_tmtime" datetime=""><span></span> <span></span></time>
                                 <div class="cbp_tmicon cbp_tmicon-screen"></div>
                                 <div class="cbp_tmlabel">
-                                    <h2>Greens radish arugula</h2>
-                                    <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.</p>
-                                    <a id="showCMT2" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>4/13/13</span> <span>05:36</span></time>
-                                <div class="cbp_tmicon cbp_tmicon-mail"></div>
-                                <div class="cbp_tmlabel">
-                                    <h2>Sprout garlic kohlrabi</h2>
-                                    <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion swiss chard. Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean endive squash beet greens carrot chicory green bean. Tigernut dandelion sea lettuce garlic daikon courgette celery maize parsley komatsuna black-eyed pea bell pepper aubergine cauliflower zucchini. Quandong pea chickweed tomatillo quandong cauliflower spinach water spinach.</p>
-                                    <a id="showCMT3" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime="2013-04-15 13:15"><span>4/15/13</span> <span>13:15</span></time>
-                                <div class="cbp_tmicon cbp_tmicon-phone"></div>
-                                <div class="cbp_tmlabel">
-                                    <h2>Watercress ricebean</h2>
-                                    <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens. Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels sprout lotus root silver beet epazote melon shallot.</p>
-                                    <a id="showCMT4" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime="2013-04-16 21:30"><span>4/16/13</span> <span>21:30</span></time>
-                                <div class="cbp_tmicon cbp_tmicon-earth"></div>
-                                <div class="cbp_tmlabel">
-                                    <h2>Courgette daikon</h2>
-                                    <p>Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.</p>
-                                    <a id="showCMT5" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime="2013-04-17 12:11"><span>4/17/13</span> <span>12:11</span></time>
-                                <div class="cbp_tmicon cbp_tmicon-screen"></div>
-                                <div class="cbp_tmlabel">
-                                    <h2>Greens radish arugula</h2>
-                                    <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.</p>
-                                    <a id="showCMT6" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime="2013-04-18 09:56"><span>4/18/13</span> <span>09:56</span></time>
-                                <div class="cbp_tmicon cbp_tmicon-phone"></div>
-                                <div class="cbp_tmlabel">
-                                    <h2>Sprout garlic kohlrabi</h2>
-                                    <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion swiss chard. Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean endive squash beet greens carrot chicory green bean. Tigernut dandelion sea lettuce garlic daikon courgette celery maize parsley komatsuna black-eyed pea bell pepper aubergine cauliflower zucchini. Quandong pea chickweed tomatillo quandong cauliflower spinach water spinach.</p>
-                                    <a id="showCMT7" class="showInstanceCMT">Xem thêm bình luận</a>
-                                </div>
+                                    <h2><?php echo $pageInfo['bindingInfo']['pageName'] ?></h2>
+                                    <p>Được thành lập vào ngày
+                                    <?php
+                                    $dt = new DateTime();
+                                    $dt->setTimestamp(substr($pageInfo['bindingInfo']['pageID'], 4));
+                                    echo date_format($dt, 'd-m-Y');
+                                    ?>
+                                    <br>
+                                        Đã gia nhập trang mạng fanpage của mạng xã hội du lịch và ẩm thực Zess.
 
+                                    </p>
+                                </div>
                             </li>
                         </ul>
+
                     </div>
 
                     <div class="absolute-comment" style="display: none;">
@@ -268,23 +361,25 @@
                                 </ul>
                             </div>
 
-                            <div class="content-toolComment">
-                                <div class="avatar-memberComment">
-                                    <img src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png" style="height: 100%; width: 100%;">
-                                </div>
-                                <div class="info-memberComment">
-                                    <a class="name-membercmt"><span>Nguyễn Phúc Hưng</span></a>
-                                    <a class="countlike-membercmt"><span>Sài Gòn hôm nay lạnh thật</span></a>
-                                    <span class="like-time-membercmt">
-                                        <a >Thích(0)</a>
-                                        14 phút trước
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="content-toolComment" style="padding-bottom: 5px;">
+                            <div class="content-toolComment" id="notdelete" style="padding-bottom: 5px;">
                                 <div class="avatar-memberComment" style="float: left;">
-                                    <img src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png" style="height: 100%; width: 100%;">
+                                    <img id="<?php echo 'img_'.$masterID; ?>"
+                                        name="<?php
+                                    if(isset($avaWho['name'])) {
+                                        echo $avaWho['name'];
+                                    } else{
+                                        echo  $pageInfo['bindingInfo']['pageName'];
+                                    }  ?>"
+                                         src="<?php
+                                         if($checkRole == 'ADMIN' or $checkRole == 'MOD')
+                                         {
+                                             echo $this->basePath().'/uploads/' .$pageInfo['bindingImage']['imageAva'];
+                                         }
+                                         else{
+                                             echo $this->basePath().'/uploads/'.$avaWho['pathAva'];
+                                          }
+
+                                         ?>" style="height: 100%; width: 100%;">
                                 </div>
                                 <div class="info-memberComment" style="float: left;width: 85%;padding-top: 5px;">
                                     <form method="post">
@@ -305,104 +400,7 @@
 
         </div>
 
-        <script type="text/javascript">
 
-            jQuery(document).ready(function(){
-
-                function vainoiFunction(idofDivComment)
-                {
-                    var e = document.getElementById(idofDivComment);
-                    var offset = {x:0,y:0};
-                    while (e)
-                    {
-                        offset.x += e.offsetLeft;
-                        offset.y += e.offsetTop;
-                        e = e.offsetParent;
-                    }
-
-                    if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft))
-                    {
-                        offset.x -= document.documentElement.scrollLeft;
-                        offset.y -= document.documentElement.scrollTop;
-                    }
-                    else if (document.body && (document.body.scrollTop || document.body.scrollLeft))
-                    {
-                        offset.x -= document.body.scrollLeft;
-                        offset.y -= document.body.scrollTop;
-                    }
-                    else if (window.pageXOffset || window.pageYOffset)
-                    {
-                        offset.x -= window.pageXOffset;
-                        offset.y -= window.pageYOffset;
-                    }
-
-//                    alert(offset.x + '\n' + offset.y);
-                    return offset.y;
-                }
-
-                jQuery('.titleTools>ul>li').each(function(){
-
-                    jQuery(this).click(function(){
-                        jQuery('.titleTools>ul>li').removeClass('menuNormal setmenuClicked').addClass('menuNormal');
-                        jQuery('.clickStatus').hide();
-                        jQuery(this).removeClass('menuNormal').addClass('setmenuClicked');
-
-                        var index = jQuery(this).index();
-                        if(index == 0){
-                            jQuery('#firstBonnus').show();
-                        }
-                        else{
-                            if(index == 1){
-                                jQuery('#secoundBonnus').show();
-                            }
-                            else{
-                                jQuery('#lastBonnus').show();
-                            }
-                        }
-
-                    });
-                });
-
-                //instance show comment
-                jQuery('.close-arrowbox').click(function(){
-                    var divShow = jQuery('.absolute-comment');
-                    var heightNow = divShow.css('height');
-                    var widthNow = divShow.css('width');
-                    divShow.animate({
-                        opacity:0,
-                        marginTop: '-30px'
-                    }, 1000, function(){
-                        jQuery(this).css({'display': 'none', 'opacity': 1, 'marginTop':0});
-                    });
-                });
-
-                jQuery('.showInstanceCMT').each(function(){
-                   jQuery(this).click(function(){
-                       var heightParent = jQuery(this).parent().height();
-                       var idforShowCMT = jQuery(this).attr('id');
-                       var posTop = vainoiFunction(idforShowCMT) - heightParent;
-                       var commentInstance = jQuery('.absolute-comment');
-                       var isDisplayorNor = commentInstance.css('display');
-                       if(isDisplayorNor == "none")
-                       {
-                           commentInstance.css('top', posTop);
-                       }
-//                       commentInstance.hide();
-                       commentInstance.fadeIn(1000);
-//                       commentInstance.show('fast');
-                       commentInstance.animate({
-                           top: posTop,
-                           height: heightParent
-                       }, 1000);
-
-
-
-                   });
-                });
-
-            });
-
-        </script>
 
 <!--       ACTIVITY OF MEMBER POST ON WALL -->
         <div class="page-member-activity">
@@ -411,35 +409,85 @@
                 <span>Bài đăng của những người khác lên Nhà hàng sao việt</span>
             </div>
 
-            <div class="memberPost">
-                <div class="content-memberPost">
-                    <div class="imageMember">
-                        <img style="" src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png">
-                    </div>
-                    <div class="infoMember" style="">
-                        <span class="nameMember">Nguyễn Phúc Hưng</span>
-                        <span class="statusMember">Hôm nay sài gòn lạnh quá</span>
-                        <span class="timepostMember">
-                            <a href="#">14 phút trước</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <?php
 
-            <div class="memberPost">
-                <div class="content-memberPost">
-                    <div class="imageMember">
-                        <img style="" src="<?php echo $this->basePath(); ?>/uploads/ava-temp.png">
-                    </div>
-                    <div class="infoMember" style="">
-                        <span class="nameMember">Nguyễn Phúc Hưng</span>
-                        <span class="statusMember">Hôm nay sài gòn lạnh quá</span>
+            function time_difference($date)
+            {
+                if(empty($date)) {
+                    return "unidentifed";
+                }
+                $periods = array("giây", "phút", "giờ", "ngày", "tuần", "tháng", "năm", "thập kỷ");
+                $lengths = array("60","60","24","7","4.35","12","10");
+                $now = time();
+                $unix_date = $date;
+                if(empty($unix_date)) {
+                    return "Bad date";
+                }
+                if($now > $unix_date) {
+                    $difference = $now - $unix_date;
+                    $tense = "trước"; } else {
+                    $difference = $unix_date - $now;
+                    $tense = "vừa mới";
+                }
+                for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+                    $difference /= $lengths[$j];
+                }
+
+                $difference = round($difference);
+
+                if($difference != 1) {
+                    $periods[$j].= " ";
+                }
+                return "$difference $periods[$j] {$tense}";
+            }
+
+            function getFullTime($date)
+            {
+                $value  = ' lúc '.date('H', $date). ' giờ ';
+                $value .= date('i', $date) . ' phút';
+                $value .= ' ngày '.date('d/m/Y', $date);
+                return $value;
+            }
+
+            if(isset($userPost))
+            {
+                foreach($userPost as $node)
+                {
+            ?>
+
+                    <div class="memberPost">
+                        <div class="content-memberPost">
+                            <div class="imageMember">
+                                <img src="<?php echo $this->basePath().'/uploads/'. $node['pathava']; ?>">
+                            </div>
+                            <div class="infoMember">
+                                <span class="nameMember">
+                                    <a href="<?php echo $this->basePath().'/success?user='.$node['actionuser']; ?>">
+                                        <?php echo $node['username']; ?>
+                                    </a>
+                                </span>
+                                <span class="statusMember"><?php echo $node['statuscontent']; ?></span>
                         <span class="timepostMember">
-                            <a href="#">14 phút trước</a>
+                            <a href="#" title="<?php echo getFullTime($node['createdtime']); ?>">
+                                <?php echo time_difference($node['createdtime']); ?>
+                            </a>
                         </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+
+            <?php
+                }
+            }
+            else
+            {
+                echo 'Hiện tại chưa có bài viết nào!';
+            }
+            ?>
+
+
+
+
 
         </div>
     </div>
@@ -485,48 +533,531 @@
 
 <script>
 
+    function addInfoWindowHandle()
+    {
+        var divContent = document.createElement('div');
+        divContent.id = "content";
+        var divSiteNotice = document.createElement('div');
+        divSiteNotice.id = "siteNotice";
+        var tagH1 = document.createElement('h1');
+        tagH1.id = "firstHeading";
+        tagH1.className = "firstHeading";
+        tagH1.textContent = "<?php echo $pageInfo['bindingInfo']['pageName'] ?>";
+        var divBodyContent = document.createElement('div');
+        divBodyContent.id = "bodyContent";
+        var tagPre = document.createElement('p');
+        jQuery(tagPre).text("<?php echo str_replace(array("\r\n","\r","\n"),' ',$pageInfo['bindingInfo']['pageMapInfo']); ?>");
+
+        divContent.appendChild(divSiteNotice);
+        divContent.appendChild(tagH1);
+        divContent.appendChild(divBodyContent);
+        divBodyContent.appendChild(tagPre);
+
+        return divContent;
+    }
+
     function initialize()
     {
-        var myLatlng = new google.maps.LatLng(51.508742,-0.120850);
+        var pageLongt = <?php
+        if(isset($pageInfo['bindingInfo']['pageLongt']))
+            echo $pageInfo['bindingInfo']['pageLongt'];
+         else
+            echo 106.68617248535156;
+        ?>;
+        var pageLat = <?php
+        if(isset($pageInfo['bindingInfo']['pageLat']))
+            echo $pageInfo['bindingInfo']['pageLat'];
+        else
+            echo 10.779348472547026;
+        ?>;
+        var myLatlng = new google.maps.LatLng(pageLat,pageLongt);
         var mapProp = {
             center:myLatlng,
-            zoom:5,
+            zoom:15,
             scrollwheel: false,
             mapTypeId:google.maps.MapTypeId.ROADMAP
         };
         var map=new google.maps.Map(document.getElementById("mapToPageID")
             ,mapProp);
 
+        var newImage = '<?php echo $this->basePath().'/img/icon-office-building.png' ?>';
+
         var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
-            draggable: true,
+            icon : newImage,
             title: "Nhấn để xem thông tin chi tiết!"
         });
         marker.setAnimation(google.maps.Animation.BOUNCE);
 
-        var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Nhà Hàng Sao Việt</h1>'+
-            '<div id="bodyContent">'+
-            '<p>Nhà hàng sao việt xin kính chào quý khách</p>' +
-            '<p>Nhận đặt tiệc cưới, sinh nhật, mừng thọ...</p>' +
-            '<p>Tại địa chỉ hồ chí minh, số đt: 01234xxx</p>' +
-            '</div>'+
-            '</div>';
+
+
+        var contentString = addInfoWindowHandle();
         var infoWindow = new google.maps.InfoWindow({
-            content: contentString
+            content: contentString,
+            maxWidth: 400
         });
 
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.open(map,marker);
-            var data = this.getPosition().lat();
-                alert(data);
         });
 
     }
 
 
     google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+
+        function vainoiFunction(idofDivComment)
+        {
+            var e = document.getElementById(idofDivComment);
+            var offset = {x:0,y:0};
+            while (e)
+            {
+                offset.x += e.offsetLeft;
+                offset.y += e.offsetTop;
+                e = e.offsetParent;
+            }
+
+            if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft))
+            {
+                offset.x -= document.documentElement.scrollLeft;
+                offset.y -= document.documentElement.scrollTop;
+            }
+            else if (document.body && (document.body.scrollTop || document.body.scrollLeft))
+            {
+                offset.x -= document.body.scrollLeft;
+                offset.y -= document.body.scrollTop;
+            }
+            else if (window.pageXOffset || window.pageYOffset)
+            {
+                offset.x -= window.pageXOffset;
+                offset.y -= window.pageYOffset;
+            }
+
+//                    alert(offset.x + '\n' + offset.y);
+            return offset.y;
+        }
+
+        jQuery('.titleTools>ul>li').each(function(){
+
+            jQuery(this).click(function(){
+                jQuery('.titleTools>ul>li').removeClass('menuNormal setmenuClicked').addClass('menuNormal');
+                jQuery('.clickStatus').hide();
+                jQuery(this).removeClass('menuNormal').addClass('setmenuClicked');
+
+                var index = jQuery(this).index();
+                if(index == 0){
+                    jQuery('#firstBonnus').show();
+                }
+                else{
+                    if(index == 1){
+                        jQuery('#secoundBonnus').show();
+                    }
+                    else{
+                        if(index == 2){
+                            jQuery('#lastBonnus').show();
+                        }else{
+                            jQuery('#sharePlaceBonnus').show();
+                        }
+                    }
+                }
+
+            });
+        });
+
+        clickShowComment();
+
+        function loadCommentbyActID(actionID)
+        {
+            var dataval = "actionID="+actionID;
+//            alert(dataval);
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'loadcommentbyid')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);return;
+                    data = jQuery.parseJSON(data);
+                    deleteOldComment();
+                    if(data['success'] == 1)
+                    {
+                        var divAbsolute = jQuery('.absolute-comment');
+                        var i = 0;
+                        var maxi = data['commentData'].length;
+                        function loopShowCMT()
+                        {
+                            if(i >= maxi)
+                            {
+                                return;
+                            }
+                            var linkAnh = '<?php echo $this->basePath().'/uploads/'; ?>' + data['commentData'][i]['avauser'];
+                            var cmtContent = data['commentData'][i]['commentcontent'];
+                            var nameUserPost = data['commentData'][i]['nameuser'];
+                            instancePostComment(cmtContent, linkAnh, nameUserPost, data['commentData'][i]['createdtime'], 'none');
+                            i++;
+                            setTimeout(loopShowCMT, 400);
+                        }
+                        loopShowCMT();
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        }
+
+
+        function clickShowComment()
+        {
+            //instance show comment
+            jQuery('.close-arrowbox').click(function(){
+                var divShow = jQuery('.absolute-comment');
+                var heightNow = divShow.css('height');
+                var widthNow = divShow.css('width');
+                divShow.animate({
+                    opacity:0,
+                    marginTop: '-30px'
+                }, 1000, function(){
+                    jQuery(this).css({'display': 'none', 'opacity': 1, 'marginTop':0});
+                });
+            });
+
+            jQuery('.showInstanceCMT').each(function(){
+                jQuery(this).click(function(){
+                    var heightParent = jQuery(this).parent().height();
+                    var idforShowCMT = jQuery(this).attr('id');
+                    var posTop = vainoiFunction(idforShowCMT) - heightParent;
+                    var commentInstance = jQuery('.absolute-comment');
+                    var isDisplayorNor = commentInstance.css('display');
+
+                    //gan id cho div comment
+                    commentInstance.attr('id', idforShowCMT);
+
+                    //load data comments
+                    if(isDisplayorNor == "none")
+                    {
+                        commentInstance.css('top', posTop);
+                    }
+                    if(heightParent < 215)
+                    {
+                        heightParent = 215;
+                    }
+
+                    commentInstance.fadeIn(1000);
+                    commentInstance.animate({
+                        top: posTop,
+                        height: heightParent
+                    }, 1200, function(){
+                        loadCommentbyActID(idforShowCMT);
+                    });
+
+                    var pageID = jQuery('#hidden-pageID').val();
+//                    var userNow = jQuery('#hidden-userIDNow').val();
+                });
+            });
+
+            jQuery('.btnCommitComment').click(function(){
+                var time = getTimestampNow();
+                var actionID = jQuery('.absolute-comment').attr('id');
+                var contentComt = jQuery('.commitComment');
+                var valueComt = contentComt.val();
+                var actionLocation = jQuery('#hidden-pageID').val();
+                var actionUser = jQuery('#hidden-userIDNow').val();
+                if(valueComt.length == 0)
+                {
+                    alert('Bạn chưa nhập nội dung bình luận của mình!');
+                    contentComt.focus();
+                }
+                else
+                {
+                    insertNewComment(actionID, actionUser, actionLocation, valueComt, time);
+                }
+
+                return false;
+            });
+        }
+
+        function insertNewComment(actionID, actionUser, actionLocation, cmtContent, createdTime)
+        {
+            var dataval = "actionID="+actionID+"&actionUser="+actionUser+"&actionLocation="+actionLocation+"&cmtContent="+cmtContent+"&createdTime="+createdTime;
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'insertnewcomment')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        var linkAnh = '<?php
+                        echo $this->basePath().'/uploads/';
+                        if(isset($avaWho['pathAva']))
+                            echo $avaWho['pathAva'];
+                        else
+                            echo $pageInfo['bindingImage']['imageAva'];
+                        ?>';
+                        var nameUserPost = jQuery('#img_'+actionUser).attr('name');
+                        instancePostComment(cmtContent, linkAnh, nameUserPost, createdTime, 'instance');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        }
+
+        function instancePostComment(cmtContent, linkAvatar, nameUserPost, createdTime ,typeComment)
+        {
+            var newDate = new Date(createdTime*1000);
+            var timeConvert = ' lúc ' + newDate.getHours()+':'+newDate.getMinutes();
+            var dateConvert = ' ngày ' + newDate.getDate()+'/'+(newDate.getMonth()+1)+'/'+newDate.getFullYear();
+            var timePost ="";
+            if(typeComment == 'instance')
+            {
+                timePost = " vài giây trước"
+            }
+            else
+            {
+                timePost = timeConvert + dateConvert;
+            }
+
+            var divToolComment = document.createElement('div');
+            divToolComment.className = "content-toolComment";
+
+            var divAvatar = document.createElement('div');
+            divAvatar.className = "avatar-memberComment";
+
+            var imgAvatar = document.createElement('img');
+            jQuery(imgAvatar).attr('src', linkAvatar);
+
+            var divInfoMem = document.createElement('div');
+            divInfoMem.className = 'info-memberComment';
+
+            var tagANameMem = document.createElement('a');
+            tagANameMem.className = "name-membercmt";
+
+            var tagSpanofName = document.createElement('span');
+            tagSpanofName.textContent = nameUserPost;
+
+            var tagAcontentCmt = document.createElement('a');
+            tagAcontentCmt.className = "countlike-membercmt";
+
+            var tagASpanofContent = document.createElement('span');
+            tagASpanofContent.textContent = cmtContent;
+
+            var tagSpanofLikeButton = document.createElement('span');
+            tagSpanofLikeButton.className = "like-time-membercmt";
+
+            var tagAofSpanofLikeButton = document.createElement('a');
+            tagAofSpanofLikeButton.textContent = "Thích(0)";
+
+            divToolComment.appendChild(divAvatar);
+                divAvatar.appendChild(imgAvatar);
+            divToolComment.appendChild(divInfoMem);
+                divInfoMem.appendChild(tagANameMem);
+                    tagANameMem.appendChild(tagSpanofName);
+                divInfoMem.appendChild(tagAcontentCmt);
+                    tagAcontentCmt.appendChild(tagASpanofContent);
+                divInfoMem.appendChild(tagSpanofLikeButton);
+                    tagSpanofLikeButton.appendChild(tagAofSpanofLikeButton);
+                    jQuery(tagSpanofLikeButton).append(timePost);
+
+            jQuery(divToolComment).css('opacity', 0);
+            jQuery('.toolComment').after(divToolComment);
+//            jQuery(divToolComment).slideDown(400);
+            jQuery(divToolComment).animate({
+                opacity:1
+            },600);
+            jQuery('.absolute-comment').css('height', 'auto');
+        }
+
+
+        function deleteOldComment()
+        {
+            jQuery('.content-toolComment').each(function(){
+                var checkDel = jQuery(this).attr('id');
+                if(checkDel != 'notdelete')
+                {
+                    jQuery(this).hide(600);
+                    jQuery(this).remove();
+                }
+            });
+        }
+
+        //////////////////////////START POST STATUS OF PAGE////////////////////////////
+        function getTimestampNow()
+        {
+            var datenow = new Date();
+            datenow = parseInt(datenow.setFullYear(datenow.getFullYear(), datenow.getMonth(), datenow.getDate())/1000);
+            return datenow;
+        }
+
+        function instancePost(createTime, headTitle, content)
+        {
+            var newDate = new Date(createTime*1000);
+            var timeConvert = newDate.getHours()+':'+newDate.getMinutes();
+            var dateConvert = newDate.getDate()+'/'+(newDate.getMonth()+1)+'/'+newDate.getFullYear();
+//            alert(timeConvert + '  ' + dateConvert );
+
+            var tagLi = document.createElement('li');
+
+            var tagTime = document.createElement('time');
+            tagTime.className = "cbp_tmtime";
+            tagTime.dateTime = dateConvert + ' ' + timeConvert;
+
+            var tagSpan1 = document.createElement('span');
+            tagSpan1.textContent = dateConvert;
+
+            var tagSpan2 = document.createElement('span');
+            tagSpan2.textContent = timeConvert;
+
+            var divIcon = document.createElement('div');
+            divIcon.className = "cbp_tmicon cbp_tmicon-earth";
+
+            var divContent = document.createElement('div');
+            divContent.className = "cbp_tmlabel";
+
+            var tagH2 = document.createElement('h2');
+            tagH2.textContent = headTitle;
+
+            var tagP = document.createElement('p');
+            tagP.textContent = content;
+
+            var tagaShowComment = document.createElement('a');
+            tagaShowComment.className = "showInstanceCMT";
+            tagaShowComment.id = "ACT" + createTime;
+            tagaShowComment.textContent = "Xem thêm bình luận";
+
+            tagLi.appendChild(tagTime);
+                tagTime.appendChild(tagSpan1);
+                tagTime.appendChild(tagSpan2);
+            tagLi.appendChild(divIcon);
+            tagLi.appendChild(divContent);
+                divContent.appendChild(tagH2);
+                divContent.appendChild(tagP);
+                divContent.appendChild(tagaShowComment);
+
+            jQuery(tagLi).css({'margin-top':'-123px', 'margin-bottom': '123px', 'opacity': 0, 'position': 'relative'});
+            jQuery('ul.cbp_tmtimeline').prepend(tagLi);
+            jQuery(tagLi).animate({
+                marginTop: '0px',
+                marginBottom: '0px',
+                opacity: 1
+            }, 2000);
+
+            clickShowComment();
+
+        }
+
+        function userPostStatus(content, userID, imagePath, username)
+        {
+            var divmemberPost = document.createElement('div');
+            divmemberPost.className = "memberPost";
+
+            var divContentPost = document.createElement('div');
+            divContentPost.className = "content-memberPost";
+
+            var divimageMember = document.createElement('div');
+            divimageMember.className = "imageMember";
+
+            var imgImageMember = document.createElement('img');
+            jQuery(imgImageMember).attr('src', imagePath);
+
+            var divInfoMember = document.createElement('div');
+            divInfoMember.className = "infoMember";
+
+            var spanNameMember = document.createElement('span');
+            spanNameMember.className = "nameMember";
+
+            var tagALinkMember = document.createElement('a');
+            jQuery(tagALinkMember).attr('href', '<?php echo $this->basePath().'/success?user=';?>' + userID);
+            tagALinkMember.textContent = username;
+
+            var spanStatusMember = document.createElement('span');
+            spanStatusMember.className = "statusMember";
+            spanStatusMember.textContent = content;
+
+            var spanTimepostMember = document.createElement('span');
+            spanTimepostMember.className = "timepostMember";
+
+            var tagATimepostMember = document.createElement('a');
+            jQuery(tagATimepostMember).attr('href', '#');
+            tagATimepostMember.title = " vài giây trước";
+            tagATimepostMember.textContent = " vài giây trước";
+
+            divmemberPost.appendChild(divContentPost);
+                divContentPost.appendChild(divimageMember);
+                    divimageMember.appendChild(imgImageMember);
+                divContentPost.appendChild(divInfoMember);
+                    divInfoMember.appendChild(spanNameMember);
+                        spanNameMember.appendChild(tagALinkMember);
+                    divInfoMember.appendChild(spanStatusMember);
+                    divInfoMember.appendChild(spanTimepostMember);
+                        spanTimepostMember.appendChild(tagATimepostMember);
+            jQuery(divContentPost).css('opacity', 0);
+            jQuery('.title-memberPost').after(divmemberPost);
+            jQuery(divContentPost).animate({
+                opacity: 1
+            }, 1000);
+        }
+
+        jQuery('#btn_post_status').click(function(){
+            //error_post_status
+            var content_status = jQuery('#cnt_page_status').val();
+            var userNow = jQuery('#hidden-userIDNow').val();
+            var pageID = jQuery('#hidden-pageID').val();
+            var createdTime = getTimestampNow();
+                if(content_status.length == 0 || content_status.length < 6)
+                {
+                    jQuery('#error_post_status').text('Nội dung trạng thái không được bỏ trống hoặc phải có ít nhất 6 kí tự!').show(600).delay(4000).hide(400);
+                }
+                else
+                {
+                    var dataval = "userNow="+userNow+"&pageID="+pageID+"&statusContent="+content_status+"&createdTime="+createdTime;
+//                    alert(dataval);
+
+                    jQuery.ajax({
+                        type: "POST",
+                        url: "<?php echo $this->url('fanpage', array('action' => 'insertpagestatus')); ?>",
+                        data: dataval,
+                        async:false,
+                        success: function(data) {
+                            data = jQuery.parseJSON(data);
+                            if(data['success'] == 1)
+                            {
+                                if(pageID == userNow)
+                                {
+                                    instancePost(createdTime, 'Nhà hàng việt nam', content_status);
+                                }
+                                else
+                                {
+
+                                    var linkImg =  "<?php echo $this->basePath().'/uploads/';
+                                    if(isset($avaWho['pathAva'])) echo $avaWho['pathAva']; ?>";
+                                    var nameUserPost = jQuery('#img_'+userNow).attr('name');
+                                    userPostStatus(content_status, userNow, linkImg, nameUserPost);
+                                }
+
+                                jQuery('#form-pagePostStatus')[0].reset();
+                            }
+                        },
+                        error: function() {
+                            alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                        }
+                    });
+
+
+                }
+            return false;
+        });
+        //////////////////////////END POST STATUS OF PAGE////////////////////////////
+
+    });
 </script>

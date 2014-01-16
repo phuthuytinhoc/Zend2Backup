@@ -3,6 +3,7 @@
 	<name>Thái Lan năm 2011</name>
 	<description>Chuyến đi tới Thái Lan tuyệt vời nhất</description>
 	<places>
+
 		<place>
 			<name>Bangkok</name>		
 			<location>
@@ -11,34 +12,35 @@
 			</location>
 			<photos>
 				<photo>
-					<thumb>../photos/Bangkok/thumbs/1.jpg</thumb>
-					<source>../photos/Bangkok/1.jpg</source>
-					<description>Bức ảnh thứ nhát</description>
+					<thumb>photos/Bangkok/thumbs/1.jpg</thumb>
+					<source>photos/Bangkok/1.jpg</source>
+					<description>B?c ?nh th? nhát</description>
 					<location>
 						<lat>13.710035342476681</lat>
 						<lng>100.52043914794922</lng>
 					</location>
 				</photo>
 				<photo>
-					<thumb>../photos/Bangkok/thumbs/2.jpg</thumb>
-					<source>../photos/Bangkok/2.jpg</source>
-					<description>Bức ảnh thứ 2</description>
+					<thumb>photos/Bangkok/thumbs/2.jpg</thumb>
+					<source>photos/Bangkok/2.jpg</source>
+					<description>B?c ?nh th? 2</description>
 					<location>
 						<lat>13.693357716960653</lat>
 						<lng>100.53314208984375</lng>
 					</location>
 				</photo>
 				<photo>
-					<thumb>../photos/Bangkok/thumbs/3.jpg</thumb>
-					<source>../photos/Bangkok/3.jpg</source>
-					<description>Bức ảnh thứ 3</description>
+					<thumb>photos/Bangkok/thumbs/3.jpg</thumb>
+					<source>photos/Bangkok/3.jpg</source>
+					<description>B?c ?nh th? 3</description>
 					<location>
 						<lat>13.678013256725489</lat>
 						<lng>100.59185028076172</lng>
 					</location>
-				</photo>	
+				</photo>
 			</photos>
 		</place>
+
 		<place>
 			<name>Phuket</name>
 			<location>
@@ -47,8 +49,8 @@
 			</location>
 			<photos>
 				<photo>
-					<thumb>../photos/Phuket/thumbs/1.jpg</thumb>
-					<source>../photos/Phuket/1.jpg</source>
+					<thumb>photos/Phuket/thumbs/1.jpg</thumb>
+					<source>photos/Phuket/1.jpg</source>
 					<description>Yeah hú</description>
 					<location>
 						<lat>7.893989181999725</lat>
@@ -56,8 +58,8 @@
 					</location>
 				</photo>
 				<photo>
-					<thumb>../photos/Phuket/thumbs/2.jpg</thumb>
-					<source>../photos/Phuket/2.jpg</source>
+					<thumb>photos/Phuket/thumbs/2.jpg</thumb>
+					<source>photos/Phuket/2.jpg</source>
 					<description>Kính chào quý khách :v</description>
 					<location>
 						<lat>8.077586</lat>
@@ -65,9 +67,9 @@
 					</location>
 				</photo>
 				<photo>
-					<thumb>../photos/Phuket/thumbs/3.jpg</thumb>
-					<source>../photos/Phuket/3.jpg</source>
-					<description>Nhà hàng sao việt :v</description>
+					<thumb>photos/Phuket/thumbs/3.jpg</thumb>
+					<source>photos/Phuket/3.jpg</source>
+					<description>Nhà hàng sao vi?t :v</description>
 					<location>
 						<lat>8.043592</lat>
 						<lng>98.276138</lng>
@@ -83,27 +85,27 @@
 			</location>
 			<photos>
 				<photo>
-					<thumb>../photos/Myeik/thumbs/1.jpg</thumb>
-					<source>../photos/Myeik/1.jpg</source>
-					<description>Vãi nồi</description>
+					<thumb>photos/Myeik/thumbs/1.jpg</thumb>
+					<source>photos/Myeik/1.jpg</source>
+					<description>Vãi n?i</description>
 					<location>
 						<lat>12.461385</lat>
 						<lng>98.575516</lng>
 					</location>
 				</photo>
 				<photo>
-					<thumb>../photos/Myeik/thumbs/2.jpg</thumb>
-					<source>../photos/Myeik/2.jpg</source>
-					<description>Sao nhiều vậy nhỉ</description>
+					<thumb>photos/Myeik/thumbs/2.jpg</thumb>
+					<source>photos/Myeik/2.jpg</source>
+					<description>Sao nhi?u v?y nh?</description>
 					<location>
 						<lat>12.436074</lat>
 						<lng>98.586674</lng>
 					</location>
 				</photo>
 				<photo>
-					<thumb>../photos/Myeik/thumbs/3.jpg</thumb>
-					<source>../photos/Myeik/3.jpg</source>
-					<description>Đm nhìu quá</description>
+					<thumb>photos/Myeik/thumbs/3.jpg</thumb>
+					<source>photos/Myeik/3.jpg</source>
+					<description>?m nhìu quá</description>
 					<location>
 						<lat>12.417801</lat>
 						<lng>98.609505</lng>
@@ -112,6 +114,5 @@
 			</photos>
 		</place>
 	</places>
-
 
 </album>

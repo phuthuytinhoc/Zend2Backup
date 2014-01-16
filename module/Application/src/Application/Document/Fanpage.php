@@ -36,6 +36,14 @@ class Fanpage
     /** @ODM\Field(type="string") */
     private $createdtime;
 
+    /** @ODM\Field(type="string") */
+    private $pagelongtitude;
+
+    /** @ODM\Field(type="string") */
+    private $pagelatitude;
+
+    /** @ODM\Field(type="string") */
+    private $pagemapinfo;
 
     //******* GET METHOD *******//
 
@@ -96,6 +104,30 @@ class Fanpage
         return $this->createdtime;
     }
 
+    /**
+     * @return the $pagelongtitude
+     */
+    public function getPagelongtitude()
+    {
+        return $this->pagelongtitude;
+    }
+
+    /**
+     * @return the $pagelatitude
+     */
+    public function getPagelatitude()
+    {
+        return $this->pagelatitude;
+    }
+
+    /**
+     * @return the $pagemapinfo
+     */
+    public function getPagemapinfo()
+    {
+        return $this->pagemapinfo;
+    }
+
 
 
     //*****SET METHOD*****//
@@ -154,5 +186,29 @@ class Fanpage
     public function setCreatedtime($createdtime)
     {
         $this->createdtime = $createdtime;
+    }
+
+    /**
+     * @param field_type $pagelongtitude
+     */
+    public function setPagelongtitude($pagelongtitude)
+    {
+        $this->pagelongtitude = $pagelongtitude;
+    }
+
+    /**
+     * @param field_type $pagelatitude
+     */
+    public function setPagelatitude($pagelatitude)
+    {
+        $this->pagelatitude = $pagelatitude;
+    }
+
+    /**
+     * @param field_type $pagemapinfo
+     */
+    public function setPagemapinfo($pagemapinfo)
+    {
+        $this->pagemapinfo = $pagemapinfo;
     }
 }

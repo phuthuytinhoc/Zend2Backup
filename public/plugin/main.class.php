@@ -40,7 +40,12 @@ class MapPhoto{
 
 		}
 
-		$encoded = json_encode( array( 'name' => (string)$albumName, 'description' => (string)$description, 'places' => $placesArr ) );
+
+        $newArr = array( 'name' => (string)$albumName, 'description' => (string)$description, 'places' => $placesArr );
+
+
+		$encoded = json_encode($newArr);
+        print_r($encoded);die();
 		echo $encoded;
 
 	}

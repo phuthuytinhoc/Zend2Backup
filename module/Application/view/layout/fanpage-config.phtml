@@ -12,6 +12,7 @@
 
     <!-- Le styles -->
     <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        ->prependStylesheet($this->basePath() . '/css/jQuery.alert.css')
         ->prependStylesheet($this->basePath() . '/css/fanpage-config.css')
         ->prependStylesheet($this->basePath() . '/css/style.css')
         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
@@ -20,11 +21,9 @@
 
     <!-- Scripts -->
     <?php echo $this->headScript()
-        ->prependFile($this->basePath() . '/js/multi_uploadImage/script.js')
-        ->prependFile($this->basePath() . '/js/multi_uploadImage/jquery.fileupload.js')
-        ->prependFile($this->basePath() . '/js/multi_uploadImage/jquery.iframe-transport.js')
-        ->prependFile($this->basePath() . '/js/multi_uploadImage/jquery.ui.widget.js')
-        ->prependFile($this->basePath() . '/js/multi_uploadImage/jquery.knob.js')
+        ->prependFile($this->basePath() . '/js/jQuery.alert.js')
+        ->prependFile($this->basePath() . '/js/jquery.validate.min.js')
+        ->prependFile($this->basePath() . '/js/menu_tabs/menu_tabs.js')
         ->prependFile($this->basePath() . '/js/jquery.accordion.js')
         ->prependFile($this->basePath() . '/js/jquery.easing.1.3.js')
         ->prependFile($this->basePath() . '/js/jquery.tmpl.min.js')

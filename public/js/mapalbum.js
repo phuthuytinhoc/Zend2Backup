@@ -102,7 +102,7 @@ $(function() {
 			}
 			
 			// create a new viewpoint bound
-			var bounds = new google.maps.LatLngBounds ();
+			var bounds = new google.maps.LatLngBounds();
 			
 			// go through each...
 			for ( var i = 0, LtLgLen = LatLngList.length; i < LtLgLen; ++i ) {
@@ -531,11 +531,15 @@ $(function() {
 			
 			// get the places and its info from the XML file
             var basePath = jQuery('.voidClass>a').attr('href');
-			$.getJSON(basePath+'/plugin/main.class.php', function( data ) {
-//			$.getJSON(basePath+'/fanpage/getalbumpage', function( data ) {
+            var pageIddd = jQuery('#hidden-pageID').val();
 
-//                alert(data.success); return;
-
+//			$.getJSON(basePath+'/plugin/main.class.php', function( data ) {
+			$.getJSON(basePath+'/fanpage/bindingdataimage?pageID='+pageIddd, function( data ) {
+                if(data == "error")
+                {
+                    jQuery('#mp-container').remove();
+                    return;
+                }
 
 				// the album name
 				instance.album			= data.name;
@@ -543,7 +547,7 @@ $(function() {
 				instance.description	= data.description;
 				
 				$.each( data.places, function( key, placeinfo ) {
-					var place = new Place( placeinfo )
+					var place = new Place( placeinfo );
 					instance.places.push( place );
 				});
 				

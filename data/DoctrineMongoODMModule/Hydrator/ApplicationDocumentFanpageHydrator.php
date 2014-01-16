@@ -82,6 +82,30 @@ class ApplicationDocumentFanpageHydrator implements HydratorInterface
             $this->class->reflFields['createdtime']->setValue($document, $return);
             $hydratedData['createdtime'] = $return;
         }
+
+        /** @Field(type="string") */
+        if (isset($data['pagelongtitude'])) {
+            $value = $data['pagelongtitude'];
+            $return = (string) $value;
+            $this->class->reflFields['pagelongtitude']->setValue($document, $return);
+            $hydratedData['pagelongtitude'] = $return;
+        }
+
+        /** @Field(type="string") */
+        if (isset($data['pagelatitude'])) {
+            $value = $data['pagelatitude'];
+            $return = (string) $value;
+            $this->class->reflFields['pagelatitude']->setValue($document, $return);
+            $hydratedData['pagelatitude'] = $return;
+        }
+
+        /** @Field(type="string") */
+        if (isset($data['pagemapinfo'])) {
+            $value = $data['pagemapinfo'];
+            $return = (string) $value;
+            $this->class->reflFields['pagemapinfo']->setValue($document, $return);
+            $hydratedData['pagemapinfo'] = $return;
+        }
         return $hydratedData;
     }
 }
