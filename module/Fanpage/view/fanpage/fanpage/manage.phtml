@@ -1,0 +1,368 @@
+<style type="text/css">
+    .main_manage {
+        margin: 2em auto;
+        display: block;
+        width: 80%;
+    }
+    .table_listuser{
+        border: 3px solid #0688FA;
+        background-color: white;
+    }
+    .table_listuser tr{
+        border-bottom: 1px dashed #111;
+        height: 4rem;
+    }
+    .table_listuser tr th{
+        text-align: center;
+        padding: 0.8em;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+    .table_listuser tr td{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .table_listuser tr td a {
+        color: #111;
+    }
+    .table_listuser tr td a:hover{
+        color: white;
+    }
+    .table_listuser tr:hover{
+        background-color: #6CBFEE !important;
+        color: white;
+    }
+    .table_listuser tr:first-child{
+        background-color: #0688FA !important;
+        border-bottom: 2px solid #111;
+        color: white;
+    }
+    .table_listuser tr:nth-child(odd) {background-color: #EDEBEB;}
+    .table_listuser tr:nth-child(even) {background-color: white;}
+    .input_userid{}
+    .input_userid input {
+
+    }
+    #userID_manage {
+        padding: 1rem;
+        width: 50%;
+    }
+    #sub_add_manager{
+        margin-left: 2rem;
+        padding: 1rem;
+        border: 3px solid transparent;
+        color: white;
+        font-weight: bold;
+        background-color: #088AF7;
+    }
+    #sub_add_manager:hover{
+        color: #000000;
+        border-color: #088AF7;
+        background-color: white;
+        transition: background-color 1s ease;
+    }
+    .info_user{
+        display: none;
+        width: 50%;
+        border: 2px dashed;
+        background-color: white;
+        padding: 1.5em;
+        margin-top: 1.5rem;
+    }
+    .info_user img{
+        display: inline-block;
+        max-width: 100px;
+    }
+    .bacsic_info{
+        display: inline-block;
+        padding: 0 2em;
+    }
+    #error_info{
+        color: red;
+    }
+    .del_manager{
+        cursor: pointer;
+    }
+</style>
+
+<input type="hidden" id="hidden_pageid" value="<?php echo $pageid; ?>">
+
+<div class="main_manage">
+    <h2>Thêm quản trị viên</h2>
+    <div class="input_userid">
+        <form method="post">
+            <p id="error_info" class="invalid"></p>
+            <input type="text" placeholder="Nhập ID của user..." id="userID_manage">
+            <input type="submit" value="Thêm Quản Trị Viên" id="sub_add_manager">
+        </form>
+    </div>
+    <div class="info_user">
+        <img src="<?php echo $this->basePath().'/uploads/ava-temp.png'; ?>">
+        <div class="bacsic_info">
+            <p id="name_ajax">Họ tên: </p>
+            <a id="link_ajax" href="">Đi đến...</a>
+        </div>
+    </div>
+
+
+    <h2>Danh sách các quản trị viên</h2>
+    <table class="table_listuser">
+        <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>Quyền</th>
+            <th>Trang cá nhân</th>
+            <th>Ngày gia nhập</th>
+            <th>Hành động</th>
+        </tr>
+        <?php
+        if(isset($listOwner))
+        {
+            foreach($listOwner as $node)
+            {
+                echo '<tr id="tr_'.$node["userid"].'">';
+                echo '<td>'.$node['stt'].'</td>';
+                echo '<td>'.$node['hoten'].'</td>';
+                echo '<td>'.$node['role'].'</td>';
+                echo '<td><a href="'.$this->basePath().$node["link"].'">Đi đến... </a></td>';
+                echo '<td>'.$node['date'].'</td>';
+                if($node['role'] != 'ADMIN')
+                {
+                    echo '<td><a class="del_manager" id="'.$node["userid"].'">Xóa</a></td>';
+                }
+                else
+                    echo '<td></td>';
+                echo '</tr>';
+            }
+        }
+
+        ?>
+    </table>
+</div>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+
+        //////////////////////START SET BACSIC INFO/////////////////
+        var linkFM = '<?php echo $this->basePath().'/fanpage?pageID='.$pageid; ?>';
+        var linkActivity = '<?php echo $this->basePath().'/fanpage/activity?pageID='.$pageid; ?>';
+        var linkEditinfo = '<?php echo $this->basePath().'/fanpage/editinfo?pageID='.$pageid; ?>';
+        var linkManage = '<?php echo $this->basePath().'/fanpage/manage?pageID='.$pageid; ?>';
+        jQuery('#menu_home').attr('href', linkFM);
+        jQuery('.logo-zess a').attr('href', linkFM);
+        jQuery('#menu_activity').attr('href', linkActivity);
+        jQuery('#menu_editinfo').attr('href', linkEditinfo);
+        jQuery('#menu_manage').attr('href', linkManage);
+        //////////////////////END SET BACSIC INFO///////////////////
+
+        var typingTimer;
+        var doneTypingInterval = 2000;
+        var input_search = jQuery('#userID_manage');
+
+        //////////////////////START SEARCH USER BY USERID////////////////////////
+        //WAITING TIME = 2000
+        input_search.keyup(function(){
+            clearTimeout(typingTimer);
+            if (input_search.val) {
+                typingTimer = setTimeout(getBacsicInfoUser, doneTypingInterval);
+            }
+        });
+        //////////////////////END SEARCH USER BY USERID////////////////////////
+
+        //////////////////////START DELETE MANAGER////////////////////////////
+        jQuery('.del_manager').each(function(){
+            jQuery(this).click(function(){
+                var ID = jQuery(this).attr('id');
+                deleteManagerUser(ID);
+            });
+        });
+
+        function deleteManagerUser(userID)
+        {
+            var pageid = jQuery('#hidden_pageid').val();
+            var dataval = "userid="+userID+"&pageid="+pageid;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'deletemanager')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+
+                    if(data['success'] == 1)
+                    {
+                       alert('Xóa quản trị viên thành công!');
+                        jQuery('#tr_' + userID).remove();
+                    }
+                    else
+                    {
+                        alert('Xóa quản trị viên thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+        //////////////////////END DELETE MANAGER/////////////////////////////
+
+        function getTimestampNow()
+        {
+            var datenow = new Date();
+            datenow = parseInt(datenow.setFullYear(datenow.getFullYear(), datenow.getMonth(), datenow.getDate())/1000);
+            return datenow;
+        }
+
+        function getBacsicInfoUser()
+        {
+            var userid = jQuery('#userID_manage').val();
+            var dataval = "userid="+userid;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'getbacsicinfo')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+
+                    if(data['success'] == 1)
+                    {
+                        var basePath = '<?php echo $this->basePath(); ?>';
+                        var name = data['value']['name'];
+                        var linkava = basePath + data['value']['ava'];
+                        var path = basePath + data['value']['path'];
+
+                        jQuery('.info_user img').attr('src', linkava);
+                        jQuery('#name_ajax').text(name);
+                        jQuery('#link_ajax').attr('href', path);
+                        jQuery('.info_user').show(600);
+                        jQuery('#error_info').attr('class', 'valid');
+                    }
+                    else
+                    {
+                        jQuery('.info_user').hide(400);
+                        jQuery('#error_info').text('ID người dùng không tồn tại, hãy thử lại!').show(600).delay(3000).hide(400).attr('class','invalid');
+//                        alert('userid nay khong ton tai');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        ////////////////START ADD MOD FOR PAGE ///////////////////////
+        jQuery('#sub_add_manager').click(function(){
+            var checkValid = jQuery('#error_info').attr('class');
+            if(checkValid == 'invalid')
+            {
+                alert('Nhập chính xác mã người dùng (ID) cần thêm quản trị viên!');
+            }
+            else
+            {
+                addPageManager();
+            }
+            return false;
+        });
+
+        function getFullTime(date)
+        {
+            var newDate = new Date(date*1000);
+            var dateConvert = newDate.getDate()+'/'+(newDate.getMonth()+1)+'/'+newDate.getFullYear();
+            return dateConvert;
+        }
+
+        //add new row - new value
+        function addNewRow(createdtime, userid)
+        {
+            var tbl = jQuery('.table_listuser tr');
+            var count = tbl.size();
+            var name = jQuery('#name_ajax').text();
+            var link = jQuery('#link_ajax').attr('href');
+            var linkGoto = '<a href="'+link+'">Đi đến...</a>';
+            var linkDel = '<a class="del_manager" id="'+userid+'">Xóa</a>';
+
+            var tr = document.createElement('tr');
+            jQuery(tr).attr('id', 'tr_'+userid);
+            var tdSTT = document.createElement('td');
+            jQuery(tdSTT).text(count);
+            var tdHoTen = document.createElement('td');
+            jQuery(tdHoTen).text(name);
+            var tdQuyen = document.createElement('td');
+            jQuery(tdQuyen).text('MOD');
+            var tdTCN = document.createElement('td');
+            jQuery(tdTCN).html(linkGoto);
+            var tdDate = document.createElement('td');
+            jQuery(tdDate).text(getFullTime(createdtime));
+            var tdAction = document.createElement('td');
+            jQuery(tdAction).html(linkDel);
+
+            tr.appendChild(tdSTT);
+            tr.appendChild(tdHoTen);
+            tr.appendChild(tdQuyen);
+            tr.appendChild(tdTCN);
+            tr.appendChild(tdDate);
+            tr.appendChild(tdAction);
+
+            tbl.last().after(tr);
+
+            jQuery(tdAction).each(function(){
+                jQuery(this).click(function(){
+                    deleteManagerUser(userid);
+                });
+            });
+        }
+
+
+
+        function addPageManager()
+        {
+            var createdtime = getTimestampNow();
+            var userid = jQuery('#userID_manage').val();
+            var pageid = jQuery('#hidden_pageid').val();
+            var dataval = "userid="+userid+"&pageid="+pageid+"&createdtime="+createdtime;
+//            alert(dataval);
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'addpagemanager')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    var result = data['success'];
+
+                    switch (result)
+                    {
+                        case 'owner':
+                            alert('Bạn không thể thêm chính mình!');
+                            break;
+                        case 'exists_user':
+                            alert('Người dùng này đã là quản trị viên của trang!');
+                            break;
+                        case 'success_query':
+                            alert('Thêm quản trị viên thành công!');
+                            addNewRow(createdtime, userid);
+                            break;
+                        case 'wrong_query':
+                            alert('Thêm quản trị viên thất bại!');
+                            break;
+                    }
+
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        ////////////////END ADD MOD FOR PAGE /////////////////////////
+
+    });
+</script>

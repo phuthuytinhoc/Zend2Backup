@@ -1,0 +1,358 @@
+
+<style type="text/css">
+    #wrapper{
+        width:720px;
+        margin:15px auto 0;
+    }
+
+    #wrapper h1{
+        color:#FFF;
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    #wrapper a{
+        display:block;
+        font-size:1.2em;
+        padding-top:20px;
+        color:#FFF;
+        text-decoration:none;
+        text-align:center;
+    }
+
+    #tabContainer {
+        width:700px;
+        padding:15px;
+        background-color:#2e2e2e;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    #tabs{
+        height:30px;
+        overflow:hidden;
+    }
+
+    #tabs > ul{
+        font: 1em;
+        list-style:none;
+    }
+
+    #tabs > ul > li{
+        margin:0 2px 0 0;
+        padding:7px 10px;
+        display:block;
+        float:left;
+        color:#FFF;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        -moz-border-radius-topleft: 4px;
+        -moz-border-radius-topright: 4px;
+        -moz-border-radius-bottomright: 0px;
+        -moz-border-radius-bottomleft: 0px;
+        border-top-left-radius:4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        background: #C9C9C9; /* old browsers */
+        background: -moz-linear-gradient(top, #0C91EC 0%, #257AB6 100%); /* firefox */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0C91EC), color-stop(100%,#257AB6)); /* webkit */
+    }
+
+    #tabs > ul > li:hover{
+        background: #FFFFFF; /* old browsers */
+        background: -moz-linear-gradient(top, #FFFFFF 0%, #F3F3F3 10%, #F3F3F3 50%, #FFFFFF 100%); /* firefox */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(10%,#F3F3F3), color-stop(50%,#F3F3F3), color-stop(100%,#FFFFFF)); /* webkit */
+        cursor:pointer;
+        color: #333;
+    }
+
+    #tabs > ul > li.tabActiveHeader{
+        background: #FFFFFF; /* old browsers */
+        background: -moz-linear-gradient(top, #FFFFFF 0%, #F3F3F3 10%, #F3F3F3 50%, #FFFFFF 100%); /* firefox */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(10%,#F3F3F3), color-stop(50%,#F3F3F3), color-stop(100%,#FFFFFF)); /* webkit */
+        cursor:pointer;
+        color: #333;
+    }
+
+    #tabscontent {
+        -moz-border-radius-topleft: 0px;
+        -moz-border-radius-topright: 4px;
+        -moz-border-radius-bottomright: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        padding:10px 10px 25px;
+        background: #FFFFFF; /* old browsers */
+        background: -moz-linear-gradient(top, #FFFFFF 0%, #FFFFFF 90%, #e4e9ed 100%); /* firefox */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(90%,#FFFFFF), color-stop(100%,#e4e9ed)); /* webkit */
+        margin:0;
+        color:#333;
+    }
+
+    .hr_general{
+        height: 3px; width: 50px;
+        display: inline-block;
+        margin: 0px;
+        padding: 0px;
+    }
+    .countNumber{
+        font-size: 1.5rem;
+        display: block;
+        text-align: left;
+        margin: 5px;
+    }
+    .countNumber>p{
+        display: inline-block;
+    }
+
+</style>
+<input type="hidden" id="hidden_pageid" value="<?php echo $pageid; ?>">
+
+<div id="wrapper">
+    <div id="tabContainer">
+        <div id="tabs">
+            <ul>
+                <li id="tabHeader_1">Biểu đồ số lượt thích trang</li>
+                <li id="tabHeader_3">Biểu đồ lượt số lượt bài đăng và bình luận</li>
+<!--                <li id="tabHeader_2">Biểu đồ số lượt đăng bình luận</li>-->
+            </ul>
+        </div>
+        <div id="tabscontent">
+            <div class="tabpage" id="tabpage_1">
+
+                <h2 class="countNumber">Tổng số lượt like đến thời điểm hiện tại: <?php echo $chartLike['total_like']; ?></h2>
+
+                <canvas id="myChart" width="600" height="400"></canvas>
+                <br>
+                <hr class="hr_general" style="background-color:#111;" > : năm trước (<?php echo (intval(date('Y')-1)); ?>).
+                <br>
+                <hr class="hr_general" style="background-color:#118DE1;" > : năm hiện tại (<?php echo date('Y') ?>).
+
+            </div>
+            <div class="tabpage" id="tabpage_2" style="display: none;">
+                tab 2 here
+            </div>
+            <div class="tabpage" id="tabpage_3" style="display: none;">
+                <h2 class="countNumber">Tổng số lượt đăng (trạng thái, ảnh, chia sẻ, video) : <p id="count_status"></p></h2>
+                <h2 class="countNumber">Tổng số lượt thích: <p id="count_like"></p></h2>
+                <h2 class="countNumber">Tổng số lượt bình luận: <p id="count_comment"></p></h2>
+                <canvas id="barChart" width="670" height="400"></canvas>
+                <hr class="hr_general" style="background-color:#118DE1;" > : tổng số lượt đăng (trạng thái, ảnh, chia sẻ, video) năm <?php echo date('Y'); ?>.
+                <br>
+                <hr class="hr_general" style="background-color:#111;" > : tổng số lượt bình luận năm <?php echo date('Y'); ?>.
+                <br>
+                <hr class="hr_general" style="background-color:#41A62A;" > : tổng số lượt thích năm <?php echo date('Y'); ?>.
+                <br>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="<?php echo $this->basePath().'/js/hTabs/tabs_old.js'; ?>"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        jQuery('#tabHeader_1').click(function(){
+            var ctx = jQuery("#myChart").get(0).getContext("2d");
+            var myNewChart = new Chart(ctx).Line(data);
+        });
+
+        jQuery('#tabHeader_3').click(function(){
+            var pageid = jQuery('#hidden_pageid').val();
+            var dataval = "pageid="+pageid;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'getchart')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        var count_status  = data['data']['total_status'];
+                        var count_likes   = data['data']['total_likes'];
+                        var ount_comments = data['data']['total_cmts'];
+                        var firstData = [];
+                        var commentData = [];
+                        var likeData = [];
+                        var status = data['data'];
+
+                        //set value
+                        jQuery('#count_status').text(count_status);
+                        jQuery('#count_like').text(count_likes);
+                        jQuery('#count_comment').text(ount_comments);
+//                        alert(3 in status);return;
+                        for(var i=1; i<=12; i++)
+                        {
+                            var tempStatus = 0;
+                            var tempComment = 0;
+                            var tempLike = 0;
+                            if(i in status['status']){
+                                tempStatus = status['status'][i];
+                            }
+                            if(i in status['comment']){
+                                tempComment = status['comment'][i];
+                            }
+                            if(i in status['like']){
+                                tempLike = status['like'][i];
+                            }
+
+                            firstData.push(tempStatus);
+                            commentData.push(tempComment);
+                            likeData.push(tempLike);
+
+                        }
+                        var data_bar = {labels : setLabel(),
+                            datasets : [
+                                {
+                                    fillColor : "rgba(151,187,205,0.5)",
+                                    strokeColor : "#118DE1",
+                                    data : firstData
+                                },
+                                {
+                                    fillColor : "rgba(0,0,0,0.5)",
+                                    strokeColor : "rgba(0,0,0,1)",
+                                    data : commentData
+                                },
+                                {
+                                    fillColor : "rgba(65,166,42,0.5)",
+                                    strokeColor : "#41A62A",
+                                    data : likeData
+                                }
+                            ]
+                        };
+                        var chart = jQuery("#barChart").get(0).getContext("2d");
+                        var barChart = new Chart(chart).Bar(data_bar);
+                    }
+                    else
+                    {
+                        alert('That bai');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        });
+
+
+        function setLabel(value)
+        {
+            value = parseInt(value);
+
+            var arr = [];
+            for(var i =1; i <= 12; i++)
+            {
+                arr.push('T' + i);
+            }
+            return arr;
+        }
+
+        var data = {
+            labels : setLabel('<?php echo $chartLike['current_month']; ?>'),
+            datasets : [
+
+                //nam truoc
+                {
+                    fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "#0D0C0C",
+                    pointColor : "#111  ",
+                    pointStrokeColor : "#fff",
+                    <?php
+
+                     echo 'data:';
+                     echo '[';
+
+                     for( $i=1; $i<=12; $i++)
+                     {
+                        $text = '';
+                        if(isset($charLikePre['data'][$i]))
+                        {
+                            if($i==1){
+                                 $text = $charLikePre['data'][$i];
+                            }else{
+                                 $text =  ','.$charLikePre['data'][$i];
+                            }
+                        }
+                        else{
+                        if($i==1){
+                                 $text = 0;
+                            }else{
+                                 $text =  ',0';
+                            }
+                        }
+                        echo $text;
+                     }
+                     echo ']';
+
+                     ?>
+                },
+                //nam hien tai
+                {
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "#118DE1",
+                    pointColor : "#118DE1",
+                    pointStrokeColor : "#fff",
+                    <?php
+
+                     echo 'data:';
+                     echo '[';
+
+                     for( $i=1; $i<=$chartLike['current_month']; $i++)
+                     {
+                        $text = '';
+                        if(isset($chartLike['data'][$i])){
+                            if($i==1){
+                                 $text = $chartLike['data'][$i];
+                            }else{
+                                 $text =  ','.$chartLike['data'][$i];
+                            }
+                        }else{
+                           if($i==1){
+                                 $text = 0;
+                            }else{
+                                 $text =  ',0';
+                            }
+                        }
+                        echo $text;
+                     }
+                     echo ']';
+
+                     ?>
+                }
+            ]
+        };
+
+        var ctx = jQuery("#myChart").get(0).getContext("2d");
+        var myNewChart = new Chart(ctx).Line(data);
+
+        var pageID = jQuery('#hidden_pageid').val();
+
+        function getPathForMenu(action, pageID)
+        {
+            var src = "";
+            if(action != "")
+            {
+                src = '<?php echo $this->basePath();?>' + '/fanpage/'+action+'?pageID='+ pageID;
+            }
+            else
+            {
+                src = '<?php echo $this->basePath();?>' + '/fanpage?pageID='+ pageID;
+            }
+            return src;
+        }
+
+        jQuery('.logo-zess>a').attr('href', getPathForMenu('', pageID));
+        jQuery('#menu_home').attr('href', getPathForMenu('', pageID));
+        jQuery('#menu_editinfo').attr('href', getPathForMenu('editinfo', pageID));
+        jQuery('#menu_manage').attr('href', getPathForMenu('manage', pageID));
+        jQuery('#menu_activity').attr('href', getPathForMenu('activity', pageID));
+
+    });
+</script>
