@@ -54,6 +54,42 @@ class UserpageController extends AbstractActionController
         return null;
     }
 
+    public function deletecommentonpostAction()
+    {
+        $response = $this->getResponse();
+        $dm = $this->getDocumentService();
+        $successModel = new SuccessModel();
+        $data = $this->params()->fromPost();
+        $result = $successModel->deleteCommentOnPostUser($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,)));
+        }
+        else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,)));
+        }
+    }
+
+    public function deletepostuserAction()
+    {
+        $response = $this->getResponse();
+        $dm = $this->getDocumentService();
+        $successModel = new SuccessModel();
+        $data = $this->params()->fromPost();
+        $result = $successModel->deletePostOnWallUser($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,)));
+        }
+        else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,)));
+        }
+    }
+
     public function indexAction()
     {
         $result = $this->getAuthenService();

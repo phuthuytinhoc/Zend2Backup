@@ -21,6 +21,8 @@
 
     <!-- Scripts -->
     <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/js/hTabs/tabs.js')
+        ->prependFile($this->basePath() . '/js/chart.js')
         ->prependFile($this->basePath() . '/js/jQuery.alert.js')
         ->prependFile($this->basePath() . '/js/jquery.validate.min.js')
         ->prependFile($this->basePath() . '/js/menu_tabs/menu_tabs.js')
@@ -46,43 +48,25 @@
         </div>
         <ul class="ca-menu">
             <li>
-                <a href="<?php echo $this->basePath().'/homepage/'; ?>">
+                <a id="menu_home" href="<?php echo $this->basePath().'/homepage/'; ?>">
                     <span class="ca-icon">F</span>
                     <div class="ca-content">
-                        <h2 class="ca-main">Trang Doanh Nghiệp</h2>
-                        <h3 class="ca-sub">Quay về trang doanh nghiệp</h3>
+                        <h2 class="ca-main">Trang Fanpage</h2>
+                        <h3 class="ca-sub">Quay về trang fanpage</h3>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="<?php echo $this->basePath().'/success/'; ?>">
-                    <span class="ca-icon">Z</span>
+                <a id="menu_editinfo" href="<?php echo $this->url('fanpage', array('action' => 'editinfo')); ?>">
+                    <span class="ca-icon">I</span>
                     <div class="ca-content">
-                        <h2 class="ca-main">Vị trí doanh nghiệp</h2>
-                        <h3 class="ca-sub">Cài đặt vị trí doanh nghiệp</h3>
+                        <h2 class="ca-main">Sửa thông tin trang</h2>
+                        <h3 class="ca-sub">Quản lí trang fanpage</h3>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="<?php echo $this->url('photos', array('action' => 'index')); ?>">
-                    <span class="ca-icon">U</span>
-                    <div class="ca-content">
-                        <h2 class="ca-main">Thêm album ảnh</h2>
-                        <h3 class="ca-sub">Thêm mới album ảnh</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo $this->url('photos', array('action' => 'cover')); ?>">
-                    <span class="ca-icon">b</span>
-                    <div class="ca-content">
-                        <h2 class="ca-main">Thông tin fanpage</h2>
-                        <h3 class="ca-sub">Chỉnh sửa thông tin trang</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo $this->url('photos', array('action' => 'normal')); ?>">
+                <a id="menu_manage" href="<?php echo $this->url('fanpage', array('action' => 'manage')); ?>">
                     <span class="ca-icon">I</span>
                     <div class="ca-content">
                         <h2 class="ca-main">Thông tin quản trị</h2>
@@ -91,7 +75,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo $this->url('photos', array('action' => 'video')); ?>">
+                <a id="menu_activity" href="<?php echo $this->url('fanpage', array('action' => 'activity')); ?>">
                     <span class="ca-icon">M</span>
                     <div class="ca-content">
                         <h2 class="ca-main">Hoạt động</h2>
@@ -103,13 +87,54 @@
         </ul>
     </div>
 
+    <style type="text/css">
+        #result_search{
+            position: relative;
+            height: 100px;
+            background-color: #EDEBEB;
+            border-radius: 5px;
+            margin-top: 40px;
+            color: #000000;
+            border: 3px solid #333333;
+        }
+
+        .searchUser:hover{
+            /*background: linear-gradient(#333, #222);*/
+            background: #0688FA;
+        }
+        .searchUser:hover a span {
+            color: white;
+        }
+
+    </style>
+
     <div class="rightContent-friend" style=" float: left; width: 79%;">
         <div class="search-nav" style=" height: 70px; width: 100%; margin: 0 auto;">
             <div class="webdesigntuts-workshop" style="width: 450px; margin: 0 auto;">
                 <form action="" method="">
-                    <input type="search" placeholder="Tìm kiếm mọi thứ...">
-                    <button>Search</button>
+                    <input id="search_master" type="search" placeholder="Tìm kiếm mọi thứ...">
+                    <button id="btn_search_master">Search</button>
                 </form>
+                <div id="result_search" style="display: none;">
+
+                    <div class="searchUser">
+                        <div class="image-searchUser">
+                            <img src="/zend2/public/uploads/ava-temp.png">
+                        </div>
+                        <div class="content-searchUser">
+                            <a href="/zend2/public/success?user=user1386929104">
+                                <span class="name-searchUser">Nguyễn Tấn Phát</span>
+                            </a>
+                            <a href="#">
+                                <span class="banchung-searchUser">4 bạn chung</span>
+                            </a>
+                            <a name="user1386929104" class="btnKetban-copy">
+                                <span class="">Chính bản thân</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -126,6 +151,7 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
+
         //set class for body
         jQuery('body').addClass('bodyFriendPage');
 
@@ -154,7 +180,52 @@
             jQuery(this).children().css('color', 'transparent');
         });
 
+        ///////////////start ajax for search////////////////////
+        var typingTimer;
+        var doneTypingInterval = 1500;
+        var input_search = jQuery('#search_master');
 
+        input_search.keyup(function(){
+            clearTimeout(typingTimer);
+            if (input_search.val) {
+                typingTimer = setTimeout(searchMaster, doneTypingInterval);
+            }
+        });
+
+        function searchMaster()
+        {
+            var keywords = input_search.val();
+            var dataval = "keywords="+keywords;
+
+            alert(dataval);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/searchmaster'; ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+                    alert(data);
+                    data = JSON.parse(data);
+
+                    var success = data['success'];
+
+                    if(success == "1")
+                    {
+                      alert('thanh cong');
+                    }
+                    else
+                    {
+                        alert('Tìm kiếm thất bại');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+
+        }
 
     });
 

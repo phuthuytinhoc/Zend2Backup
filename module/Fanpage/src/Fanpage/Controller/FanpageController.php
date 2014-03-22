@@ -40,6 +40,64 @@ class FanpageController extends AbstractActionController
         return null;
     }
 
+    public function deletecommentonpostAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageIndexModel();
+
+        $result = $model->deleteCommentOnPostFP($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => 0,
+        )));
+    }
+
+    public function deletepostonwallAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageIndexModel();
+
+        $result = $model->deletePostOnWallFP($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => 0,
+        )));
+    }
+
+    public function deletefppostAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageIndexModel();
+
+        $result = $model->deleteFPPost($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => 0,
+        )));
+    }
+
+
     public function indexAction()
     {
         $result = $this->getAuthenService();
@@ -85,16 +143,21 @@ class FanpageController extends AbstractActionController
 
         $bindSTTonWall = $indexModel->loadStatusUseronPageWall($pageID, $dm);
 
-//        var_dump($pageInfo['bindingImage']['imageSlideShow']);die();
+        $checkLiked = $indexModel->checkLiked($userID, $pageID, $dm);
+
+
+
+//        var_dump($bindingPage);die();
 
         return array(
-            'pageID'    => $pageID,
-            'userNow'   => $userID,
-            'checkRole' => $checkRole,
-            'pageInfo'  => $pageInfo,
-            'binding'   => $bindingPage,
-            'avaWho'    => $avaWho,
-            'userPost'  => $bindSTTonWall,
+            'pageID'     => $pageID,
+            'userNow'    => $userID,
+            'checkRole'  => $checkRole,
+            'pageInfo'   => $pageInfo,
+            'binding'    => $bindingPage,
+            'avaWho'     => $avaWho,
+            'userPost'   => $bindSTTonWall,
+            'checkLiked' => $checkLiked,
         );
     }
 
@@ -142,6 +205,293 @@ class FanpageController extends AbstractActionController
         return $result;
     }
 
+    //////////////////////START AJAX GET CHART LIKE&COMMENTS//////////////
+    public function getchartAction()
+    {
+
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageModel();
+
+        $result = $model->getChartStatusandComment($data, $dm);
+
+        if($result != null){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+                'data'    => $result,
+            )));
+        }
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => 0,
+        )));
+    }
+    //////////////////////END AJAX GET CHART LIKE&COMMENTS////////////////
+
+    /////////////////////START FANPAGE ACTIVITY////////////////////////////
+    public function activityAction()
+    {
+        $result = $this->getAuthenService();
+        if(!$result->hasIdentity())
+        {
+            return $this->redirect()->toRoute('home');
+        }
+
+        $dm = $this->getDocumentService();
+        $fanpageModel = new FanpageModel();
+        $userid = $this->getUserIdentity()->getUserid();
+        $pageID = $this->params()->fromQuery('pageID');
+
+        $layout = $this->layout();
+        $layout->setTemplate('layout/fanpage-config');
+
+        $result = new ViewModel();
+        $result->setTemplate('fanpage/fanpage/activity');
+
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        $chartLike = $fanpageModel->getChartLikePage($pageID, $dm);
+
+//        $test = $fanpageModel->getChartStatusandComment(array('pageid'=>$pageID), $dm);
+
+//        var_dump($test);
+
+        return array(
+            'pageid'    => $pageID,
+            'chartLike' => $chartLike['arr'],
+            'charLikePre' => $chartLike['pre_arr'],
+        );
+    }
+    /////////////////////END FANPAGE ACTIVITY////////////////////////////
+
+    public function deletemanagerAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageModel();
+
+        $result = $model->deleteManagePage($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => 0,
+        )));
+
+    }
+
+    public function getbacsicinfoAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageModel();
+
+        $result = $model->getBacsicInfoUserManage($data, $dm);
+
+        if($result['check']){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+                'value'   => $result['data'],
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+
+    }
+
+    public function addpagemanagerAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $model = new FanpageModel();
+
+        $result = $model->addPageManager($data, $dm);
+
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => $result,
+        )));
+    }
+
+    public function manageAction()
+    {
+        $result = $this->getAuthenService();
+        if(!$result->hasIdentity())
+        {
+            return $this->redirect()->toRoute('home');
+        }
+
+        $dm = $this->getDocumentService();
+        $fanpageModel = new FanpageModel();
+        $userid = $this->getUserIdentity()->getUserid();
+        $pageID = $this->params()->fromQuery('pageID');
+
+        $layout = $this->layout();
+        $layout->setTemplate('layout/fanpage-config');
+
+        $result = new ViewModel();
+        $result->setTemplate('fanpage/fanpage/manage');
+
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        $checkOwner = $fanpageModel->checkOwnerPage($userid, $pageID, $dm);
+
+        if(!$checkOwner)
+        {
+            return $this->redirect()->toRoute('home');
+        }
+
+        $data = $fanpageModel->getListOwnersofPage($pageID, $dm);
+
+//var_dump($data);die();
+
+        return array(
+            'listOwner' => $data,
+            'pageid'    => $pageID,
+        );
+    }
+
+    ////////////////START LIKE STATUS OF PAGE/////////////////
+    public function likestatusofpageAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $indexModel = new FanpageIndexModel();
+
+        $result = $indexModel->likestatusofFanPage($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+    }
+
+    public function unlikestatusofpageAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $indexModel = new FanpageIndexModel();
+
+        $result = $indexModel->unlikestatusofFanpage($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+    }
+    ////////////////END LIKE STATUS OF PAGE/////////////////
+
+    ////////////////START LIKE FANPAGE////////////////////
+
+    public function likepageAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $indexModel = new FanpageIndexModel();
+
+        $result = $indexModel->likepageUser($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+    }
+
+    ////////////////END LIKE FANPAGE////////////////////
+
+    ///////////////START SAVE NEW SHARE PLACE//////////////////
+    public function savenewshareplaceAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $indexModel = new FanpageIndexModel();
+
+        $result = $indexModel->saveNewSharePlace($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+    }
+
+    ///////////////END SAVE NEW SHARE PLACE//////////////////
+
+    //////////////START SAVE NEW VIDEO PAGE ///////////////////
+    public function savenewvideoAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $indexModel = new FanpageIndexModel();
+
+        $result = $indexModel->saveNewVideo($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+    }
+    //////////////END SAVE NEW VIDEO PAGE /////////////////////
+
+    ////////////START SAVE NEW IMAGE PAGE/////////////////
+    public function savenewimageAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $indexModel = new FanpageIndexModel();
+
+        $result = $indexModel->saveNewImagePage($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+
+    }
+    ////////////END SAVE NEW IMAGE PAGE/////////////////
+
     ////////////START INSERT NEW COMMENT////////////////
     public function loadcommentbyidAction()
     {
@@ -155,7 +505,8 @@ class FanpageController extends AbstractActionController
         if($result != null){
             return $response->setContent(\Zend\Json\Json::encode(array(
                 'success' => 1,
-                'commentData' => $result,
+                'commentData' => $result['binding'],
+                'checkLike'   => $result['arrLike'],
             )));
         }else{
             return $response->setContent(\Zend\Json\Json::encode(array(
@@ -274,6 +625,28 @@ class FanpageController extends AbstractActionController
         }
     }
 
+    public function updateslideshowAction()
+    {
+        $response = $this->getResponse();
+
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $fanpageModel = new FanpageModel();
+
+        $result = $fanpageModel->updateSlideShowPage($data, $dm);
+
+        if($result){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success'   => 1,
+                'slideshow' => $result,
+            )));
+        }else{
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 0,
+            )));
+        }
+    }
+
     public function updatepagemapinfoAction()
     {
         $response = $this->getResponse();
@@ -371,6 +744,22 @@ class FanpageController extends AbstractActionController
         return $response->setContent(\Zend\Json\Json::encode(array(
             'success'      => 1,
             'bindingAlbum' => $result,
+        )));
+    }
+
+    public function listnewalbumAction()
+    {
+        $response = $this->getResponse();
+
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $fanpageModel = new FanpageModel();
+
+        $result = $fanpageModel->getListNewAlbums($data, $dm);
+
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success'      => 1,
+            'listalbum' => $result,
         )));
     }
 

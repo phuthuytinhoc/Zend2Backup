@@ -20,6 +20,70 @@ class SuccessModel
         return $date->getTimestamp();
     }
 
+    public function deleteCommentOnPostUser($data, $dm)
+    {
+        $commentID = $data['commentID'];
+
+
+        $delAction = $dm->createQueryBuilder('Application\Document\Action')
+            ->remove()
+            ->field('actiontype')->equals($commentID)
+            ->getQuery()
+            ->execute();
+
+        $delComment = $dm->createQueryBuilder('Application\Document\Comment')
+            ->remove()
+            ->field('commentid')->equals($commentID)
+            ->getQuery()
+            ->execute();
+
+        if(isset($delAction) && isset($delComment))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function deletePostOnWallUser($data, $dm)
+    {
+        $actionID = $data['actionID'];
+        $type = substr($actionID, 0, 3);
+        $table = "";
+        $field = "";
+
+        if($type == 'STT'){
+            $table = 'Application\Document\Status';
+            $field = 'statusid';
+        }elseif($type == 'PLA'){
+            $table = 'Application\Document\Place';
+            $field = 'placeid';
+        }elseif($type == 'VID'){
+            $table = 'Application\Document\Video';
+            $field = 'videoid';
+        }elseif($type == 'IMG'){
+            $table = 'Application\Document\Image';
+            $field = 'imageid';
+        }
+
+        $delAction = $dm->createQueryBuilder('Application\Document\Action')
+            ->remove()
+            ->field('actiontype')->equals($actionID)
+            ->getQuery()
+            ->execute();
+
+        $delRela = $dm->createQueryBuilder($table)
+            ->remove()
+            ->field($field)->equals($actionID)
+            ->getQuery()
+            ->execute();
+
+        if(isset($delAction) && isset($delRela))
+        {
+            return true;
+        }
+        return false;
+    }
+
     //FUNCTON FOR UPDATE-INFO
     public function checkOldPassword($oldPass, $authService)
     {
@@ -88,16 +152,20 @@ class SuccessModel
             $tempPath = 'cover-temp.jpg';
             $imageStatus="COV_NOW";
         }
+
         if($albumidIfAvailable != null)
         {
             $result = $dm->createQueryBuilder('Application\Document\Image')
+                ->select()
                 ->field('albumid')->equals($albumidIfAvailable)
                 ->field('imagestatus')->equals($imageStatus)
                 ->getQuery()
                 ->getSingleResult();
-
-            $path = $result->getImageid().'.'.$result->getImagetype();;
-            return $path;
+            if(isset($result))
+            {
+                $path = $result->getImageid().'.'.$result->getImagetype();;
+                return $path;
+            }
         }
         else
         {
@@ -1062,6 +1130,7 @@ class SuccessModel
                 if(isset($fullname))
                 {
                     $result[$actionType] = array(
+                        'id'             => $doc->getActionUser(),
                         'fullname'       => $fullname->getLastname().' '.$fullname->getFirstname(),
                         'pathAvatar'     => $pathAva,
                     );

@@ -92,95 +92,7 @@
     <favorites_list name="Zend2" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="UserpageController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Controller/UserpageController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="26" selection-start="9395" selection-end="9395" vertical-scroll-proportion="-5.3137255">
-              <folding>
-                <element signature="e#6#161#0" expanded="true" />
-                <element signature="e#9400#9545#0" expanded="false" />
-                <element signature="e#11078#11377#0" expanded="false" />
-                <element signature="e#11383#12031#0" expanded="false" />
-                <element signature="e#12060#12130#0" expanded="false" />
-                <element signature="e#12136#13805#0" expanded="false" />
-                <element signature="e#13811#14601#0" expanded="false" />
-                <element signature="e#14607#15404#0" expanded="false" />
-                <element signature="e#15457#16367#0" expanded="false" />
-                <element signature="e#16373#16604#0" expanded="false" />
-                <element signature="e#16650#17652#0" expanded="false" />
-                <element signature="e#17694#18290#0" expanded="false" />
-                <element signature="e#18330#18938#0" expanded="false" />
-                <element signature="e#18975#19576#0" expanded="false" />
-                <element signature="e#19582#20180#0" expanded="false" />
-                <element signature="e#20214#21166#0" expanded="false" />
-                <element signature="e#21172#21775#0" expanded="false" />
-                <element signature="e#21781#22381#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FriendModel.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Model/FriendModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="270" column="65" selection-start="8696" selection-end="8696" vertical-scroll-proportion="-4.6862745">
-              <folding>
-                <element signature="e#6#162#0" expanded="true" />
-                <element signature="e#242#5777#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.phtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/module/Userpage/view/userpage/userpage/index.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1711" column="46" selection-start="68763" selection-end="68763" vertical-scroll-proportion="0.58787876">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="tag#div#1;tag#div#0;tag#div#0" expanded="false" />
-                <element signature="tag#div#1;tag#div#0" expanded="false" />
-                <element signature="tag#div#2;tag#div#0" expanded="false" />
-                <element signature="tag#div#1" expanded="false" />
-                <element signature="tag#div#1;tag#div#1" expanded="false" />
-                <element signature="n#getFullTime#0;n#!!top" expanded="false" />
-                <element signature="e#23646#34559#0" expanded="false" />
-                <element signature="tag#script#1" expanded="false" />
-                <element signature="e#35060#35501#0" expanded="false" />
-                <element signature="e#35573#36155#0" expanded="false" />
-                <element signature="e#36239#36824#0" expanded="false" />
-                <element signature="e#36911#38304#0" expanded="false" />
-                <element signature="e#38384#42773#0" expanded="false" />
-                <element signature="e#42850#42896#0" expanded="false" />
-                <element signature="e#42950#44783#0" expanded="false" />
-                <element signature="e#43378#44745#0" expanded="false" />
-                <element signature="e#44832#45368#0" expanded="false" />
-                <element signature="e#45440#54170#0" expanded="false" />
-                <element signature="e#54389#55062#0" expanded="false" />
-                <element signature="e#55115#56510#0" expanded="false" />
-                <element signature="e#56591#57771#0" expanded="false" />
-                <element signature="e#57842#58390#0" expanded="false" />
-                <element signature="e#58435#59970#0" expanded="false" />
-                <element signature="e#60050#61868#0" expanded="false" />
-                <element signature="e#61915#62859#0" expanded="false" />
-                <element signature="e#62907#64843#0" expanded="false" />
-                <element signature="e#64889#65705#0" expanded="false" />
-                <element signature="e#65887#67638#0" expanded="false" />
-                <element signature="e#69581#70657#0" expanded="false" />
-                <element signature="e#70720#71693#0" expanded="false" />
-                <element signature="e#71800#73451#0" expanded="false" />
-                <element signature="e#73920#74850#0" expanded="false" />
-                <element signature="e#74896#76066#0" expanded="false" />
-                <marker date="1388136467839" expanded="true" signature="46854:46905" placeholder="..." />
-                <marker date="1388136467839" expanded="true" signature="81650:81668" placeholder="..." />
-                <marker date="1388136467839" expanded="true" signature="81884:81902" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -211,10 +123,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-119" />
+    <option name="y" value="58" />
+    <option name="width" value="1378" />
+    <option name="height" value="755" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -242,6 +154,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -256,7 +169,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
+              <option name="myItemId" value="Zend2Backup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -266,15 +179,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
+              <option name="myItemId" value="Zend2Backup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,27 +193,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
+              <option name="myItemId" value="Zend2Backup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="userpage" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,317 +207,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
+              <option name="myItemId" value="Zend2Backup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Userpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Photo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="uploads" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -633,16 +229,28 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ZF2TestApp-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
-  <component name="PublishConfig" serverName="Zess" serverId="c9203777-3724-4f0d-9862-b6471e0b217a" />
+  <component name="PublishConfig" serverName="Zess" serverId="c9203777-3724-4f0d-9862-b6471e0b217a">
+    <servers>
+      <server id="01748162-5b0a-4a48-adf0-6120779a7edb">
+        <serverdata />
+      </server>
+      <server id="47790012-9a18-48bb-b54a-9899183472bb">
+        <serverdata />
+      </server>
+      <server id="c6d57b3d-99b5-4944-9d08-7f204eea834b">
+        <serverdata />
+      </server>
+    </servers>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Zend2\public\img" />
@@ -728,7 +336,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-119" y="58" width="1378" height="755" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -736,7 +344,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30833334" sideWeight="0.6752137" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31458968" sideWeight="0.6752137" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -818,9 +426,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/module/Userpage/view/userpage/userpage/friend.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="58" selection-start="1570" selection-end="1579" vertical-scroll-proportion="21.764706">
-          <folding />
-        </state>
+        <state line="45" column="58" selection-start="1570" selection-end="1579" vertical-scroll-proportion="21.764706" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-mongo-odm-module/Module.php">
@@ -845,141 +451,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Cursor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.036072">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.036072" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Query/Builder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="34" selection-start="1793" selection-end="1797" vertical-scroll-proportion="0.51031893">
-          <folding>
-            <element signature="e#6#987#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="61" column="34" selection-start="1793" selection-end="1797" vertical-scroll-proportion="0.51031893" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Event/MapReduceEventArgs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8925781">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8925781" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB/Query/Builder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="275" column="21" selection-start="7076" selection-end="7077" vertical-scroll-proportion="7.2442307">
-          <folding>
-            <element signature="e#6#987#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="275" column="21" selection-start="7076" selection-end="7077" vertical-scroll-proportion="7.2442307" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/mongodb/lib/Doctrine/MongoDB/Query/Query.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-8.153846">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-8.153846" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Document/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="35" selection-start="281" selection-end="286" vertical-scroll-proportion="0.22326455">
-          <folding />
-        </state>
+        <state line="13" column="35" selection-start="281" selection-end="286" vertical-scroll-proportion="0.22326455" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Model/SuccessModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="2" selection-start="3799" selection-end="3799" vertical-scroll-proportion="3.073077">
-          <folding />
-        </state>
+        <state line="131" column="2" selection-start="3799" selection-end="3799" vertical-scroll-proportion="3.073077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/layout/settingpage.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="5" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-12.076923">
-          <folding />
-        </state>
+        <state line="137" column="5" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-12.076923" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Controller/UserpageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="26" selection-start="9395" selection-end="9395" vertical-scroll-proportion="-5.3137255">
-          <folding>
-            <element signature="e#6#161#0" expanded="true" />
-            <element signature="e#9400#9545#0" expanded="false" />
-            <element signature="e#11078#11377#0" expanded="false" />
-            <element signature="e#11383#12031#0" expanded="false" />
-            <element signature="e#12060#12130#0" expanded="false" />
-            <element signature="e#12136#13805#0" expanded="false" />
-            <element signature="e#13811#14601#0" expanded="false" />
-            <element signature="e#14607#15404#0" expanded="false" />
-            <element signature="e#15457#16367#0" expanded="false" />
-            <element signature="e#16373#16604#0" expanded="false" />
-            <element signature="e#16650#17652#0" expanded="false" />
-            <element signature="e#17694#18290#0" expanded="false" />
-            <element signature="e#18330#18938#0" expanded="false" />
-            <element signature="e#18975#19576#0" expanded="false" />
-            <element signature="e#19582#20180#0" expanded="false" />
-            <element signature="e#20214#21166#0" expanded="false" />
-            <element signature="e#21172#21775#0" expanded="false" />
-            <element signature="e#21781#22381#0" expanded="false" />
-          </folding>
+        <state line="239" column="9" selection-start="9561" selection-end="9561" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Userpage/src/Userpage/Model/FriendModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="270" column="65" selection-start="8696" selection-end="8696" vertical-scroll-proportion="-4.6862745">
-          <folding>
-            <element signature="e#6#162#0" expanded="true" />
-            <element signature="e#242#5777#0" expanded="false" />
-          </folding>
+        <state line="270" column="23" selection-start="8591" selection-end="8591" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Userpage/view/userpage/userpage/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1711" column="46" selection-start="68763" selection-end="68763" vertical-scroll-proportion="0.58787876">
+        <state line="1711" column="37" selection-start="67129" selection-end="67129" vertical-scroll-proportion="0.03269231">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#1;tag#div#0;tag#div#0" expanded="false" />
-            <element signature="tag#div#1;tag#div#0" expanded="false" />
-            <element signature="tag#div#2;tag#div#0" expanded="false" />
-            <element signature="tag#div#1" expanded="false" />
-            <element signature="tag#div#1;tag#div#1" expanded="false" />
             <element signature="n#getFullTime#0;n#!!top" expanded="false" />
-            <element signature="e#23646#34559#0" expanded="false" />
-            <element signature="tag#script#1" expanded="false" />
-            <element signature="e#35060#35501#0" expanded="false" />
-            <element signature="e#35573#36155#0" expanded="false" />
-            <element signature="e#36239#36824#0" expanded="false" />
-            <element signature="e#36911#38304#0" expanded="false" />
-            <element signature="e#38384#42773#0" expanded="false" />
-            <element signature="e#42850#42896#0" expanded="false" />
-            <element signature="e#42950#44783#0" expanded="false" />
-            <element signature="e#43378#44745#0" expanded="false" />
-            <element signature="e#44832#45368#0" expanded="false" />
-            <element signature="e#45440#54170#0" expanded="false" />
-            <element signature="e#54389#55062#0" expanded="false" />
-            <element signature="e#55115#56510#0" expanded="false" />
-            <element signature="e#56591#57771#0" expanded="false" />
-            <element signature="e#57842#58390#0" expanded="false" />
-            <element signature="e#58435#59970#0" expanded="false" />
-            <element signature="e#60050#61868#0" expanded="false" />
-            <element signature="e#61915#62859#0" expanded="false" />
-            <element signature="e#62907#64843#0" expanded="false" />
-            <element signature="e#64889#65705#0" expanded="false" />
-            <element signature="e#65887#67638#0" expanded="false" />
-            <element signature="e#69581#70657#0" expanded="false" />
-            <element signature="e#70720#71693#0" expanded="false" />
-            <element signature="e#71800#73451#0" expanded="false" />
-            <element signature="e#73920#74850#0" expanded="false" />
-            <element signature="e#74896#76066#0" expanded="false" />
-            <marker date="1388136467839" expanded="true" signature="46854:46905" placeholder="..." />
-            <marker date="1388136467839" expanded="true" signature="81650:81668" placeholder="..." />
-            <marker date="1388136467839" expanded="true" signature="81884:81902" placeholder="..." />
           </folding>
         </state>
       </provider>

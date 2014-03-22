@@ -25,6 +25,8 @@ class FanpageManage
     /** @ODM\Field(type="string") */
     private $pageuserstatus;
 
+    /** @ODM\Field(type="string") */
+    private $createdtime;
 
     //******* GET METHOD *******//
 
@@ -61,6 +63,13 @@ class FanpageManage
         return $this->pageuserstatus;
     }
 
+    /**
+     * @return the $createdtime
+     */
+    public function getCreatedtime()
+    {
+        return $this->createdtime;
+    }
 
 
     //*****SET METHOD*****//
@@ -90,10 +99,18 @@ class FanpageManage
     }
 
     /**
-     * @param field_type $pageuserstatus
-     */
+ * @param field_type $pageuserstatus
+ */
     public function setPageuserstatus($pageuserstatus)
     {
         $this->pageuserstatus = $pageuserstatus;
+    }
+
+    /**
+     * @param field_type $createdtime
+     */
+    public function setCreatedtime($createdtime)
+    {
+        $this->createdtime = $createdtime;
     }
 }

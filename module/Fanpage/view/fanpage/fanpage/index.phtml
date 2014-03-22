@@ -7,7 +7,7 @@ $masterID = $userNow;
 echo $masterID;
 ?>">
 
-<section class="lightbox">
+<section class="lightbox" id="logo_change">
     <div class="page-logo">
         <img src="<?php echo $this->basePath().'/uploads/'.$pageInfo['bindingImage']['imageLogo']?>">
     </div>
@@ -35,7 +35,7 @@ echo $masterID;
     </div>
     
     <div class="voidClass">
-         <a href="<?php echo $this->basePath(); ?>">
+         <a title="Quay về trang cá nhân" href="<?php echo $this->basePath(); ?>">
              <img src="<?php echo $this->basePath(); ?>/img/zess_logo2.png">
          </a>
     </div>
@@ -52,10 +52,8 @@ echo $masterID;
             {
             ?>
 
-                <a class="config-infoPage" href="<?php echo $this->basePath().'/fanpage/editinfo?pageID='.$pageID; ?>"
+                <a class="config-infoPage" title="Vào chỉnh sửa trang fanpage" href="<?php echo $this->basePath().'/fanpage/editinfo?pageID='.$pageID; ?>"
                    style="left:0px; margin-top: -22px;"></a>
-                <a class="config-infoPage" href="<?php ?>" style="right:0px; margin-top: -22px;"></a>
-
             <?php
             }
             ?>
@@ -66,10 +64,19 @@ echo $masterID;
                 </div>
                 <div class="rightLogoPage" >
                     <div class="rightlogo-Like" >
-                        <a id="buttonLikePage">Thích</a>
+                        <?php if($checkRole == "ADMIN" or $checkRole == "MOD"){}
+                        else
+                        {
+                            if($checkLiked)
+                                echo '<a id="buttonLikePage" class="unlike">Bỏ thích</a>';
+                            else
+                                echo '<a id="buttonLikePage" class="like">Thích</a>';
+                        }
+                        ?>
                     </div>
                     <div class="rightLogo-LikeSum">
-                        <span class="countLikePage"> <?php echo $pageInfo['bindingInfo']['pageLike'];?>
+                        <span class="countLikePage">
+                            <p style="display: inline-block;" id="numberLike"><?php echo $pageInfo['bindingInfo']['pageLike'];?></p>
                             <label> lượt thích</label>
                         </span>
                     </div>
@@ -188,15 +195,15 @@ echo $masterID;
                 <div id="secoundBonnus" class="clickStatus boxPage" style="display: none;">
                     <div id="" class="divBottomActive" style=" left: 105px; width: 111px;"></div>
                     <div style="display: block; width: 100%; float: left; padding:2% 3% 0 3%; ">
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data"  id="form_upload_imagePage">
                             <div class="wrap-uploadImage" style="width: 17%;">
-                                <input type="file" class="uploadImage" accept="image/*">
+                                    <input type="file" id="btn_uploadImage_page" name="image" class="uploadImage" accept="image/*">
                                 Chọn ảnh
                             </div>
                             <div style="width: 80%;">
                                 <label>Nhập bình luận về ảnh</label>
-                                <input type="text" class="btnTextImage" placeholder="...">
-                                <input type="submit" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
+                                <input type="text" class="btnTextImage" id="descript_imagePage" placeholder="...">
+                                    <input type="submit" class="btnPostStatus" id="post_image_page" value="Đăng" style="margin-right: 0px;">
                             </div>
                         </form>
                     </div>
@@ -206,15 +213,15 @@ echo $masterID;
                 <div id="lastBonnus" class="clickStatus boxPage" style="display: none;">
                     <div id="" class="divBottomActive" style="left: 217px; width: 124px;"></div>
                     <div style="display: block; width: 100%; float: left; padding:2% 3% 0 3%; ">
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data" id="form_upload_video">
                             <div class="wrap-uploadVideo" style="width: 17%;">
-                                <input type="file" class="uploadVideo" accept="video/mp4">
+                                <input type="file" class="uploadVideo" name="video" id="btn_upload_video" accept="video/mp4">
                                 Chọn video
                             </div>
                             <div style="width: 82%;">
                                 <label>Nhập bình luận về video</label>
-                                <input type="text" class="btnTextImage" placeholder="...">
-                                <input type="submit" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
+                                <input type="text" id="descript_upload_video" class="btnTextImage" placeholder="...">
+                                <input type="submit" id="post_upload_video" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
                             </div>
                         </form>
                     </div>
@@ -224,17 +231,17 @@ echo $masterID;
                 <div id="sharePlaceBonnus" class="clickStatus boxPage" style="display: none;">
                     <div id="" class="divBottomActive" style="left: 342px;width: 132px;"></div>
                     <div style="display: block; width: 100%; float: left; padding:2% 3% 0 3%; ">
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data" id="form_post_share">
                             <div class="wrap-uploadPlace" style="width: 17%;">
-                                <input type="file" class="uploadImage" accept="image/*">
+                                <input type="file" id="btn_post_share" name="image" class="uploadImage" accept="image/*">
                                 Chọn ảnh
                             </div>
                             <div style="width: 80%;">
                                 <label>Nhập bình luận về ảnh</label>
-                                <input type="text" class="btnTextImage" placeholder="...">
-                                <textarea class="textStatus" placeholder="Nhập chia sẻ về địa điểm..."
+                                <input type="text" id="hashtag_share" class="btnTextImage" placeholder="...">
+                                <textarea class="textStatus" id="descript_share" placeholder="Nhập chia sẻ về địa điểm..."
                                           style="width: 100%; margin-top: 15px; margin-left: 0px; margin-right: 0px;"></textarea>
-                                <input type="submit" class="btnPostStatus" value="Đăng" style="margin-right: 0px;">
+                                <input type="submit" class="btnPostStatus" id="post_share_button" value="Đăng" style="margin-right: 0px;">
                             </div>
                         </form>
                     </div>
@@ -257,15 +264,13 @@ echo $masterID;
 
 //                            var_dump($binding);die();
 
-
-
                             if(isset($binding))
                             {
                                 arsort($binding);
                                 foreach($binding as $node)
                                 {
                             ?>
-                                    <li>
+                                    <li id="scroll_<?=$node['actionid']?>">
                                         <time class="cbp_tmtime" datetime="
 
                                         <?php
@@ -303,23 +308,45 @@ echo $masterID;
                                                 {
                                                     echo ' -  thêm một ảnh mới';
                                                 }
+                                                elseif($typeAction=="addVideo")
+                                                {
+                                                    echo ' - thêm một video mới';
+                                                }
+                                                elseif($typeAction=="addSharePlace")
+                                                {
+                                                    echo ' - chia sẻ một địa điểm';
+                                                }
 
                                                 ?>
                                             </h2>
-                                            <p>
-                                                <?php
-                                                if($typeAction == 'addStatus')
-                                                {
-                                                    echo $node['content']['source'];
-                                                }
-                                                elseif($typeAction == 'addImage' or $typeAction == 'changeSlide' or $typeAction=='changeLogo' or $typeAction=='changeAva')
-                                                {
-                                                    echo $node['content']['descript'];
-                                                    echo '<img src="'.$this->basePath().'/uploads/'.$node['content']['source'].'">';
-                                                }
-                                                ?>
-                                            </p>
-                                            <a id="<?php echo $node['actionid']; ?>" class="showInstanceCMT">Xem thêm bình luận</a>
+                                            <?php
+                                            if($typeAction == 'addStatus')
+                                            {
+                                                echo '<p class="content_'.$node['actionid'].'">'.$node['content']['source'].'</p>';
+                                            }
+                                            elseif($typeAction == 'addImage' or $typeAction == 'changeSlide' or $typeAction=='changeLogo' or $typeAction=='changeAva')
+                                            {
+                                                echo '<p class="content_'.$node['actionid'].'">'.$node['content']['descript'] . '</p>';
+                                                echo '<p>'.'<img src="'.$this->basePath().'/uploads/'.$node['content']['source'].'">'.'</p>';
+                                            }
+                                            elseif($typeAction == "addVideo")
+                                            {
+                                                echo '<p class="content_'.$node['actionid'].'">'.$node['content']['descript'] . '</p>';
+//                                                    echo '<video id="example_video_1" class="video-js vjs-default-skin" controls preload="true" width="100%" height="318" poster="" data-setup="{}">';
+//                                                    echo '<source src="'.$this->basePath().'/uploads/'.$node['content']['source'].'"';
+//                                                    echo 'type="video/mp4"> </video>';
+                                                echo '<p>'.'<video controls preload="true" poster="" data-setup="{}" style="width: 100%;">';
+                                                echo '<source src="'.$this->basePath().'/uploads/'.$node['content']['source'].'"';
+                                                echo 'type="video/mp4"> </video>' . '</p>';
+                                            }
+                                            elseif($typeAction == 'addSharePlace')
+                                            {
+                                                echo '<p>'.'<img src="'.$this->basePath().'/uploads/'.$node['content']['source'].'">' . '</p>';;
+                                                echo '<p class="content_'.$node['actionid'].'">'.$node['content']['descript'].'</p>';
+                                            }
+                                            ?>
+                                            <a href="<?='#scroll_'.$node['actionid']?>" id="<?php echo $node['actionid']; ?>" class="showInstanceCMT">Xem thêm bình luận</a>
+                                            <?php if($checkRole == 'ADMIN' || $checkRole == 'MOD') {  ?><a class="deletePost" name="<?=$node['actionid']?>" href="">Xóa bài đăng</a> <?php } ?>
                                         </div>
 
                                     </li>
@@ -355,9 +382,9 @@ echo $masterID;
                             <div class="close-arrowbox">Đóng</div>
                             <div class="toolComment" style="padding-top: 10px; padding-bottom: 10px;">
                                 <ul>
-                                    <li class="toolComment-Like">Thích(0)</li>
-                                    <li class="toolComment-cmt">Bình luận(0)</li>
-                                    <li class="toolComment-share">Chia sẻ(0)</li>
+                                    <li class="toolComment-Like" id="status_Like"><p id="text_btn_like">Thích</p>(<p id="count_Like">0</p>)</li>
+                                    <li class="toolComment-cmt">Bình luận(<p id="count_Comment">0</p>)</li>
+                                    <li class="toolComment-share" style="display: none;">Chia sẻ(0)</li>
                                 </ul>
                             </div>
 
@@ -406,7 +433,7 @@ echo $masterID;
         <div class="page-member-activity">
 
             <div class="title-memberPost">
-                <span>Bài đăng của những người khác lên Nhà hàng sao việt</span>
+                <span>Bài đăng của những người khác lên tường <?php echo $pageInfo['bindingInfo']['pageName'] ?></span>
             </div>
 
             <?php
@@ -451,11 +478,15 @@ echo $masterID;
 
             if(isset($userPost))
             {
+//                var_dump($userPost);die();
                 foreach($userPost as $node)
                 {
             ?>
 
-                    <div class="memberPost">
+                    <div class="memberPost" id="postwall_<?=$node['statusid']?>">
+                        <?php  if($checkRole == "ADMIN" || $checkRole == "MOD") { ?>
+                        <div class="dele_post_onwall"  name="<?=$node['statusid']?>">X</div>
+                        <?php } ?>
                         <div class="content-memberPost">
                             <div class="imageMember">
                                 <img src="<?php echo $this->basePath().'/uploads/'. $node['pathava']; ?>">
@@ -481,7 +512,7 @@ echo $masterID;
             }
             else
             {
-                echo 'Hiện tại chưa có bài viết nào!';
+                echo '<p id="status_member_post">Hiện tại chưa có bài viết nào!</p>';
             }
             ?>
 
@@ -502,20 +533,21 @@ echo $masterID;
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/jquery.tmpl.min.js"></script>
-<!--<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>-->
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAYVsGMEN8T8D9-TtSVgQQgM3ecNbYYFMw&sensor=false" type="text/javascript"></script>
 <script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/jquery.jscrollpane.min.js"></script>
+
+
 <script type="text/javascript" src="<?php echo $this->basePath(); ?>/js/mapalbum.js"></script>
 
 
+<!--slide show logo and images-->
 <script type="text/javascript">
     var windowHeight = jQuery(window).height();
     var windowWidth  = jQuery(window).width();
 
-
-
     jQuery(document).ready(function() {
+
         jQuery('.lightbox').slideUp(1500);
 
         jQuery('.page-cover > div:gt(0)').hide();
@@ -527,10 +559,22 @@ echo $masterID;
                 .end()
                 .appendTo('.page-cover');
         },  3000);
+        setTimeout(function(){
+            jQuery('#logo_change').attr('class', 'after-lightbox').animate({
+                opacity:1,
+                maxHeight: '200px'
+            }, 2000);
+            jQuery('.page-logo > img').css({
+                'width': '100%',
+                'height': 'auto'
+            })
+        }, 2000);
+
     });
 
 </script>
 
+<!--google maps-->
 <script>
 
     function addInfoWindowHandle()
@@ -604,13 +648,413 @@ echo $masterID;
 
     }
 
-
     google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 
+<!--logic page-->
 <script type="text/javascript">
 
     jQuery(document).ready(function(){
+
+        function getTimestampNow()
+        {
+            var datenow = new Date();
+            datenow = parseInt(datenow.setFullYear(datenow.getFullYear(), datenow.getMonth(), datenow.getDate())/1000);
+            return datenow;
+        }
+
+        ////////////////////START DELETE POST ON WALL FANPAGE///////////////////////////
+        function deletePostOnWall(statusid)
+        {
+            var dataval = 'statusid='+statusid;
+            var deleteID = '#postwall_'+statusid;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'deletepostonwall')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        jQuery(deleteID).animate({
+                            opacity: 0,
+                            height: 0
+                        }, 1200, function(){
+                            jQuery(this).remove();
+                        });
+
+                    }
+                    else
+                    {
+                        alert('Xóa bài đăng thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        }
+
+        jQuery('.dele_post_onwall').each(function(){
+            jQuery(this).click(function(){
+                var r=confirm('Đồng ý xóa bình luận trên tường của người này?');
+                if(r==true){
+                    var statusid = jQuery(this).attr('name');
+                    deletePostOnWall(statusid);
+                }
+            });
+        });
+        ////////////////////END DELETE POST ON WALL FANPAGE/////////////////////////////
+
+        //////////////////////////////////DELETE POST FANPAGE////////////////////////
+        function deletePostFanpage(pageID, actionID, deleteID)
+        {
+            var dataval = 'actionID='+actionID+'&pageID='+pageID;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'deletefppost')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        jQuery(deleteID).animate({
+                            opacity: 0,
+                            height: 0
+                        }, 1200, function(){
+                            jQuery(this).remove();
+                        });
+
+                    }
+                    else
+                    {
+                        alert('Xóa bài đăng thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+
+        }
+
+        jQuery('.deletePost').each(function(){
+            jQuery(this).click(function(e){
+                var r = confirm('Đồng ý xóa bài đăng này?');
+                if(r==true)
+                {
+                    var actionID = jQuery(this).attr('name');
+                    var deleteID = '#scroll_'+actionID;
+                    var pageID = jQuery('#hidden-pageID').val();
+                    deletePostFanpage(pageID, actionID, deleteID);
+                }
+                e.preventDefault();
+            });
+        });
+        //////////////////////////////////END DELETE POST FANPAGE////////////////////
+
+        //////////////////////////////////START LIKE PAGE///////////////////////////
+
+        jQuery('#buttonLikePage').click(function(){
+            var action = jQuery(this).attr('class');
+            var userID = jQuery('#hidden-userIDNow').val();
+            var pageID = jQuery('#hidden-pageID').val();
+            var createdtime = getTimestampNow();
+
+            var dataval="action="+action+"&userID="+userID+"&pageID="+pageID+"&createdtime="+createdtime;
+
+//            alert(dataval);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'likepage')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        var divNumberLike = jQuery('#numberLike');
+                        var value = parseInt(divNumberLike.text());
+                        var buttonLike = jQuery('#buttonLikePage');
+
+                        if(action == 'like')
+                        {
+                            value++;
+                            divNumberLike.text(value);
+                            buttonLike.attr('class', 'unlike');
+                            buttonLike.text('Bỏ thích');
+                        }
+                        else
+                        {
+                            value--;
+                            if(value <0 ) value = 0;
+                            divNumberLike.text(value);
+                            buttonLike.attr('class', 'like');
+                            buttonLike.text('Thích');
+                        }
+                    }
+                    else
+                    {
+                        alert('Thích fanpage thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        });
+
+        //////////////////////////////////END LIKE PAGE/////////////////////////////
+
+        /////////////////////////////////START SHARE PLACE///////////////////////////
+        function createHashTag(str)
+        {
+            str = str.toLowerCase();
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            str = str.replace(/đ/g, "d");
+            str = str.replace(/!|\$|\@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'| |\"|\&|\#|\[|\]|~|$|-/g, "_");
+            //thay doi toan bo cac ki tu la trong chuoi
+            str = str.replace(/_+_/g, "_"); //thay the 2 dau __ thanh 1_
+            str = str.replace(/^\_+|\_+$/g, ""); // bo ki tu dau va cuoi chuoi
+            return '#' +str;
+        }
+
+        jQuery('#post_share_button').click(function(){
+            var pageID  = jQuery('#hidden-pageID').val();
+            var timeStamp = getTimestampNow();
+            var placeName = jQuery('#hashtag_share').val();
+            var hashtag = createHashTag(placeName);
+            var placeDescript = jQuery('#descript_share').val();
+
+            var formdata  = new FormData(jQuery('#form_post_share')[0]);
+            var reader = new FileReader();
+            var value = reader.readAsDataURL(document.getElementById("btn_post_share").files[0]);
+
+            formdata.append('image', value);
+            formdata.append('timestamp', timeStamp);
+            formdata.append('albumType', 'NOR');
+            formdata.append('pageid', pageID);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/plugin/fanpage_upload.php' ;?>",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    if(data!='error')
+                    {
+//                        alert('thanh cong');
+                        saveNewSharePlace(data, pageID, timeStamp, placeName, placeDescript, hashtag);
+                    }
+                    else{
+                        alert('Đăng chia sẻ địa điểm thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+
+        });
+
+        function saveNewSharePlace(imagePath, pageID, timeStamp, placeName, placeDescript, hashtag)
+        {
+            var dataval = "imagePath="+imagePath+"&pageID="+pageID+"&timestamp="+timeStamp+"&placeName="+placeName+"&placeDescript="+placeDescript+"&hashtag="+hashtag;
+//            alert(dataval);
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'savenewshareplace')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        var headTitle = jQuery('.nameOfPage').text() + ' - đã chia sẻ một địa điểm';
+                        var content = '<img src="<?php echo $this->basePath().'/uploads/';?>'+imagePath+'"></br>';
+                        content += placeName+'</br>';
+                        content += hashtag+'</br>';
+                        content += placeDescript+'</br>';
+                       instancePost(timeStamp, headTitle, content);
+                    }
+                    else
+                    {
+                        alert('Đăng chia sẻ địa điểm thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        }
+        /////////////////////////////////END SHARE PLACE/////////////////////////////
+
+        ////////////////////////////////START POST VIDEO /////////////////////////////
+        jQuery('#post_upload_video').click(function(){
+            var pageID  = jQuery('#hidden-pageID').val();
+            var timeStamp = getTimestampNow();
+            var descript = jQuery('#descript_upload_video').val();
+
+            var formdata  = new FormData(jQuery('#form_upload_video')[0]);
+            var reader = new FileReader();
+            var value = reader.readAsDataURL(document.getElementById("btn_upload_video").files[0]);
+
+            formdata.append('video', value);
+            formdata.append('timestamp', timeStamp);
+            formdata.append('userid', pageID);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/plugin/upload_video.php' ;?>",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    if(data!='error')
+                    {
+                        saveNewVideo(data, pageID, timeStamp, descript);
+                    }
+                    else{
+                        alert('Đăng video thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        });
+
+        function saveNewVideo(videoPath, pageID, timestamp, descript)
+        {
+            var dataval = "videoPath="+videoPath+"&pageID="+pageID+"&timestamp="+timestamp+"&descript="+descript;
+//            alert(dataval);
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'savenewvideo')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        var headTitle = jQuery('.nameOfPage').text() + ' - đã thêm một video mới';
+                        var content = descript;
+                        content += '<video id="example_video_1" class="video-js vjs-default-skin" controls preload="true" width="100%" height="318" poster="" data-setup="{}">';
+                        content += '<source src="<?php echo $this->basePath().'/uploads/';?>' + videoPath + '" ';
+                        content += 'type="video/mp4"> </video>';
+                       instancePost(timestamp,headTitle, content);
+                    }
+                    else
+                    {
+                        alert('Đăng hình thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        }
+        ////////////////////////////////END POST VIDEO /////////////////////////////
+
+        ///////////////////////////////START POST IMAGE PAGE /////////////////////////
+        jQuery('#post_image_page').click(function(){
+            var albumType = "NOR";
+            var pageID  = jQuery('#hidden-pageID').val();
+            var timeStamp = getTimestampNow();
+            var descript = jQuery('#descript_imagePage').val();
+
+            var formdata  = new FormData(jQuery('#form_upload_imagePage')[0]);
+            var reader = new FileReader();
+            var value = reader.readAsDataURL(document.getElementById("btn_uploadImage_page").files[0]);
+
+            formdata.append('image', value);
+            formdata.append('timestamp', timeStamp);
+            formdata.append('albumType', albumType);
+            formdata.append('pageid', pageID);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->basePath().'/plugin/fanpage_upload.php' ;?>",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async:false,
+                success: function(data) {
+                    if(data!='error')
+                    {
+//                        var imagePath = data;
+                        saveNewImageforPage(data, pageID, timeStamp, descript);
+
+                    }
+                    else{
+                        alert('Đăng hình thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+
+        });
+
+        function saveNewImageforPage(imagePath, pageID, timestamp, descript)
+        {
+            var dataval = "imagePath="+imagePath+"&pageID="+pageID+"&timestamp="+timestamp+"&descript="+descript;
+//            alert(dataval);
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'savenewimage')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        var headTitle = jQuery('.nameOfPage').text() + ' - thêm một ảnh mới';
+//                        alert(headTitle);
+                        instancePost(timestamp, headTitle, '<?php echo '<img src=' . $this->basePath()."/uploads/";?>'+imagePath + '>');
+                        jQuery('#form_upload_imagePage')[0].reset();
+                    }
+                    else
+                    {
+                        alert('Đăng hình thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+        }
+
+        ///////////////////////////////END POST IMAGE PAGE /////////////////////////
+
+
 
         function vainoiFunction(idofDivComment)
         {
@@ -670,11 +1114,131 @@ echo $masterID;
             });
         });
 
-        clickShowComment();
+        //small function for increase value of like, comment,..
+        function increaseValue(locationid, sign, newID)
+        {
+            locationid = jQuery("'#" + locationid+"'");
+            var valueNow = locationid.text();
+            if(sign == "+")
+            {
+                valueNow = parseInt(valueNow) + 1;
+            }
+            else
+            {
+                valueNow = parseInt(valueNow) - 1;
+                if(valueNow < 0)
+                    valueNow = 0;
+            }
+            locationid.text(valueNow);
+            locationid.attr('id', newID);
+        }
+
+        //LIKE ACTION: Status of page
+        jQuery('.toolComment-Like').click(function(){
+            var action = jQuery(this).attr('id'); // dafault value = status_Like;
+            var actionUser = jQuery('#hidden-userIDNow').val();
+            var actionLocation = jQuery('#hidden-pageID').val();
+            var timestamp = getTimestampNow();
+            var actionLike = jQuery(this).attr('name');
+
+//            alert(action);
+
+            var dataval = "action="+action+"&actionUser="+actionUser+"&actionLocation="+actionLocation+"&timestamp="+timestamp+"&actionLike="+actionLike;
+            var dataUrl = "<?php echo $this->url('fanpage', array('action' => 'likestatusofpage')); ?>";
+//            alert(dataUrl);
+            if(action != "status_Like")
+            {
+                var likeID = jQuery('.toolComment-Like').attr('data-likeid');
+                dataval = "action="+action+"&likeID="+likeID;
+//                alert(dataval);
+                dataUrl = "<?php echo $this->url('fanpage', array('action' => 'unlikestatusofpage')); ?>";
+                dounlikeStatusPage(dataUrl, dataval);
+            }
+            else
+            {
+                dolikeStatusPage(dataUrl, dataval);
+            }
+
+            return false;
+        });
+
+        function dolikeStatusPage(dataUrl, dataval)
+        {
+            jQuery.ajax({
+                type: "POST",
+                url: dataUrl,
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+//                        alert('thanh cong->nhan ket qua');
+                        var textLike  = jQuery('#text_btn_like');
+                        var countLike = jQuery('#count_Like');
+                        var valueNow = countLike.text();
+
+                        jQuery('.toolComment-Like').attr('id', 'status_Unlike').addClass('hover_toolLike');
+                        textLike.text('Bỏ thích');
+                        valueNow = parseInt(valueNow) + 1;
+                        countLike.text(valueNow);
+                    }
+                    else
+                    {
+                        alert('Thích trạng thái thất bại!');
+                    }
+
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
+
+        function dounlikeStatusPage(dataUrl, dataval)
+        {
+            jQuery.ajax({
+                type: "POST",
+                url: dataUrl,
+                data: dataval,
+                async:false,
+                success: function(data) {
+//                    alert(data);
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+//                        alert('thanh cong->nhan ket qua');
+                        var textLike  = jQuery('#text_btn_like');
+                        var countLike = jQuery('#count_Like');
+                        var valueNow = countLike.text();
+
+                        jQuery('.toolComment-Like').attr('id', 'status_Like').removeClass('hover_toolLike');
+                        textLike.text('Thích');
+
+                        valueNow = parseInt(valueNow) - 1;
+                        if(valueNow < 0)
+                            valueNow = 0;
+
+                        countLike.text(valueNow);
+                    }
+                    else
+                    {
+                        alert('Bỏ thích trạng thái thất bại!');
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
 
         function loadCommentbyActID(actionID)
         {
-            var dataval = "actionID="+actionID;
+            var checkUser = jQuery('#hidden-userIDNow').val();
+            var dataval = "actionID="+actionID+"&checkUser="+checkUser;
 //            alert(dataval);
             jQuery.ajax({
                 type: "POST",
@@ -682,14 +1246,43 @@ echo $masterID;
                 data: dataval,
                 async:false,
                 success: function(data) {
-//                    alert(data);return;
+//                    alert(data);
                     data = jQuery.parseJSON(data);
                     deleteOldComment();
+                    var toolLike = jQuery('.toolComment-Like');
+                    toolLike.attr('id', 'status_Like');
                     if(data['success'] == 1)
                     {
                         var divAbsolute = jQuery('.absolute-comment');
                         var i = 0;
-                        var maxi = data['commentData'].length;
+                        var maxi =0;
+                        if(data['commentData'] != null)
+                        {
+                            maxi = data['commentData'].length;
+                        }
+
+                        //set value for count comments
+                        jQuery('#count_Comment').text(maxi);
+
+                        //set value for like, check liked?
+                        var countLiked = data['checkLike']['countLiked'];
+                        var userLiked = data['checkLike']['userLiked'];
+                        var data_likeid = data['checkLike']['likeid'];
+
+                        if(userLiked)
+                        {
+                            jQuery('#text_btn_like').text('Bỏ thích');
+                            toolLike.addClass('hover_toolLike').attr('id', 'status_Unlike');
+                            toolLike.attr('data-likeid', data_likeid);
+                        }
+                        else
+                        {
+                            jQuery('#text_btn_like').text('Thích');
+                            toolLike.removeClass('hover_toolLike');
+                        }
+
+                        jQuery('#count_Like').text(countLiked);
+
                         function loopShowCMT()
                         {
                             if(i >= maxi)
@@ -699,7 +1292,7 @@ echo $masterID;
                             var linkAnh = '<?php echo $this->basePath().'/uploads/'; ?>' + data['commentData'][i]['avauser'];
                             var cmtContent = data['commentData'][i]['commentcontent'];
                             var nameUserPost = data['commentData'][i]['nameuser'];
-                            instancePostComment(cmtContent, linkAnh, nameUserPost, data['commentData'][i]['createdtime'], 'none');
+                            instancePostComment(cmtContent, linkAnh, nameUserPost, data['commentData'][i]['createdtime'], 'none', data['commentData'][i]['actionuser']);
                             i++;
                             setTimeout(loopShowCMT, 400);
                         }
@@ -712,75 +1305,91 @@ echo $masterID;
             });
         }
 
+        //close box arrow showed comments
+        jQuery('.close-arrowbox').click(function(){
+            var divShow = jQuery('.absolute-comment');
+            var heightNow = divShow.css('height');
+            var widthNow = divShow.css('width');
+            divShow.animate({
+                opacity:0,
+                marginTop: '-30px'
+            }, 1000, function(){
+                jQuery(this).css({'display': 'none', 'opacity': 1, 'marginTop':0});
+            });
+        });
+
+
+
+        //instance show comment
+        jQuery('.showInstanceCMT').each(function(){
+            jQuery(this).click(function(){
+                showListComments(jQuery(this));
+            });
+
+
+        });
+
+        function showListComments(jShowCmt)
+        {
+            var heightParent = jQuery(jShowCmt).parent().height();
+            var idforShowCMT = jQuery(jShowCmt).attr('id');
+            var posTop = vainoiFunction(idforShowCMT) - heightParent;
+            var commentInstance = jQuery('.absolute-comment');
+            var isDisplayorNor = commentInstance.css('display');
+
+            //set actionID for like action
+            jQuery('.toolComment-Like').attr('name', idforShowCMT);
+
+//            alert('heightParent: ' + heightParent + ' , idforShowCMT: ' +idforShowCMT);
+
+            //gan id cho div comment
+            commentInstance.attr('id', idforShowCMT);
+
+            //load data comments
+            if(isDisplayorNor == "none")
+            {
+                commentInstance.css('top', posTop);
+            }
+            if(heightParent < 215)
+            {
+                heightParent = 215;
+            }
+
+            commentInstance.fadeIn(1000);
+            commentInstance.animate({
+                top: posTop,
+                height: heightParent
+            }, 1200, function(){
+                loadCommentbyActID(idforShowCMT);
+            });
+
+        }
+
+        //btn post comment
+        jQuery('.btnCommitComment').click(function(){
+            clickShowComment();
+            return false;
+        });
 
         function clickShowComment()
         {
-            //instance show comment
-            jQuery('.close-arrowbox').click(function(){
-                var divShow = jQuery('.absolute-comment');
-                var heightNow = divShow.css('height');
-                var widthNow = divShow.css('width');
-                divShow.animate({
-                    opacity:0,
-                    marginTop: '-30px'
-                }, 1000, function(){
-                    jQuery(this).css({'display': 'none', 'opacity': 1, 'marginTop':0});
-                });
-            });
+            var time = getTimestampNow();
+            var actionID = jQuery('.absolute-comment').attr('id');
+            var contentComt = jQuery('.commitComment');
+            var valueComt = contentComt.val();
+            var actionLocation = jQuery('#hidden-pageID').val();
+            var actionUser = jQuery('#hidden-userIDNow').val();
+            if(valueComt.length == 0)
+            {
+                alert('Bạn chưa nhập nội dung bình luận của mình!');
+                contentComt.focus();
+            }
+            else
+            {
+                insertNewComment(actionID, actionUser, actionLocation, valueComt, time);
+            }
 
-            jQuery('.showInstanceCMT').each(function(){
-                jQuery(this).click(function(){
-                    var heightParent = jQuery(this).parent().height();
-                    var idforShowCMT = jQuery(this).attr('id');
-                    var posTop = vainoiFunction(idforShowCMT) - heightParent;
-                    var commentInstance = jQuery('.absolute-comment');
-                    var isDisplayorNor = commentInstance.css('display');
-
-                    //gan id cho div comment
-                    commentInstance.attr('id', idforShowCMT);
-
-                    //load data comments
-                    if(isDisplayorNor == "none")
-                    {
-                        commentInstance.css('top', posTop);
-                    }
-                    if(heightParent < 215)
-                    {
-                        heightParent = 215;
-                    }
-
-                    commentInstance.fadeIn(1000);
-                    commentInstance.animate({
-                        top: posTop,
-                        height: heightParent
-                    }, 1200, function(){
-                        loadCommentbyActID(idforShowCMT);
-                    });
-
-                    var pageID = jQuery('#hidden-pageID').val();
-//                    var userNow = jQuery('#hidden-userIDNow').val();
-                });
-            });
-
-            jQuery('.btnCommitComment').click(function(){
-                var time = getTimestampNow();
-                var actionID = jQuery('.absolute-comment').attr('id');
-                var contentComt = jQuery('.commitComment');
-                var valueComt = contentComt.val();
-                var actionLocation = jQuery('#hidden-pageID').val();
-                var actionUser = jQuery('#hidden-userIDNow').val();
-                if(valueComt.length == 0)
-                {
-                    alert('Bạn chưa nhập nội dung bình luận của mình!');
-                    contentComt.focus();
-                }
-                else
-                {
-                    insertNewComment(actionID, actionUser, actionLocation, valueComt, time);
-                }
-
-                return false;
-            });
+            return false;
         }
 
         function insertNewComment(actionID, actionUser, actionLocation, cmtContent, createdTime)
@@ -796,15 +1405,27 @@ echo $masterID;
                     data = jQuery.parseJSON(data);
                     if(data['success'] == 1)
                     {
-                        var linkAnh = '<?php
+                        var linkAnh = "<?php
                         echo $this->basePath().'/uploads/';
-                        if(isset($avaWho['pathAva']))
-                            echo $avaWho['pathAva'];
+                        if($pageID != $masterID)
+                        {
+                           if(isset($avaWho['pathAva']))echo $avaWho['pathAva'];
+                        }
                         else
-                            echo $pageInfo['bindingImage']['imageAva'];
-                        ?>';
+                        {
+                           if(isset($pageInfo['bindingImage']['imageAva'])) echo $pageInfo['bindingImage']['imageAva'];
+                        }
+                        ?>";
                         var nameUserPost = jQuery('#img_'+actionUser).attr('name');
-                        instancePostComment(cmtContent, linkAnh, nameUserPost, createdTime, 'instance');
+                        instancePostComment(cmtContent, linkAnh, nameUserPost, createdTime, 'instance', actionUser);
+
+                        //delete content in comment box
+                        jQuery('.commitComment').val('');
+                        //increase count_Comment
+                        var countLike = jQuery('#count_Comment');
+                        var newValue = parseInt(countLike.text()) + 1;
+//                        alert(newValue);
+                        countLike.text(newValue);
                     }
                 },
                 error: function() {
@@ -813,7 +1434,9 @@ echo $masterID;
             });
         }
 
-        function instancePostComment(cmtContent, linkAvatar, nameUserPost, createdTime ,typeComment)
+
+
+        function instancePostComment(cmtContent, linkAvatar, nameUserPost, createdTime ,typeComment, ID)
         {
             var newDate = new Date(createdTime*1000);
             var timeConvert = ' lúc ' + newDate.getHours()+':'+newDate.getMinutes();
@@ -830,6 +1453,7 @@ echo $masterID;
 
             var divToolComment = document.createElement('div');
             divToolComment.className = "content-toolComment";
+            divToolComment.id = "delcmt_CMT" + ID + createdTime;
 
             var divAvatar = document.createElement('div');
             divAvatar.className = "avatar-memberComment";
@@ -856,7 +1480,9 @@ echo $masterID;
             tagSpanofLikeButton.className = "like-time-membercmt";
 
             var tagAofSpanofLikeButton = document.createElement('a');
-            tagAofSpanofLikeButton.textContent = "Thích(0)";
+//            tagAofSpanofLikeButton.textContent = "Thích(0)";
+
+
 
             divToolComment.appendChild(divAvatar);
                 divAvatar.appendChild(imgAvatar);
@@ -869,6 +1495,28 @@ echo $masterID;
                     tagSpanofLikeButton.appendChild(tagAofSpanofLikeButton);
                     jQuery(tagSpanofLikeButton).append(timePost);
 
+            var checkRole = "<?php if($checkRole == 'ADMIN' || $checkRole == 'MOD') echo true; ?>";
+
+            if(checkRole == true){
+                var divDeleComment = document.createElement('div');
+                divDeleComment.className = "delete_comment";
+                divDeleComment.textContent = "X";
+
+                jQuery(divDeleComment).attr('name','CMT'+ID+createdTime);
+                divToolComment.appendChild(divDeleComment);
+
+                jQuery(divDeleComment).each(function(){
+                    jQuery(this).click(function(){
+                        var r = confirm('Xóa bình luận này ?');
+                        if(r == true){
+                            var xyz = jQuery(this).attr('name');
+                            var divID = '#delcmt_' + xyz;
+                            deleteCommentOnPost(xyz, divID);
+                        }
+                    });
+                });
+            }
+
             jQuery(divToolComment).css('opacity', 0);
             jQuery('.toolComment').after(divToolComment);
 //            jQuery(divToolComment).slideDown(400);
@@ -876,8 +1524,36 @@ echo $masterID;
                 opacity:1
             },600);
             jQuery('.absolute-comment').css('height', 'auto');
+
+
         }
 
+        function deleteCommentOnPost(commentID, divID)
+        {
+            var dataval = "commentID=" + commentID;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'deletecommentonpost')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        jQuery(divID).animate({
+                            opacity: 0,
+                            height: 0
+                        }, 1200, function(){
+                            jQuery(this).remove();
+                        });
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+
+        }
 
         function deleteOldComment()
         {
@@ -892,12 +1568,7 @@ echo $masterID;
         }
 
         //////////////////////////START POST STATUS OF PAGE////////////////////////////
-        function getTimestampNow()
-        {
-            var datenow = new Date();
-            datenow = parseInt(datenow.setFullYear(datenow.getFullYear(), datenow.getMonth(), datenow.getDate())/1000);
-            return datenow;
-        }
+
 
         function instancePost(createTime, headTitle, content)
         {
@@ -907,6 +1578,7 @@ echo $masterID;
 //            alert(timeConvert + '  ' + dateConvert );
 
             var tagLi = document.createElement('li');
+            tagLi.id = "scroll_ACT"+createTime;
 
             var tagTime = document.createElement('time');
             tagTime.className = "cbp_tmtime";
@@ -928,12 +1600,18 @@ echo $masterID;
             tagH2.textContent = headTitle;
 
             var tagP = document.createElement('p');
-            tagP.textContent = content;
+            jQuery(tagP).html(content);
 
             var tagaShowComment = document.createElement('a');
             tagaShowComment.className = "showInstanceCMT";
             tagaShowComment.id = "ACT" + createTime;
             tagaShowComment.textContent = "Xem thêm bình luận";
+
+            var tagaDeletePost = document.createElement('a');
+            tagaDeletePost.className = "deletePost";
+            tagaDeletePost.name = "ACT"+createTime;
+            tagaDeletePost.href = "";
+            tagaDeletePost.textContent = "Xóa bài đăng";
 
             tagLi.appendChild(tagTime);
                 tagTime.appendChild(tagSpan1);
@@ -943,6 +1621,7 @@ echo $masterID;
                 divContent.appendChild(tagH2);
                 divContent.appendChild(tagP);
                 divContent.appendChild(tagaShowComment);
+                divContent.appendChild(tagaDeletePost);
 
             jQuery(tagLi).css({'margin-top':'-123px', 'margin-bottom': '123px', 'opacity': 0, 'position': 'relative'});
             jQuery('ul.cbp_tmtimeline').prepend(tagLi);
@@ -952,7 +1631,26 @@ echo $masterID;
                 opacity: 1
             }, 2000);
 
-            clickShowComment();
+//            //register button show list comment
+            jQuery(tagaShowComment).each(function(){
+                jQuery(this).click(function(){
+                    showListComments(jQuery(this));
+                });
+            });
+
+            jQuery(tagaDeletePost).each(function(){
+                jQuery(this).click(function(){
+                    var r = confirm('Đồng ý xóa bài đăng này?');
+                    if(r==true)
+                    {
+                        var actionID = 'ACT'+createTime;
+                        var deleteID = '#scroll_'+actionID;
+                        var pageID = jQuery('#hidden-pageID').val();
+                        deletePostFanpage(pageID, actionID, deleteID);
+                    }
+                    return false;
+                });
+            });
 
         }
 
@@ -1034,11 +1732,11 @@ echo $masterID;
                             {
                                 if(pageID == userNow)
                                 {
-                                    instancePost(createdTime, 'Nhà hàng việt nam', content_status);
+                                    instancePost(createdTime, '<?php echo $pageInfo['bindingInfo']['pageName'] ?>', content_status);
                                 }
                                 else
                                 {
-
+                                    jQuery('#status_member_post').remove();
                                     var linkImg =  "<?php echo $this->basePath().'/uploads/';
                                     if(isset($avaWho['pathAva'])) echo $avaWho['pathAva']; ?>";
                                     var nameUserPost = jQuery('#img_'+userNow).attr('name');

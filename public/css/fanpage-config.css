@@ -204,6 +204,8 @@
 }
 .small-div {
     border: 2px solid transparent;
+    display: inline-block;
+    float: left;
 }
 .small-div img {
     height: 100px;
@@ -250,15 +252,18 @@
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     cursor: pointer;
+    width: 166px;
 }
 .tabs input#tab-2{
-    left: 120px;
+    left: 196px;
 }
 .tabs input#tab-3{
-    left: 240px;
+    left: 378px;
+    width: 205px;
 }
 .tabs input#tab-4{
-    left: 360px;
+    left: 602px;
+    width: 250px;
 }
 
 .tabs label {
@@ -462,4 +467,38 @@
         left: 0;
     }
 
+}
+
+@media screen and (max-width:1024px) {
+    .tabs label {
+        padding: 0px;
+    }
+
+    .spec_tabs {
+        font-size: 11px !important;
+    }
+
+    .tabs input {
+        width: auto;
+    }
+
+    .tabs input#tab-4 {
+        left: 387px;
+        width: 158px;
+    }
+
+    .form-edit>label {
+        font-size: 13px;
+    }
+
+    .right-slide-arrow{
+        top: 63px;
+    }
+    .left-slide-arrow{
+        top: -10px;
+    }
+
+    .preview-slideShow {
+        width: 588px;
+    }
 }

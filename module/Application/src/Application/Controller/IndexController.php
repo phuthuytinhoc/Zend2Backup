@@ -10,6 +10,7 @@
 namespace Application\Controller;
 
 
+use Application\Model\SearchMaster;
 use Doctrine\ORM\Query\Parser;
 use Zend\Form\Element\DateTime;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -60,22 +61,6 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-//        $dm = $this->getServiceLocator()->get('doctrine.documentmanager.odm_default');
-//        $result = new User();
-//        $result = $user = $dm->getRepository('Application\Document\User')->findOneBy(array('email' => 'phuthuytinhoc@yahoo.com' ));
-//        $result = $dm->createQueryBuilder('Application\Document\User')
-//            ->field('password')->equals('12345')
-//            ->getQuery()
-//            ->getSingleResult();
-//        if($result != null)
-//            $result = "khac null";
-//        else $result = "bang null";
-//        echo 'hungnguyen' .  $result->getLastname() . $result->getFirstname();
-
-        //////////
-
-
-        ////////////
         if($this->getAuthService()->hasIdentity())
             return $this->redirect()->toRoute('success');
         else
@@ -160,4 +145,28 @@ class IndexController extends AbstractActionController
                 'error' => 'Email này đã được đăng kí, bạn hãy chọn email khác!',)));
         }
     }
+
+    public function searchmasterAction()
+    {
+        $response = $this->getResponse();
+        $data = $this->params()->fromPost();
+        $dm = $this->getDocumentService();
+        $searchMaster = new SearchMaster();
+
+//        $result = array('khacnull'=>'khacnull');
+        $result = $searchMaster->searchEverything($data, $dm);
+
+//        var_dump($result);
+
+        if($result != null){
+            return $response->setContent(\Zend\Json\Json::encode(array(
+                'success' => 1,
+                'data'    => $result,
+            )));
+        }
+        return $response->setContent(\Zend\Json\Json::encode(array(
+            'success' => 0,
+        )));
+    }
+
 }

@@ -30,11 +30,13 @@ class SearchMaster
     public function searchEverything($data, $dm)
     {
         $keywords = $this->utf8ToAscii($data['searchContent']);
-//        $keywords = 'nha';
+
         if($keywords == "" or $keywords == null)
         {
             return null;
         }
+
+//        $keywords = 'a';
 
         $arr = $dm->createQueryBuilder('Application\Document\User')
             ->getQuery()
@@ -73,8 +75,8 @@ class SearchMaster
 
         $page  = $this->collectResult($arrFullPage, $keywords, $dm);
         $user  = $this->collectResult($arrFullUser, $keywords, $dm);
-//        asort($page);
-//        var_dump($page);die();
+
+//        var_dump($user);die();
 
         return array(
             'page' => $page,
@@ -90,8 +92,8 @@ class SearchMaster
         {
             $this->search($this->utf8ToAscii($node['name']), $keywords);
             $result[] = array(
-                'id' => $node['id'],
-                'data'   => str_split($this->matches),
+                'id'   => $node['id'],
+                'data' => explode(' ',$this->matches),
             );
         }
 
@@ -110,7 +112,7 @@ class SearchMaster
                     $score = 0;
                 }
 
-                if($value != "" && $value != " ")
+                if(strlen($value) > 0)
                 {
                     $score++;
                     if($score > $maxScore)
@@ -132,9 +134,8 @@ class SearchMaster
             );
         }
         //sort array by score
-//        var_dump($scoreArr); echo '<br>';
+        //sap xep mang theo diem chinh va diem phu
         arsort($scoreArr);
-//        var_dump($scoreArr);die();
 
         //find best result by scores
         if($maxScore > 0)
@@ -265,8 +266,9 @@ class SearchMaster
     public $showmatches;
     public $b;
 
-    /** searches the text tt for the pattern pp
-     */
+    /*
+    * searches the text tt for the pattern pp
+    */
     public function search($tt, $pp)
     {
         $this->setText($tt);
@@ -274,8 +276,9 @@ class SearchMaster
         $this->kmpSearch();
     }
 
-/** sets the text
- */
+    /*
+    * sets the text
+    */
     public function setText($tt)
     {
         $this->n = strlen ($tt);
@@ -283,8 +286,9 @@ class SearchMaster
         $this->initmatches();
     }
 
-    /** sets the pattern
-     */
+    /*
+    * sets the pattern
+    */
     public function setPattern($pp)
     {
 
@@ -294,8 +298,9 @@ class SearchMaster
         $this->kmpPreprocess();
     }
 
-    /** initializes match positions and the array showmatches
-     */
+    /*
+    * initializes match positions and the array showmatches
+    */
     public function initmatches()
     {
         $this->matches="";
@@ -304,8 +309,9 @@ class SearchMaster
             $this->showmatches[$i]= "";
     }
 
-    /** preprocessing of the pattern
-     */
+    /*
+    * preprocessing of the pattern
+    */
     public function kmpPreprocess()
     {
         $i = 0;
@@ -322,8 +328,9 @@ class SearchMaster
         }
     }
 
-    /** searches the text for all occurences of the pattern
-     */
+    /*
+    * searches the text for all occurences of the pattern
+    */
     public function kmpSearch()
     {
         $i=0;
@@ -342,16 +349,18 @@ class SearchMaster
         }
     }
 
-    /** reports a match
-     */
+    /*
+    * reports a match
+    */
     public function report($i)
     {
         $this->matches .= $i." ";
         $this->showmatches[$i]='+';
     }
 
-    /** returns the match positions after the search
-     */
+    /*
+    * returns the match positions after the search
+    */
     public function getMatches()
     {
         return $this->matches;

@@ -14,6 +14,449 @@ use Application\Document;
 
 class FanpageIndexModel
 {
+
+    public function deleteCommentOnPostFP($data, $dm)
+    {
+        $commentID = $data['commentID'];
+
+        $delAction = $dm->createQueryBuilder('Application\Document\Action')
+            ->remove()
+            ->field('actiontype')->equals($commentID)
+            ->getQuery()
+            ->execute();
+
+        $delComment = $dm->createQueryBuilder('Application\Document\Comment')
+            ->remove()
+            ->field('commentid')->equals($commentID)
+            ->getQuery()
+            ->execute();
+
+        if(isset($delAction) && isset($delComment))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function deletePostOnWallFP($data, $dm)
+    {
+        $statusID = $data['statusid'];
+
+        $delAction = $dm->createQueryBuilder('Application\Document\Action')
+            ->remove()
+            ->field('actiontype')->equals($statusID)
+            ->getQuery()
+            ->execute();
+
+        $delStatus = $dm->createQueryBuilder('Application\Document\Status')
+            ->remove()
+            ->field('statusid')->equals($statusID)
+            ->getQuery()
+            ->execute();
+
+        if(isset($delAction) && isset($delStatus))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function deleteFPPost($data, $dm)
+    {
+        $pageID = $data['pageID'];
+        $actionID = $data['actionID'];
+        $act = $dm->createQueryBuilder('Application\Document\Action')
+            ->select()
+            ->field('actionid')->equals($actionID)
+            ->getQuery()
+            ->getSingleResult();
+
+        if(isset($act))
+        {
+            $actionType = $act->getActionType();
+            $type       = substr($actionType, 0, 3);
+            $table      = "";
+            $field      = "";
+
+            if($type == 'STT'){
+                $table = 'Application\Document\Status';
+                $field = 'statusid';
+            }elseif($type == 'PLA'){
+                $table = 'Application\Document\Place';
+                $field = 'placeid';
+            }elseif($type == 'VID'){
+                $table = 'Application\Document\Video';
+                $field = 'videoid';
+            }elseif($type == 'IMG'){
+                $table = 'Application\Document\Image';
+                $field = 'imageid';
+            }
+
+            //delete action
+            $delAction = $dm->createQueryBuilder('Application\Document\Action')
+                ->remove()
+                ->field('actionid')->equals($actionID)
+                ->getQuery()
+                ->execute();
+
+            $delActiontype = $dm->createQueryBuilder($table)
+                ->remove()
+                ->field($field)->equals($actionType)
+                ->getQuery()
+                ->execute();
+
+            if(isset($delAction) && isset($delActiontype)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function unlikestatusofFanpage($data, $dm)
+    {
+        $likeID = $data['likeID'];
+
+        $action = $dm->createQueryBuilder('Application\Document\Action')
+            ->remove()
+            ->field('actionid')->equals($likeID)
+            ->getQuery()
+            ->execute();
+
+        $like = $dm->createQueryBuilder('Application\Document\Like')
+            ->remove()
+            ->field('likeid')->equals($likeID)
+            ->getQuery()
+            ->execute();
+
+        if(isset($action) && isset($like)){
+            return true;
+        }
+        return false;
+    }
+
+    public function likestatusofFanPage($data, $dm)
+    {
+        $typeAction = $data['action'];
+
+        if($typeAction == 'status_Like')
+        {
+            $createdTime    = $data['timestamp'];
+            $actionID       = 'ACT'.$createdTime;
+            $actionUser     = $data['actionUser'];
+            $actionLocation = $data['actionLocation'];
+            $actionType     = 'LIK'.$actionUser.$createdTime;
+
+            $likeID = 'LIK'.$actionUser.$createdTime;
+            $likeACTID = $data['actionLike'];
+
+            $action = $dm->createQueryBuilder('Application\Document\Action')
+                ->insert()
+                ->field('actionid')->set($actionID)
+                ->field('actionuser')->set($actionUser)
+                ->field('actionlocation')->set($actionLocation)
+                ->field('actiontype')->set($actionType)
+                ->field('createdtime')->set($createdTime)
+                ->getQuery()
+                ->execute();
+
+            $like = $dm->createQueryBuilder('Application\Document\Like')
+                ->insert()
+                ->field('likeid')->set($likeID)
+                ->field('actionid')->set($likeACTID)
+                ->getQuery()
+                ->execute();
+
+            if(isset($action) and isset($like))
+                return true;
+        }
+        else
+        {
+            $likeID = $data['likeID'];
+
+            $action = $dm->createQueryBuilder('Application\Document\Action')
+                ->remove()
+                ->field('actionid')->equals($likeID)
+                ->getQuery()
+                ->execute();
+
+            $like = $dm->createQueryBuilder('Application\Document\Like')
+                ->remove()
+                ->field('likeid')->equals($likeID)
+                ->getQuery()
+                ->execute();
+
+            if(isset($action)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function checkLiked($userid, $pageid, $dm)
+    {
+        $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+            ->select()
+            ->field('pageid')->equals($pageid)
+            ->field('userid')->equals($userid)
+            ->field('pageuserstatus')->equals('LIKE')
+            ->getQuery()
+            ->getSingleResult();
+
+        if(isset($fm))
+            return true;
+        return false;
+    }
+
+    public function likepageUser($data, $dm)
+    {
+        $actionName = $data['action'];
+        $pageID         = $data['pageID'];
+        $userid         = $data['userID'];
+        $pageuserstatus = 'LIKE';
+        $createdtime    = $data['createdtime'];
+
+        if($actionName == 'like')
+        {
+            $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+                ->insert()
+                ->field('pageid')->set($pageID)
+                ->field('userid')->set($userid)
+                ->field('pageuserstatus')->set($pageuserstatus)
+                ->field('createdtime')->set($createdtime)
+                ->getQuery()
+                ->execute();
+            if(isset($fm)){
+                return true;
+            }
+        }
+        else
+        {
+            $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+                ->remove()
+                ->field('pageid')->equals($pageID)
+                ->field('userid')->equals($userid)
+                ->field('pageuserstatus')->equals($pageuserstatus)
+                ->getQuery()
+                ->execute();
+            if(isset($fm)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function checkExistsAlbum($albumID, $userID, $dm)
+    {
+        $album = $dm->createQueryBuilder('Application\Document\Album')
+            ->select()
+            ->field('albumid')->equals($albumID)
+            ->field('userid')->equals($userID)
+            ->getQuery()
+            ->getSingleResult();
+        if(isset($album))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function saveNewSharePlace($data, $dm)
+    {
+        $createdTime = $data['timestamp'];
+        $imagePath = $data['imagePath'];
+
+        $actionID = 'ACT'.$createdTime;
+        $actionUser = $actionLocation = $data['pageID'];
+        $actionType = 'PLA'.$actionUser.$createdTime;
+
+        $placeID = $actionType;
+        $placeName = $data['placeName'];
+        $placeDescipt = $data['placeDescript'];
+        $hashtag = $data['hashtag'];
+
+        $albumID = 'ALB'.$actionUser.'NOR';
+        $imageID = substr($imagePath, 0, 30);
+        $imageType = substr($imagePath, -3, 3);
+        $imageStatus = "NOR";
+
+        $action = $dm->createQueryBuilder('Application\Document\Action')
+            ->insert()
+            ->field('actionid')->set($actionID)
+            ->field('actionuser')->set($actionUser)
+            ->field('actionlocation')->set($actionLocation)
+            ->field('actiontype')->set($actionType)
+            ->field('createdtime')->set($createdTime)
+            ->getQuery()
+            ->execute();
+
+        if(isset($action))
+        {
+            $rs = $this->checkExistsAlbum($albumID, $actionUser, $dm);
+            if(!$rs)
+            {
+                $album = $dm->createQueryBuilder('Application\Document\Album')
+                    ->insert()
+                    ->field('albumid')->set($albumID)
+                    ->field('userid')->set($actionUser)
+                    ->getQuery()
+                    ->execute();
+
+                if(!isset($album))
+                {
+                    return false;
+                }
+            }
+            $image = $dm->createQueryBuilder('Application\Document\Image')
+                ->insert()
+                ->field('imageid')->set($imageID)
+                ->field('albumid')->set($albumID)
+                ->field('imagestatus')->set($imageStatus)
+                ->field('imagetype')->set($imageType)
+                ->getQuery()
+                ->execute();
+
+            $place = $dm->createQueryBuilder('Application\Document\Place')
+                ->insert()
+                ->field('placeid')->set($placeID)
+                ->field('placename')->set($placeName)
+                ->field('placedescription')->set($placeDescipt)
+                ->field('imageid')->set($imageID)
+                ->field('hashtag')->set($hashtag)
+                ->getQuery()
+                ->execute();
+            if(isset($place))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function saveNewVideo($data, $dm)
+    {
+        $createdTime = $data['timestamp'];
+        $videoPath = $data['videoPath'];
+
+        $actionID = 'ACT'.$createdTime;
+        $actionUser = $actionLocation = $data['pageID'];
+        $actionType = 'VID'.$actionUser.$createdTime;
+
+        $videoID = $actionType;
+        $videoDescipt = $data['descript'];
+        $albumID = 'ALB'.$actionUser.'VID';
+        $videoType = substr($videoPath, -3, 3);
+
+        $action = $dm->createQueryBuilder('Application\Document\Action')
+            ->insert()
+            ->field('actionid')->set($actionID)
+            ->field('actionuser')->set($actionUser)
+            ->field('actionlocation')->set($actionLocation)
+            ->field('actiontype')->set($actionType)
+            ->field('createdtime')->set($createdTime)
+            ->getQuery()
+            ->execute();
+
+        if(isset($action))
+        {
+            $rs = $this->checkExistsAlbum($albumID, $actionUser, $dm);
+            if(!$rs)
+            {
+                $album = $dm->createQueryBuilder('Application\Document\Album')
+                    ->insert()
+                    ->field('albumid')->set($albumID)
+                    ->field('userid')->set($actionUser)
+                    ->getQuery()
+                    ->execute();
+
+                if(!isset($album))
+                {
+                    return false;
+                }
+            }
+            $video = $dm->createQueryBuilder('Application\Document\Video')
+                ->insert()
+                ->field('videoid')->set($videoID)
+                ->field('albumid')->set($albumID)
+                ->field('videotype')->set($videoType)
+                ->field('videodescription')->set($videoDescipt)
+                ->getQuery()
+                ->execute();
+
+            if(isset($video))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function saveNewImagePage($data, $dm)
+    {
+        $createdTime = $data['timestamp'];
+        $imagePath = $data['imagePath'];
+
+        $actionID = 'ACT'.$createdTime;
+        $actionUser = $actionLocation = $data['pageID'];
+        $actionType = 'IMG'.$actionUser.$createdTime.'NOR';
+
+        $imageID = $actionType;
+        $imageDescipt = $data['descript'];
+        $imageStatus = 'NOR';
+        $albumID = 'ALB'.$actionUser.'NOR';
+        $imageType = substr($imagePath, -3, 3);
+
+        $action = $dm->createQueryBuilder('Application\Document\Action')
+            ->insert()
+            ->field('actionid')->set($actionID)
+            ->field('actionuser')->set($actionUser)
+            ->field('actionlocation')->set($actionLocation)
+            ->field('actiontype')->set($actionType)
+            ->field('createdtime')->set($createdTime)
+            ->getQuery()
+            ->execute();
+
+        if(isset($action))
+        {
+            $rs = $this->checkExistsAlbum($albumID, $actionUser, $dm);
+            if(!$rs)
+            {
+                $album = $dm->createQueryBuilder('Application\Document\Album')
+                    ->insert()
+                    ->field('albumid')->set($albumID)
+                    ->field('userid')->set($actionUser)
+                    ->getQuery()
+                    ->execute();
+
+                if(!isset($album))
+                {
+                    return false;
+                }
+            }
+
+            $image = $dm->createQueryBuilder('Application\Document\Image')
+                ->insert()
+                ->field('imageid')->set($imageID)
+                ->field('albumid')->set($albumID)
+                ->field('imagestatus')->set($imageStatus)
+                ->field('imagetype')->set($imageType)
+                ->field('imagedescription')->set($imageDescipt)
+                ->getQuery()
+                ->execute();
+
+            if(isset($image))
+            {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
     public function loadStatusUseronPageWall($pageID, $dm)
     {
         $binding = null;
@@ -83,6 +526,7 @@ class FanpageIndexModel
         $listCMTID = null;
 //        $pageID   = $data['actionLocation'];
         $actionID = $data['actionID'];
+        $checkUser = $data['checkUser'];
 
         $comment = $dm->createQueryBuilder('Application\Document\Comment')
             ->select()
@@ -116,14 +560,17 @@ class FanpageIndexModel
                         ->getQuery()
                         ->getSingleResult();
 
-                    if(isset($imgAva))
-                    {
-                        $avaUser = $imgAva->getImageid().'.'.$imgAva->getImagetype();
-                    }
-
                     if(substr($actionUser, 0, 4) == 'user')
                     {
-                        $avaUser = 'ava-temp.png';
+                        if(isset($imgAva))
+                        {
+                            $avaUser = $imgAva->getImageid().'.'.$imgAva->getImagetype();
+                        }
+                        else
+                        {
+                            $avaUser = 'ava-temp.png';
+                        }
+
                         $user = $dm->createQueryBuilder('Application\Document\User')
                             ->select()
                             ->field('userid')->equals($actionUser)
@@ -136,7 +583,15 @@ class FanpageIndexModel
                     }
                     else
                     {
-                        $avaUser = 'ava-page-temp.png';
+                        if(isset($imgAva))
+                        {
+                            $avaUser = $imgAva->getImageid().'.'.$imgAva->getImagetype();
+                        }
+                        else
+                        {
+                            $avaUser = 'ava-page-temp.png';
+                        }
+
                         $page = $dm->createQueryBuilder('Application\Document\Fanpage')
                             ->select()
                             ->field('pageid')->equals($actionUser)
@@ -165,7 +620,44 @@ class FanpageIndexModel
             }
         }
 
-        return $binding;
+        //load list like of status
+        $like = $dm->createQueryBuilder('Application\Document\Like')
+            ->select()
+            ->field('actionid')->equals($actionID)
+            ->getQuery()
+            ->execute();
+
+        $countLiked=0;
+        $arrLike = array();
+        $arrLike['userLiked'] = false;
+        $arrLike['countLiked'] = 0;
+        $arrLike['likeid'] = null;
+        if(isset($like))
+        {
+            foreach($like as $node)
+            {
+                $countLiked++;
+                $checkLiked = $dm->createQueryBuilder('Application\Document\Action')
+                    ->select()
+                    ->field('actiontype')->equals($node->getLikeid())
+                    ->field('actionuser')->equals($checkUser)
+                    ->getQuery()
+                    ->getSingleResult();
+
+                if(isset($checkLiked))
+                {
+                    $arrLike['userLiked'] = true;
+                    $arrLike['likeid'] = $checkLiked->getActionType();
+                }
+
+                $arrLike['countLiked'] = $countLiked;
+            }
+        }
+
+        return array(
+            'binding' =>  $binding,
+            'arrLike' => $arrLike,
+        );
     }
 
     public function getPathAvatarofPageorUser($ID, $dm)
@@ -277,7 +769,7 @@ class FanpageIndexModel
                     }
 
                 }
-               elseif($check == "IMG")
+                elseif($check == "IMG")
                 {
                     $image = $dm->createQueryBuilder('Application\Document\Image')
                         ->select()
@@ -306,6 +798,57 @@ class FanpageIndexModel
                             'type'   => $typeImage,
                         );
 //                        var_dump($arr);die();
+                    }
+                }
+                elseif($check == 'VID')
+                {
+                    $video = $dm->createQueryBuilder('Application\Document\Video')
+                        ->select()
+                        ->field('videoid')->equals($actType)
+                        ->getQuery()
+                        ->getSingleResult();
+                    if(isset($video))
+                    {
+                        $vID = $video->getVideoid();
+                        $arr = array(
+                            'id'       => $vID,
+                            'source'   => $vID.'.'.$video->getVideotype(),
+                            'descript' => $video->getVideodescription(),
+                            'type'     => 'addVideo',
+                        );
+                    }
+                }
+                elseif($check=='PLA')
+                {
+                    $place = $dm->createQueryBuilder('Application\Document\Place')
+                        ->select()
+                        ->field('placeid')->equals($actType)
+                        ->getQuery()
+                        ->getSingleResult();
+
+                    if(isset($place))
+                    {
+                        $imageIDPlace = $place->getImageid();
+                        $imgPla = $dm->createQueryBuilder('Application\Document\Image')
+                            ->select()
+                            ->field('imageid')->equals($imageIDPlace)
+                            ->getQuery()
+                            ->getSingleResult();
+                        if(isset($imgPla))
+                        {
+                            $srcPlace = $imgPla->getImageid().'.'.$imgPla->getImageType();
+                        }
+
+                        $desPlace = $place->getPlacename().'<br>';
+                        $desPlace .= $place->getHashtag().'<br>';
+                        $desPlace .= $place->getPlacedescription().'<br>';
+
+                        $arr = array(
+                            'id'       => $place->getPlaceid(),
+                            'source'   => $srcPlace,
+                            'descript' => $desPlace,
+                            'type'     => 'addSharePlace',
+                        );
                     }
                 }
 

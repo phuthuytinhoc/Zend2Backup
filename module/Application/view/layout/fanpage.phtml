@@ -16,15 +16,14 @@
         ->prependStylesheet($this->basePath() . '/css/fanpage.css')
         ->prependStylesheet($this->basePath() . '/css/video-js.css')
         ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 
     <!-- Scripts -->
     <?php echo $this->headScript()
+//        ->prependFile($this->basePath() . '/js/video.js')
         ->prependFile($this->basePath() . '/js/jquery.timeago.js')
-//        ->prependFile($this->basePath() . '/js/livestamp.min.js')
-//        ->prependFile($this->basePath() . '/js/moment.min.js')
         ->prependFile($this->basePath() . '/js/modernizr.custom.js')
-        ->prependFile($this->basePath() . '/js/video.js')
         ->prependFile($this->basePath() . '/js/jquery.easing.1.3.js')
         ->prependFile($this->basePath() . '/js/bootstrap.min.js')
         ->prependFile($this->basePath() . '/js/jquery.validate.min.js')

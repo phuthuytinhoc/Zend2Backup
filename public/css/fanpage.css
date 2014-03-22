@@ -61,6 +61,15 @@ body, html {
     background-color: #555;
 }
 
+.after-lightbox{
+    position: absolute;
+    z-index: 1;
+    width: 200px;
+    /*max-height: 200px;*/
+    display: block !important;
+    opacity: 0;
+}
+
 .lightbox:before {
     content: "";
     display: inline-block;
@@ -72,6 +81,10 @@ body, html {
     display: inline-block;
     vertical-align: middle;
     width: auto;
+}
+
+.page-logo img {
+    width: 100%;
 }
 
 .page-cover {
@@ -207,7 +220,7 @@ body, html {
     margin-right: 2%;
     border: 1px solid #1FA3FF;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px 0px;
-
+    display: inline-block;
 }
 
 .mapToPage iframe{border: 1px solid #1FA3FF;
@@ -228,6 +241,7 @@ body, html {
     border-radius: 5px;
     background-color: white;
     overflow: hidden;
+    display: inline-block;
 }
 .page-member-activity:hover{overflow-y: overlay;}
 .title-memberPost{width: 100%; height: 30px; border-bottom: 1px solid #1693EB; text-align: center;
@@ -243,10 +257,20 @@ body, html {
 .memberPost:hover {
     cursor: pointer;
     background: linear-gradient(to bottom, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 57%,rgba(213,235,251,1) 100%); !important;            }
-.content-memberPost{padding: 5px; width: 100%;}
-.imageMember {width: 50px; height: 50px; vertical-align: top;}
+.content-memberPost{
+    padding: 5px;
+    /*width: 100%;*/
+}
+.dele_post_onwall{
+    position: relative;
+    float: right;
+    display: inline-block;
+    top: 0px;
+    right: 20px;
+}
+.imageMember {width: 50px; height: 50px; vertical-align: top; display: inline-block;}
 .imageMember > img {height: 100%; width: 100%;}
-.infoMember {margin-left: 15px;}
+.infoMember {margin-left: 15px; display: inline-block;}
 .infoMember .nameMember {display: block; font-weight: bold; color: #000000;}
 .infoMember .nameMember > a{text-decoration: none; color: black;}
 .infoMember .nameMember > a:hover{text-decoration: underline; color: black;}
@@ -400,11 +424,15 @@ body, html {
     padding-left: 35px;
     font-weight: bold;
 }
-
+.toolComment>ul>li > p {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
 .toolComment-Like{ background: url("../img/heart2.png") no-repeat;
     background-position: left;
 }
-.toolComment-Like:hover {
+.toolComment-Like:hover, .hover_toolLike {
     background: url("../img/heart1.png") no-repeat;
     background-position: left;
 }
@@ -436,7 +464,12 @@ body, html {
 .content-toolComment:hover{
     background-color: #6CBFEE;
     color: #ffffff;
-
+}
+.content-toolComment .delete_comment{
+    position: relative;
+    right: 10px;
+    float: right;
+    cursor: pointer;
 }
 .avatar-memberComment{
     width: 60px;
@@ -1190,4 +1223,40 @@ a:hover {
 
 #bodyContent > p {
     color: #000000;
+}
+
+.page-logo img {
+    width: 500px;
+    height: auto;
+}
+
+@media screen and (max-width:1024px) {
+    .info-memberComment {
+        width: 78% !important;
+    }
+
+    .commitComment {
+        width: 77%;
+    }
+
+    .page-cover{
+        height: 406px;;
+    }
+
+    .infoMember {
+        width: 250px;
+    }
+
+    .infoMember .statusMember {
+        line-height: 12px;
+    }
+
+    .content-memberPost {
+        padding:  0;
+    }
+
+
+    #mp-album-wrapper {
+        width: 447px !important;
+    }
 }

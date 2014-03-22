@@ -20,6 +20,325 @@ class FanpageModel
         return $date->getTimestamp();
     }
 
+    public function getValueByDate($arr, $type, $action_month)
+    {
+//        $action_month = 'thang '.$action_month;
+        $newValue = 0;
+        if(isset($arr[$type][$action_month])){
+            $newValue = $arr[$type][$action_month] + 1;
+        }
+        else{
+            $newValue++;
+        }
+        $arr[$type][$action_month] = $newValue;
+
+        return $arr;
+
+    }
+
+    public function getChartStatusandComment($data, $dm)
+    {
+        $arr = array();
+        $stts = 0;
+        $likes = 0;
+        $cmts = 0;
+        $pageid = $data['pageid'];
+        $action = $dm->createQueryBuilder('Application\Document\Action')
+            ->select()
+//            ->field('actionuser')->equals($pageid)
+            ->field('actionlocation')->equals($pageid)
+            ->getQuery()
+            ->execute();
+
+        if(isset($action))
+        {
+            $curr_year = intval(date('Y'));
+            foreach($action as $node)
+            {
+                $actionType = $node->getActionType();
+                $check = substr($actionType, 0, 3);
+                $time = $node->getCreatedtime();
+                $action_year  = intval(date('Y', intval($time)));
+                $action_month = intval(date('m', intval($time)));
+                $checkActUser = $node->getActionUser();
+
+                if($check == 'LIK')
+                {
+                    if($action_year == $curr_year)
+                    {
+                        $arr = $this->getValueByDate($arr, 'like', $action_month);
+                    }
+
+                    $likes++;
+                }
+                elseif($check == 'CMT')
+                {
+                    if($action_year == $curr_year)
+                    {
+                        $arr = $this->getValueByDate($arr, 'comment', $action_month);
+                    }
+                    $cmts++;
+                }
+                else
+                {
+                    if($checkActUser == $pageid)
+                    {
+                        if($action_year == $curr_year)
+                        {
+                            $arr = $this->getValueByDate($arr, 'status', $action_month);
+                        }
+                        $stts++;
+                    }
+                }
+            }
+            $arr['total_status'] = $stts;
+            $arr['total_likes']  = $likes;
+            $arr['total_cmts']   = $cmts;
+        }
+
+        return $arr;
+    }
+
+    public function getChartLikePage($pageid, $dm)
+    {
+        $arr = array();
+        $pre_arr = array();
+        $cur_month = intval(date('m'));
+        $cur_year  = intval(date('Y'));
+        $pre_year = $cur_year-1;
+
+        $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+            ->select()
+            ->field('pageid')->equals($pageid)
+            ->field('pageuserstatus')->equals('LIKE')
+            ->getQuery()
+            ->execute();
+
+        if(isset($fm))
+        {
+            $total_like = $fm->count();
+            $arr['total_like']    = $total_like;
+            $arr['current_year']  = $cur_year;
+            $arr['current_month'] = $cur_month;
+            foreach($fm as $node)
+            {
+                $newValue=0;
+                $timestamp = $node->getCreatedtime();
+                $thang = intval(date('m', intval($timestamp)));
+                $nam = date('Y',intval($timestamp));
+
+                if($nam == $cur_year && $thang <= $cur_month)
+                {
+                    if(isset($arr['data'][$thang])){
+                        $newValue = $arr['data'][$thang] + 1;
+                    }
+                    else{
+                        $newValue++;
+                    }
+                    $arr['data'][$thang] = $newValue;
+                }
+
+                $valuePre = 0;
+                if($nam == $pre_year)
+                {
+
+                     if(isset($pre_arr['data'][$thang])){
+                         $valuePre = $pre_arr['data'][$thang] + 1;
+                     }
+                     else{
+                         $valuePre++;
+                     }
+                    $pre_arr['data'][$thang] = $valuePre;
+                }
+
+            }
+        }
+        return array(
+            'arr' => $arr,
+            'pre_arr' => $pre_arr,
+        );
+    }
+
+    public function deleteManagePage($data, $dm)
+    {
+        $userid = $data['userid'];
+        $pageid = $data['pageid'];
+
+        $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+            ->remove()
+            ->field('userid')->equals($userid)
+            ->field('pageid')->equals($pageid)
+            ->field('pageuserstatus')->equals('MOD')
+            ->getQuery()
+            ->execute();
+
+        if(isset($fm))
+            return true;
+        return false;
+    }
+
+    public function checkExistsMod($userid, $pageid, $dm)
+    {
+        $document = $dm->createQueryBuilder('Application\Document\FanpageManage')
+            ->select()
+            ->field('userid')->equals($userid)
+            ->field('pageid')->equals($pageid)
+            ->field('pageuserstatus')->equals('MOD')
+            ->getQuery()
+            ->getSingleResult();
+
+        if(isset($document)){
+            return true;
+        }
+        return false;
+    }
+
+    public function addPageManager($data, $dm)
+    {
+        $createdtime = $data['createdtime'];
+        $pageid      = $data['pageid'];
+        $userid      = $data['userid'];
+
+        $result = $this->checkOwnerPage($userid, $pageid, $dm);
+        $chkMode = $this->checkExistsMod($userid, $pageid, $dm);
+
+        if(!$result)
+        {
+            if(!$chkMode)
+            {
+                $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+                    ->insert()
+                    ->field('userid')->set($userid)
+                    ->field('pageid')->set($pageid)
+                    ->field('pageuserstatus')->set('MOD')
+                    ->field('createdtime')->set($createdtime)
+                    ->getQuery()
+                    ->execute();
+
+                if(isset($fm))
+                    return 'success_query';
+                else
+                    return 'wrong_query';
+            }
+            else
+            {
+                return 'exists_user';
+            }
+        }
+        else
+            return 'owner';
+    }
+
+    public function getListOwnersofPage($pageID, $dm)
+    {
+        $listArr =null;
+        $count = 0;
+
+        $admin = $dm->createQueryBuilder('Application\Document\Fanpage')
+            ->select()
+            ->field('pageid')->equals($pageID)
+            ->getQuery()
+            ->getSingleResult();
+        $infoAd = $dm->createQueryBuilder('Application\Document\User')
+            ->select()
+            ->field('userid')->equals($admin->getUserid())
+            ->getQuery()
+            ->getSingleResult();
+
+        if(isset($infoAd))
+        {
+            $count=1;
+        }
+
+        $listArr[0] = array(
+            'stt'   => $count,
+            'hoten' => $infoAd->getLastname().' '.$infoAd->getFirstname(),
+            'link'  => '/success?user='.$infoAd->getUserid(),
+            'role'  => 'ADMIN',
+            'date'  => date('d/m/Y', $admin->getCreatedtime()),
+            'userid'=> $infoAd->getUserid(),
+        );
+
+        $fm = $dm->createQueryBuilder('Application\Document\FanpageManage')
+            ->select()
+            ->field('pageuserstatus')->equals('MOD')
+            ->field('pageid')->equals($pageID)
+            ->getQuery()
+            ->execute();
+
+        if(isset($fm)){
+            foreach($fm as $node)
+            {
+                $count++;
+
+                $user = $dm->createQueryBuilder('Application\Document\User')
+                    ->select()
+                    ->field('userid')->equals($node->getUserid())
+                    ->getQuery()
+                    ->getSingleResult();
+
+                if(isset($user))
+                {
+                    $listArr[] = array(
+                        'stt'   => $count,
+                        'hoten' => $user->getLastname().' '.$user->getFirstname(),
+                        'link'  => '/success?user='.$user->getUserid(),
+                        'role'  => $node->getPageuserstatus(),
+                        'date'  => date('d/m/Y', $node->getCreatedtime()),
+                        'userid'=> $node->getUserid(),
+                    );
+                }
+            }
+        }
+
+        return $listArr;
+    }
+
+    public function getBacsicInfoUserManage($data, $dm)
+    {
+        $userID = $data['userid'];
+//        $userID = 'user1386567908';
+        $albumid = 'ALB'.$userID.'AVA';
+        $biding = array();
+
+        $user = $dm->createQueryBuilder('Application\Document\User')
+            ->select()
+            ->field('userid')->equals($userID)
+            ->getQuery()
+            ->getSingleResult();
+        $image = $dm->createQueryBuilder('Application\Document\Image')
+            ->select()
+            ->field('albumid')->equals($albumid)
+            ->field('imagestatus')->equals('AVA_NOW')
+            ->getQuery()
+            ->getSingleResult();
+
+        if(isset($user))
+        {
+            $biding['name'] =  $user->getLastname().' '.$user->getFirstname();
+            $biding['path'] =  '/success?user='.$userID;
+
+            if(isset($image))
+            {
+                $biding['ava'] = '/uploads/'.$image->getImageid().'.'.$image->getImagetype();
+            }
+            else
+            {
+                $biding['ava'] = '/uploads/ava-temp.png';
+            }
+
+            return array(
+                'check' => true,
+                'data'  => $biding,
+            );
+        }
+
+        return array(
+            'check' => false,
+        );
+
+    }
+
     public function checkOwnerPage($userID, $pageID, $dm)
     {
         $document = $dm->createQueryBuilder('Application\Document\Fanpage')
@@ -390,6 +709,31 @@ class FanpageModel
         return $bindAlbum;
     }
 
+    public function getListNewAlbums($data, $dm)
+    {
+        $pageID = $data['pageID'];
+        $arr = array();
+        $doc = $dm->createQueryBuilder('Application\Document\Album')
+            ->select()
+            ->field('userid')->equals($pageID)
+            ->getQuery()
+            ->execute();
+        if(isset($doc))
+        {
+            foreach($doc as $node)
+            {
+                if(strpos($node->getAlbumid(), 'SUBMAIN'))
+                {
+                    $arr[] = array(
+                        'albumid'   => $node->getAlbumid(),
+                        'albumname' => $node->getAlbumname(),
+                    );
+                }
+            }
+        }
+        return $arr;
+    }
+
     public function updateAlbumInfobyAlbumID($data, $dm)
     {
         $pageID           = $data['pageID'];
@@ -603,6 +947,29 @@ class FanpageModel
         }else{
             return false;
         }
+    }
+
+    public function updateSlideShowPage($data, $dm)
+    {
+        $pageID = $data['pageID'];
+        $albumID = 'ALB'.$pageID.'SLI';
+        $arr = array();
+
+        $image =$dm->createQueryBuilder('Application\Document\Image')
+            ->select()
+            ->field('albumid')->equals($albumID)
+            ->field('imagestatus')->equals('SLIDESHOW')
+            ->getQuery()
+            ->execute();
+
+        if(isset($image))
+        {
+            foreach($image as $node)
+            {
+                $arr[] = '/uploads/'.$node->getImageid().'.'.$node->getImagetype();
+            }
+        }
+        return $arr;
     }
 
 }

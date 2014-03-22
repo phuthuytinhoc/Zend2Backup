@@ -369,7 +369,7 @@ function getFullTime($date)
                 <span>Nhà hàng</span>
             </div>
             <div class="place-place-like-number">
-                <span>300.000 lượt thích</span>
+                <span>30 lượt thích</span>
             </div>
         </div>
         <div class="place-place">
@@ -383,7 +383,7 @@ function getFullTime($date)
                 <span>Nhà hàng</span>
             </div>
             <div class="place-place-like-number">
-                <span>300.000 lượt thích</span>
+                <span>10 lượt thích</span>
             </div>
         </div>
         <div class="place-place last">
@@ -397,7 +397,7 @@ function getFullTime($date)
                 <span>Nhà hàng</span>
             </div>
             <div class="place-place-like-number">
-                <span>300.000 lượt thích</span>
+                <span>15 lượt thích</span>
             </div>
         </div>
     </div>
@@ -414,7 +414,7 @@ function getFullTime($date)
                 <span>Nhà hàng</span>
             </div>
             <div class="place-place-like-number">
-                <span>300.000 lượt thích</span>
+                <span>5  lượt thích</span>
             </div>
         </div>
     </div>
@@ -428,20 +428,24 @@ function getFullTime($date)
                 <a href="#" >Adam Johnson</a>
             </div>
             <div class="place-place-type">
-                <span>15 bạn chung</span>
+                <span>2 bạn chung</span>
             </div>
             <div class="place-place-like-number">
-                <span>393 bạn</span>
+                <span>3 bạn</span>
             </div>
         </div>
     </div>
 </section>
 
 <footer class="footer">
-    <div class="zess-logo">This is logo</div>
+    <div class="zess-logo">
+        <a title="Tới trang cá nhân" href="<?=$this->basePath().'/success'?>">
+            <img src="<?=$this->basePath().'/img/zess_logo.png'?>">
+        </a>
+    </div>
     <div class="search">
         <i class="icon-search"></i>
-        <input id="txt-search" type="text" placeholder="Search everything you want ...">
+        <input id="txt-search" type="text" placeholder="Tìm kiếm mọi thứ bạn muốn...">
     </div>
     <div class="search-block">
         <div class="search-block-content friend">
@@ -493,11 +497,11 @@ function getFullTime($date)
         </div>
     </div>
     <div class="footer-menu">
-        <div class="menu-home">
-            Home
+        <div class="menu-home" title="Đi tới trang chủ">
+            <a href="<?=$this->basePath().'/homepage'?>">Trang chủ</a>
         </div>
-        <div class="menu-me">
-            Me
+        <div class="menu-me" title="Đi tới trang cá nhân">
+            <a href="<?=$this->basePath().'/success'?>">Trang cá nhân</a>
         </div>
     </div>
 </footer>
@@ -534,7 +538,7 @@ function getFullTime($date)
         jQuery('.newsInfo .friendNews-block .friendNews-block-content .content-content').toggle(
             function() {
                 jQuery('.friendNews-block').css({
-                    'width': '49%',
+                    'width': '48%',
                     'height': '200px'
                 })
 

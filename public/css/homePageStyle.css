@@ -629,6 +629,7 @@ body, html {
 }
 
 .suggestion {
+    opacity: 0;
 	display: inline-block;
 	width: 20%;
 	min-height: 570px;
@@ -737,6 +738,9 @@ body, html {
     border: 1px solid #FFF;
     display: inline-block;
     float: left;
+}
+.footer .zess-logo a img{
+    width: 155px;
 }
 
 .footer .search {
@@ -870,7 +874,7 @@ body, html {
 .footer .footer-menu .menu-home{
     display: inline-block;
     vertical-align: middle;
-    width: 70px;
+    /*width: 70px;*/
     height: 58px;
     border-top: 5px solid transparent;
     -webkit-transition: border-top 1s ease;
@@ -879,6 +883,9 @@ body, html {
     -o-transition: border-top 1s ease;
     transition: border-top 1s ease;
     cursor: pointer;
+}
+.menu-home a {
+    text-decoration: none;
 }
 
 .footer .footer-menu .menu-home:hover {
@@ -888,7 +895,7 @@ body, html {
 .footer .footer-menu .menu-me {
     display: inline-block;
     vertical-align: middle;
-    width: 70px;
+    /*width: 70px;*/
     height: 58px;
     border-top: 5px solid transparent;
     cursor: pointer;
@@ -897,7 +904,9 @@ body, html {
     -ms-transition: border-top 1s ease;
     -o-transition: border-top 1s ease;
     transition: border-top 1s ease;
-
+}
+.menu-me a {
+    text-decoration: none;
 }
 
 .footer .footer-menu .menu-me:hover {
@@ -916,3 +925,58 @@ body, html {
     display: none;
 }
 
+@media screen and (max-width:1024px){
+    .suggestion {
+        display: none;
+    }
+
+    .userInfo {
+        width: 28%;
+    }
+
+    .newsInfo {
+        width: 72%;
+    }
+
+    .newsInfo .friendNews-block {
+        width: 48%;
+    }
+
+    .newsInfo .friendNews-block .friendNews-block-avatar {
+        width: 178px;
+        height: 178px;
+    }
+
+    .newsInfo .friendNews-block .friendNews-block-content .content-like-comment-share {
+        font-size: 8px;
+    }
+
+    .newsInfo .friendNews-block .friendNews-block-content .content-like-comment-share span {
+        font-size: 8px;
+    }
+
+    .newsInfo .friendNews-block .friendNews-block-content .comment-block .comment-content .comment-detail {
+        width: 390px;
+    }
+
+    .newsInfo .friendNews-block .friendNews-block-content .comment-block .comment-compose textarea {
+        width: 364px;
+    }
+
+    .newsInfo .placeNews-block .placeNews-block-content .content-content .status-place-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .newsInfo .placeNews-block .placeNews-block-content .comment-block .comment-compose textarea {
+        width: 345px;
+    }
+
+    .newsInfo .placeNews-block .placeNews-block-content .comment-block .comment-content .comment-detail {
+        width: 359px;
+    }
+
+    .newsInfo .placeNews-block .placeNews-block-content .comment-block .comment-content {
+        width: 83%
+    }
+}

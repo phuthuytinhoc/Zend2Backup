@@ -11,6 +11,18 @@ namespace Example\Model;
 
 class ExampleModel
 {
+
+    ///////////////START thuat toan KMeans///////////////////
+    
+
+    public function KMeanFunction($data, $k)
+    {
+        $isStillMoving = true;
+    }
+
+    ///////////////END thuat toan KMeans/////////////////////
+
+
     public function insert($data, $dm)
     {
         $firstname = $data['firstname'];
@@ -29,14 +41,12 @@ class ExampleModel
             return false;
     }
 
-    public function select($dm)
-    {
-        $document = $dm->createQueryBuilder('Application\Document\User') //select trong bang User
+    public function select($dm) {
+        $document = $dm->createQueryBuilder('Application\Document\User')
+            ->multiple(true)
             ->getQuery()
-//            ->field('userid')->equals('123456') -> so sanh lay tat ca cac truong userid=123456
-//            ->execute(); // ra danh sach nhieu gia tri
-            ->getSingleResult(); //lay ra mot gia tri duy nhat
-
+            ->execute();
+        $docs = array();
         //Neu lay ra một giá trị duy nhất thì ko cần foreach để getLastname()...
         //nhưng nếu dùng execute thì phải foreach để lấy giá trị vì nó có nhiều dữ liệu trong đó
 //        ví dụ như
@@ -45,13 +55,17 @@ class ExampleModel
 //          echo $doc->getLastname();
 //      }
 
-        if(isset($document))
-        {
-            $result =$document->getLastname(). $document->getFirstname() ;
-            return $result;
-        }
-        else
-            return null;
+        if (isset($document)) {
+            foreach ($document as $doc) {
+                $docs[] = array(
+                    'firstname' => $doc->getFirstname(),
+                    'lastname'  => $doc->getLastname(),
+                );
+            }
 
+            return $docs;
+        }else {
+            return null;
+        }
     }
 }

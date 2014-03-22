@@ -1,4 +1,4 @@
-body {
+body    {
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -533,7 +533,7 @@ footer {
     height:100%;
     left: 34%;
     border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
+    border-right: 1px solid #1FA3FF;
     top:0;
 }
 
@@ -659,11 +659,11 @@ footer {
     float: left;
     display: inline-block;
     position: static;
-    border: 1px solid #FFF;
-    background-image: url("../img/friend_background.png");
-    background-repeat: repeat-x repeat-y;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border: 2px solid #1FA3FF;
+    /*background-image: url("../img/friend_background.png");*/
+    /*background-repeat: repeat-x repeat-y;*/
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .divRight .statusBlock .statusType {
@@ -786,7 +786,7 @@ footer {
     color: #333333;
     border: 1px solid #ccc;
     outline: none;
-    border-radius: 8px;
+    border-radius: 5px;
     background-clip: padding-box;
     transition: all 0.4s ease-in-out;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
@@ -821,15 +821,16 @@ footer {
     width: 96%;
     height: 84%;
     border: 3px solid gray;
-    padding: 2% 3% 2% 3%;
+    padding: 5px 10px;
     font-family: "Roboto Slab", Tahoma;
     font-size: 14px;
     margin-left: 2%;
     margin-right: 2%;
-    border-radius: 15px;
+    border-radius: 5px;
     font-size: 13px;
     background-color: #EEEEEE;
     transition: all 0.4s ease-in-out;
+    margin-top: 10px;
     /*box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)*/
 
 }
@@ -886,6 +887,8 @@ footer {
     width: 100%;
     min-height: 150px;
     display: inline-block;
+    border-top: 1px dashed #1FA3FF;
+    padding-top: 10px;
 }
 
 .divRight .divAction .statusAvatar {
@@ -915,6 +918,16 @@ footer {
     float: left;
     background-color:#1fa3ff;
     font-size: 12px;
+}
+
+.divRight .divAction .statusRightPanel .statusPosition .delete_post_user{
+    display: inline-block;
+    position: relative;
+    float: right;
+    right: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .divRight .divAction .statusRightPanel .statusPosition span {
@@ -1053,6 +1066,13 @@ footer {
     word-wrap:break-word;
 }
 
+.divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentContent .delete_comment_user{
+    display: inline-block;
+    float: right;
+    position: relative;
+    cursor: pointer;
+}
+
 .divRight .divAction .statusRightPanel .divComment .commentAction .commentRight .commentContent .commentUserName {
     display: inline-block;
     float:left;
@@ -1133,12 +1153,12 @@ footer {
     width: 96%;
     height:34px;
     margin-top: 7px;
-    border: none;
+    border: 2px solid #1FA3FF;
     font-family: "Roboto Slab", Tahoma;
     font-size: 12px;
     padding: 8px;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5);*/
     border-radius: 5px;
     overflow: hidden;
 }
@@ -2188,3 +2208,118 @@ footer {
 
 
 /*****END Button ket ban trang ca nhan********/
+
+/*START SEARCH USER/PAGE*/
+#searchResult{
+    z-index: 1;
+    background-color: #E5E5E5; width: 304px; height: auto; position: absolute; margin-top: 39px;
+    padding-top: 5px; padding-bottom: 5px; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+    border: 1px solid #1E9DF9; border-left: 2px solid #1FA3FF; border-right: 2px solid #1FA3FF;}
+.searchUser{ padding: 2px 5px 0 5px; border-bottom: 1px solid #1FA3FF;}
+.searchTitle {background-color: #206DEB;}
+.searchTitle:hover{background: #206DEB !important;}
+.searchTitle>a>span {color: white;}
+.searchUser :hover { }
+.image-searchUser{display: inline-block;}
+.image-searchUser > img{width: 50px; height: 50px; vertical-align: baseline; border-radius: 10px;}
+.content-searchUser{display: inline-block; padding-left: 8px;}
+.content-searchUser a{ cursor: pointer;}
+.content-searchUser a span{display: block; color: #000000;}
+.name-searchUser{font-size: 13px;}
+.banchung-searchUser{ font-size: 12px;}
+.btnKetban-searchUser, .btnKetban-copy{font-size: 11px;}
+.readmore{ font-size: 12px; cursor: pointer; display: block; text-align: center;
+    padding-top: 5px; padding-bottom: 5px;}
+.newBackground{background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* Chrome10+,Safari5.1+ */}
+/*END SEARCH USER/PAGE*/
+#listPics .subImage img {width: 180px; border-radius: 10px; position: relative;}
+
+.wrapper-slide {height: 190px;overflow: hidden;width: 183px;margin-left: 55px;}
+
+@media screen and (max-width:1024px){
+    body {
+        overflow-x: hidden;
+    }
+
+    .divLeft .divMenu .divMenuIcon {
+        margin-left: 0px;
+    }
+
+    .divLeft .divMenu .divMenuIcon.home, .divLeft .divMenu .divMenuIcon.mail, .divLeft .divMenu .divMenuIcon.me, .divLeft .divMenu .divMenuIcon.noti, .divLeft .divMenu .divMenuIcon.friend, .divLeft .divMenu .divMenuIcon.config {
+        background-size: 80% 80%;
+    }
+
+    .divLeft .divMenu .divMenuName {
+        margin-left: 0px;
+        font-size: 12px;
+    }
+
+    .divLeft .divUserPanel .userInfo .logOut {
+        width: 100%;
+    }
+
+    .divRight .divAction .statusRightPanel .statusContent img {
+        width: 100%;
+        height: auto;
+    }
+
+    .divRight .divAction .statusRightPanel .divComment .commentCompose {
+        width: 100%;
+    }
+
+    .divRight .divAction .statusRightPanel .divComment .commentCompose .commentRight {
+        width: 73%;
+    }
+
+    .divRight .divCover #imgCover {
+        width: 100%;
+    }
+
+    .divRight .divAction .statusRightPanel .divComment .commentAction .commentRight {
+        width: 86%;
+    }
+
+    .friend-content {
+        width: 28% !important;
+    }
+
+    .rightContent-friend {
+        width: 72% !important;
+    }
+
+    #listPics .subImage img {width: 120px; margin-right: 60px;}
+
+    .divLeft .divSubMenu .divSub {
+
+    }
+
+    .wrapper-slide {
+        height: auto;
+        margin-bottom: 10px;
+        margin-left: 43px;
+    }
+
+    .left-slide-arrow {
+        margin-top: 50px;
+        left: 18px;
+    }
+
+    .right-slide-arrow {
+        margin-top: -84px;
+        left: 194px;
+    }
+
+    #searchResult {
+        width: 240px;
+    }
+
+    .content-searchUser a span {
+        word-break: break-word;
+        width: 168px
+    }
+
+    .bodyLoginPage {
+        background-size: 100% 100%;
+    }
+}

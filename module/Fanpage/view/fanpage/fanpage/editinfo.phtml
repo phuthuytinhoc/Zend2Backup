@@ -11,7 +11,7 @@
        id="hidden-pageLong">
 
 <h2 style="padding-left: 50px;font-size: 20px;font-weight: bold;">
-    Cài đặt Fanpage > Chỉnh sửa thông tin Fanpage
+    Chỉnh sửa thông tin trang Fanpage
 </h2>
 
 <div class="container bg-update" style="max-width: 100%;">
@@ -108,37 +108,45 @@
                                 </label>
 
                                 <?php
+                                $checkSlideShow = false;
                                 if(isset($bindingInfo['bindingSlideShow']) && $bindingInfo['bindingSlideShow']!= null)
                                 {
+                                    $checkSlideShow = true;
+                                }
+                                else{
+                                    echo '<p id="check_slide">Chưa cập nhật slideshow ảnh nền trang fanpage!</p>';
+                                }
                                 ?>
-                                    <div class="subImage" style="width: 100%; float: left;">
+                                    <div class="subImage" style="width: 100%; float: left; <?php if(!$checkSlideShow) echo 'display:none;'; ?>">
                                         <div class="left-slide-arrow"></div>
                                         <div class="right-slide-arrow"></div>
-                                        <div class="wrapper-slide" >
+                                        <div class="wrapper-slide" style="height: auto; margin-left:0px;" >
                                             <div class="slide-avar" >
                                                 <?php
+                                                if($checkSlideShow)
+                                                {
                                                     foreach($bindingInfo['bindingSlideShow'] as $slideShow)
                                                     {
                                                 ?>
-                                                        <div class="small-div" style="display: inline-block; float: left;">
+                                                        <div class="small-div">
                                                             <img src="<?php echo $this->basePath().'/uploads/'.$slideShow; ?>">
                                                         </div>
                                                 <?php
                                                     }
+                                                }
+
                                                 ?>
                                             </div>
                                         </div>
                                         <div class="preview-slideShow" >
+                                            <?php  ?>
                                             <img style="width: 100%;height: 400px;"
-                                                 src="<?php echo $this->basePath().'/uploads/'.$bindingInfo['bindingSlideShow'][0]; ?>">
+                                                 src="<?php if($checkSlideShow) { echo $this->basePath().'/uploads/'.$bindingInfo['bindingSlideShow'][0]; }?>">
+                                            <?php  ?>
                                         </div>
                                     </div>
                                 <?php
-                                }
-                                else
-                                {
-                                    echo "Chưa cập nhật album ảnh slideshow";
-                                }
+
                                 ?>
 
                             </div>
@@ -149,7 +157,7 @@
                                     Chọn ảnh tải lên:
                                 </label>
                                 <form method="post" enctype="multipart/form-data" id="form-slideshow">
-                                    <input type="file" name="files[]" multiple="multiple" id="file-imageAvatar">
+                                    <input type="file" name="files[]" multiple="multiple" id="file-imageSlide">
                                     <input type="button" value="Tải lên" id="sub-slideshow">
                                 </form>
                             </div>
@@ -281,22 +289,28 @@
                             }
                             .form-edit>textarea:hover{border-color: #1FA3FF;}
                             .form-edit>textarea:focus{background-color: #f4f4f4;}
+                            .spec_tabs{
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                margin-right: 10px;
+                                margin-left: 10px;
+                            }
                         </style>
 
                         <div style="width: 100%; display: block; padding-top: 20px;">
 
                             <section class="tabs" style="font-family: 'Roboto Slab', 'Tahoma';">
                                 <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
-                                <label for="tab-1" class="tab-label-1">Tạo Địa Điểm</label>
+                                <label for="tab-1" class="tab-label-1 spec_tabs">Tạo Địa Điểm</label>
 
                                 <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
-                                <label for="tab-2" class="tab-label-2">Thêm Album</label>
+                                <label for="tab-2" class="tab-label-2 spec_tabs">Thêm Album</label>
 
                                 <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
-                                <label for="tab-3" class="tab-label-3">Cập nhật Album</label>
+                                <label for="tab-3" class="tab-label-3 spec_tabs">Cập nhật Album</label>
 
                                 <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4" />
-                                <label for="tab-4" class="tab-label-4">Cập nhật ảnh album</label>
+                                <label for="tab-4" class="tab-label-4 spec_tabs">Cập nhật ảnh album</label>
 
                                 <div class="clear-shadow"></div>
 
@@ -504,13 +518,11 @@
         var longPage = jQuery('#hidden-pageLong').attr('name');
         var latPage = jQuery('#hidden-pageLat').attr('name');
 
-        if(longPage != "" && latPage != "")
+        var myLatlng = new google.maps.LatLng(10.784997603741786,106.66488647460938);
+
+        if(longPage != " " && latPage != " ")
         {
-            var myLatlng = new google.maps.LatLng(latPage,longPage);
-        }
-        else
-        {
-            var myLatlng = new google.maps.LatLng(10.82251525771678,106.62858009338379);
+           myLatlng = new google.maps.LatLng(latPage,longPage);
         }
 
         //get location right now
@@ -667,7 +679,7 @@
         var image = '<?php echo $this->basePath().'/img/'; ?>icon-marker-baseHome.png';
         var m = addMakerOptions(albumMap,image, clickInfoAlbum, firstAlbumLocation);
 
-        jQuery('.tab-label-1').click(function(){
+        jQuery('.tab-label-1, #tab-1').click(function(){
             deleteMarkers();
             var imgAlbum = '<?php echo $this->basePath().'/img/'; ?>icon-marker-baseHome.png';
             var m = addMakerOptions(albumMap,imgAlbum, 'Chọn vị trí của trang', firstAlbumLocation);
@@ -675,7 +687,7 @@
             eventDragEndOnMap(m, 'album_long_value', 'album_lat_value', 'album_location_name');
         });
 
-        jQuery('.tab-label-2').click(function(){
+        jQuery('.tab-label-2, #tab-2').click(function(){
             deleteMarkers();
             var imgAlbum = '<?php echo $this->basePath().'/img/'; ?>icon-marker-albums.png';
             var m = addMakerOptions(albumMap,imgAlbum, 'Chọn vị trí đặt album', firstAlbumLocation);
@@ -683,7 +695,7 @@
             eventDragEndOnMap(m, 'long_subAlbum', 'lat_subAlbum', 'loca_subAlbum');
         });
 
-        jQuery('.tab-label-3').click(function(){
+        jQuery('.tab-label-3, #tab-3').click(function(){
             deleteMarkers();
             var imgAlbum = '<?php echo $this->basePath().'/img/'; ?>icon-marker-albumConfig.png';
             var m = addMakerOptions(albumMap,imgAlbum, 'Chọn vị trí cập nhật album', firstAlbumLocation);
@@ -691,7 +703,7 @@
             eventDragEndOnMap(m, 'update_longtitude', 'update_latitude', 'update_loca_name');
         });
 
-        jQuery('.tab-label-4').click(function(){
+        jQuery('.tab-label-4, #tab-4').click(function(){
             deleteMarkers();
             var imgAlbum = '<?php echo $this->basePath().'/img/'; ?>icon-markerImage.png';
             var m = addMakerOptions(albumMap,imgAlbum, 'Chọn vị trí đặt ảnh', firstAlbumLocation);
@@ -701,6 +713,8 @@
 
         jQuery('#select_album_update').change(function(){
             var albumID = jQuery(this).val();
+
+            //get info of each album
             if(albumID != 'chon')
             {
                 bindingDataAlbum(albumID);
@@ -756,7 +770,7 @@
         });
 
 
-        //event draggable and drop @@TODO
+        //event draggable and drop
         eventDragEndOnMap(markers[0], 'album_long_value', 'album_lat_value', 'album_location_name');
     }
 
@@ -873,6 +887,47 @@
             }
         });
     }
+
+    function getListNewAlbum()
+    {
+        var pageID = jQuery('#hidden-pageid').attr('name');
+        var dataval = "pageID="+pageID;
+//        alert(dataval);
+        jQuery.ajax({
+            type: "POST",
+            url: "<?php echo $this->url('fanpage', array('action' => 'listnewalbum')); ?>",
+            data: dataval,
+            async:false,
+            success: function(data) {
+//                alert(data);
+                data = jQuery.parseJSON(data);
+                if(data['success'] == 1)
+                {
+                    var tagSelect = jQuery('#select_album_update');
+                    tagSelect.find('option')
+                        .remove()
+                        .end()
+                        .append('<option value="chon">Chọn</option>');
+                    var lenList = data['listalbum'].length;
+
+                    var updateSelect = jQuery('#update_image_selectAlbum');
+                    updateSelect.find('option')
+                        .remove()
+                        .end()
+                        .append('<option value="chon">Chọn</option>');
+
+                    for(var i=0; i<lenList; i++)
+                    {
+                        tagSelect.append('<option value="'+data['listalbum'][i]["albumid"]+'">'+data['listalbum'][i]["albumname"]+'</option>');
+                        updateSelect.append('<option value="'+data['listalbum'][i]["albumid"]+'">'+data['listalbum'][i]["albumname"]+'</option>');
+                    }
+                }
+            },
+            error: function() {
+                alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+            }
+        });
+    }
     /////////////////////////////END FUNCTION FOR BINDING DATA////////////////////
 
 
@@ -952,7 +1007,6 @@
 
         previewSlideShow.css('-webkit-transform','');
 
-
     }
 
     function onClickLeft()
@@ -1017,9 +1071,21 @@
         var pageIDDDD = jQuery('#hidden-pageid').attr('name');
         var srcPageHome = jQuery('.logo-zess>a');
         var valueSrcPage = srcPageHome.attr('href');
+
         valueSrcPage = valueSrcPage.replace('fanpage/', 'fanpage');
         valueSrcPage = valueSrcPage + '?pageID=' + pageIDDDD;
         srcPageHome.attr('href', valueSrcPage);
+        jQuery('#menu_home').attr('href', valueSrcPage);
+
+        //changepath of manage
+        var divMenuManage =jQuery('#menu_manage');
+        var srcManage = divMenuManage.attr('href');
+        srcManage = srcManage.replace('manage/', 'manage') + '?pageID=' +pageIDDDD;
+        divMenuManage.attr('href', srcManage);
+        var srcEditInfo = '<?php echo $this->basePath().'/fanpage/editinfo?pageID='; ?>' + pageIDDDD;
+        jQuery('#menu_editinfo').attr('href', srcEditInfo);
+        var srcActivity = '<?php echo $this->basePath().'/fanpage/activity?pageID='; ?>' + pageIDDDD;
+        jQuery('#menu_activity').attr('href', srcActivity);
 
         /////////////////////////END BINDING DATA////////////////////////////////
 
@@ -1200,10 +1266,7 @@
                         addImagesFromAlbum(albumID);
                     }
                 });
-
             }
-
-
         });
 
         function addImagesFromAlbum(albumID)
@@ -1231,7 +1294,7 @@
                 success: function(data) {
                     if(data!='error')
                     {
-                        insertImageofAlbums(albumID, data);
+                        insertImageofAlbums(data);
                         jQuery('#update_images')[0].reset();
                     }
                     else
@@ -1246,8 +1309,10 @@
             return false;
         }
 
-        function insertImageofAlbums(albumID, dataImage)
+        function insertImageofAlbums(dataImage)
         {
+            var albumID = jQuery('#update_image_selectAlbum').val();
+
             var pageID = jQuery('#hidden-pageid').attr('name');
             var imageLong = jQuery('#long_updateImage').val();
             var imageLat = jQuery('#lat_updateImage').val();
@@ -1517,11 +1582,13 @@
                     if(data['success'] == 1)
                     {
                         jQuery('#tb-addSubAlbum').text('Thêm album ảnh thành công!.').show(600).delay(3000).hide(400);
+                        getListNewAlbum();
                     }
                 },
                 error: function() {
                     alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
                 }
+
             });
             return false;
         }
@@ -1586,10 +1653,49 @@
         jQuery('#sub-slideshow').click(function(){
             var formID = jQuery('#form-slideshow');
             var pageID = jQuery('#hidden-pageid').attr('name');
-            var btnFileID = 'file-imageAvatar';
+            var btnFileID = 'file-imageSlide';
             var albumType = "SLI";
             doActionSaveSlideShowPage(formID, pageID, btnFileID, albumType);
+            updateListSlideShow();
         });
+
+        function updateListSlideShow()
+        {
+            var pageID = jQuery('#hidden-pageid').attr('name');
+            var dataval = 'pageID='+pageID;
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo $this->url('fanpage', array('action' => 'updateslideshow')); ?>",
+                data: dataval,
+                async:false,
+                success: function(data) {
+                    data = jQuery.parseJSON(data);
+                    if(data['success'] == 1)
+                    {
+                        jQuery('.subImage').css('display', 'block');
+                        jQuery('#check_slide').hide();
+                        var slide = jQuery('.slide-avar');
+                        slide.empty();
+                        var lenSlide = data['slideshow'].length;
+                        maxItems = lenSlide;
+
+                        var longDiv= maxItems*slideStep;
+                        slide.css('width',longDiv+ "px");
+
+                        for(var i=0; i < lenSlide; i++)
+                        {
+                            var smallDiv = '<div class="small-div"><img src="<?=$this->basePath();?>'+data["slideshow"][i]+'"></div>';
+//                            @TODO here
+                            slide.append(smallDiv);
+                        }
+                    }
+                },
+                error: function() {
+                    alert("Hệ thống đang bảo trì, xin hãy thử lại sau một ít phút nữa!");
+                }
+            });
+            return false;
+        }
 
         function doActionSaveSlideShowPage(formID, pageID, btnFileID, albumType)
         {
@@ -1620,7 +1726,6 @@
                             var newTimeNow = parseInt(timeNow) + i;
                             ajaxSaveImageLogoPage(pageID, newTimeNow, data, albumType, '');
                         }
-
                         formID[0].reset();
                     }
                     else

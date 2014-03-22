@@ -58,6 +58,14 @@ class ApplicationDocumentFanpageManageHydrator implements HydratorInterface
             $this->class->reflFields['pageuserstatus']->setValue($document, $return);
             $hydratedData['pageuserstatus'] = $return;
         }
+
+        /** @Field(type="string") */
+        if (isset($data['createdtime'])) {
+            $value = $data['createdtime'];
+            $return = (string) $value;
+            $this->class->reflFields['createdtime']->setValue($document, $return);
+            $hydratedData['createdtime'] = $return;
+        }
         return $hydratedData;
     }
 }

@@ -10,7 +10,8 @@ return array(
         'Userpage',
         'Example',
         'Photo',
-        'Fanpage'
+        'Fanpage',
+        'Homepage',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
